@@ -36,3 +36,4 @@ genindex
 httpd
 cli
 .*~
+.*.swp
