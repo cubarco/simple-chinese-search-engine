@@ -11,7 +11,7 @@ make
 ```
 
 ## Usage
-`genindex` is used for generating the reverse index file.
+`genindex` is used for generating the inverted index file.
 
 `cli` is the command-line version of this engine.
 
