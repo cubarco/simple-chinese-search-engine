@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+
+
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="description" content="超线程是英特尔所研发的一种技术，于2002年发布。超线程的英文是HT技术，全名为Hyper-Threading，中文又名超线程。超线程技术原先只应用于Xeon处理器中，当时称为Super-Threading。之后陆续应用在Pentium 4中，将技术主流化。...">
+<title>超线程_百度百科</title>
+
+<meta name="keywords" content="超线程  百度百科 baike  基本简介 工作原理 运行模式 运作方式 技术支持 使用前提 实际问题 技术优点 技术缺点 支持的芯片组">
+<meta name="image" content="http://baike.bdimg.com/cms/static/baike.png">
+
+<!--[if lte IE 9]>
+<script>
+    (function() {
+      var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+        i = e.length;
+      while (i--) {
+        document.createElement(e[i]);
+      }
+    })();
+  </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_ffb1ec5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common-base_19edda6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/praise/praise_2120cd2.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/toolButtons_a2c470f.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/userInfo_9ba20c1.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/video/pageMask/pageMask_ff9a193.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module_e4fa793.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/cardLink/cardLink_40dc1e5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/mainContent_847fed6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaRelation_f8d61eb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_93e49e0.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/searchHeader_e786bfb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/sideShare/sideShare_afe05e7.css"/></head>
+<body class="wiki-lemma normal">
+
+
+<div class="header-wrapper">
+<ul class="wgt-userbar">
+<li>
+<a href="http://www.baidu.com/">百度首页</a>
+</li>
+</ul>
+<div class="header">
+<div class="layout">
+<div class="wgt-searchbar wgt-searchbar-main cmn-clearfix">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="nav">
+<a href="http://news.baidu.com/" data-href="http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=">新闻</a><a href="http://www.baidu.com/" data-href="http://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=">网页</a><a href="http://tieba.baidu.com/" data-href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=">贴吧</a><a href="http://zhidao.baidu.com/" data-href="http://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=">知道</a><a href="http://music.baidu.com/" data-href="http://music.baidu.com/search?f=ms&ct=134217728&ie=utf-8&rn=&lm=-1&pn=30fr=bks0000&key=">音乐</a><a href="http://image.baidu.com/" data-href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=">图片</a><a href="http://v.baidu.com/" data-href="http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=22&ie=utf-8&fr=bks0000&word=">视频</a><a href="http://map.baidu.com/" data-href="http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=">地图</a><a class="baike">百科</a><a href="http://wenku.baidu.com/" data-href="http://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=">文库</a>
+</div>
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="超线程" /><button id="search" type="button">进入词条</button><button id="searchLemma" type="button">搜索词条</button><a class="help" href="/help" target="_blank">帮助</a>
+</form>
+<form id="searchLemmaForm" action="/search" method="GET" target="_self">
+<input id="searchLemmaQuery" name="word" type="hidden" />
+<input name="pn" type="hidden" value="0" />
+<input name="rn" type="hidden" value="0" />
+<input name="enc" type="hidden" value="utf8" />
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar-wrapper">
+<div class="wgt-navbar">
+<div class="navbar-bg">
+<div class="navbar-bg-top">
+<div class="navbar-content layout">
+<div class="navbar-content-box">
+<dl class="index ">
+<dt><a href="/">首页</a></dt>
+</dl>
+<dl class="cat ">
+<dt><a>分类</a></dt>
+<dd>
+<div><a href="/ziran" target="_blank">自然</a></div>
+<div><a href="/wenhua" target="_blank">文化</a></div>
+<div><a href="/dili" target="_blank">地理</a></div>
+<div><a href="/lishi" target="_blank">历史</a></div>
+<div><a href="/shenghuo" target="_blank">生活</a></div>
+<div><a href="/shehui" target="_blank">社会</a></div>
+<div><a href="/yishu" target="_blank">艺术</a></div>
+<div><a href="/renwu" target="_blank">人物</a></div>
+<div><a href="/jingji" target="_blank">经济</a></div>
+<div><a href="/keji" target="_blank">科技</a></div>
+<div><a href="/tiyu" target="_blank">体育</a></div>
+</dd>
+</dl>
+<dl class="special ">
+<dt><a>特色百科</a></dt>
+<dd>
+<div><a href="/calendar/" target="_blank">历史上的今天</a></div>
+<div><a href="/museum/" target="_blank">数字博物馆</a></div>
+<div><a href="/city/" target="_blank">城市百科</a></div>
+<div><a href="/operation/worldwar2" target="_blank">二战百科</a></div>
+<div><a href="/art" target="_blank">艺术百科</a></div>
+<div><a href="/science" target="_blank">科学百科</a></div>
+</dd>
+</dl>
+<dl class="user" >
+<dt><a>用户</a></dt>
+<dd>
+<div><a href="/kedou/" target="_blank">蝌蚪团</a></div>
+<div><a href="/event/ranmeng/" target="_blank">燃梦计划</a></div>
+<div><a href="/task/" target="_blank">百科任务</a></div>
+<div><a href="/mall/" target="_blank">百科商城</a></div>
+</dd>
+</dl>
+<dl class="cooperation" >
+<dt><a>权威合作</a></dt>
+<dd>
+<div><a href="/operation/cooperation#joint" target="_blank">合作模式</a></div>
+<div><a href="/operation/cooperation#issue" target="_blank">常见问题</a></div>
+<div><a href="/operation/cooperation#connection" target="_blank">联系方式</a></div>
+</dd>
+</dl>
+<dl class="mobile" >
+<dt><a>手机百科</a></dt>
+<dd>
+<div><a href="/m#download" target="_blank">客户端</a></div>
+<div><a href="/m#wap" target="_blank">网页版</a></div>
+</dd>
+</dl>
+<div class="usercenter">
+<div><a href="/usercenter" target="_blank"><em class="cmn-icon cmn-icons cmn-icons_navbar-usercenter"></em>个人中心</a></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="body-wrapper">
+<div class="before-content">
+</div>
+<div class="content-wrapper">
+<div class="content">
+<div class="main-content">
+<div class="top-tool">
+<a class="add-sub-icon" href="javascript:;" title="添加义项" nslog-type="50000101"></a>
+<a href="/divideload/%E8%B6%85%E7%BA%BF%E7%A8%8B" title="拆分词条" target="_blank" class="split-icon" style="display:none;" nslog-type="50000104"></a>
+<div class="top-collect">
+<span class="collect-text" nslog-type="50000102">收藏</span>
+<div class="collect-tip">查看<a href="/uc/favolemma" target="_blank">我的收藏</a></div>
+</div>
+<a href="javascript:void(0);" class="top-vote" nslog-type="50000103">
+<span class="vote-count">0</span>
+<span class="vote-tip">有用+1</span>
+<span class="voted-tip">已投票</span>
+</a>
+<div class="bdsharebuttonbox top-share" data-tag="top-share">
+<a class="bds_more top-share-icon" data-cmd="more" nslog-type="9067">
+<span class="bds_count share-count" id="j-topShareCount" data-cmd="count">0</span>
+</a>
+</div>
+</div>
+<div style="width:0;height:0;clear:both"></div><dl class="lemmaWgt-lemmaTitle lemmaWgt-lemmaTitle-">
+<dd class="lemmaWgt-lemmaTitle-title">
+<h1>超线程</h1>
+<a href="javascript:;" class="edit-lemma cmn-btn-hover-blue cmn-btn-28 j-edit-link"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+<a class="lock-lemma" target="_blank" href="/view/10812319.htm" title="锁定"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_lock-lemma"></em>锁定</a>
+</dd>
+</dl><div class="edit-prompt">本词条缺少<strong>信息栏</strong>，补充相关内容使词条更完整，还能快速升级，赶紧来<a  class="edit-prompt-link j-edit-link">编辑</a>吧！</div>
+<div class="lemma-summary">
+<div class="para">超线程是<a target=_blank href="/view/15281.htm">英特尔</a>所研发的一种技术，于2002年发布。超线程的英文是HT技术，全名为<a target=_blank href="/view/2806929.htm">Hyper-Threading</a>，中文又名超线程。<a target=_blank href="/view/13611.htm">超线程技术</a>原先只应用于<a target=_blank href="/view/416484.htm">Xeon</a><a target=_blank href="/view/50152.htm">处理器</a>中，当时称为Super-Threading。之后陆续应用在<a target=_blank href="/view/756369.htm">Pentium 4</a>中，将技术主流化。</div>
+</div>
+<div class="lemmaWgt-lemmaCatalog">
+<div class="lemma-catalog">
+<h2 class="block-title">目录</h2>
+<div class="catalog-list column-4">
+<ol>
+<li class="level1">
+<span class="index">1</span>
+<span class="text"><a href="#1">基本简介</a></span>
+</li>
+<li class="level1">
+<span class="index">2</span>
+<span class="text"><a href="#2">工作原理</a></span>
+</li>
+<li class="level1">
+<span class="index">3</span>
+<span class="text"><a href="#3">运行模式</a></span>
+</li>
+<li class="level1">
+<span class="index">4</span>
+<span class="text"><a href="#4">运作方式</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">5</span>
+<span class="text"><a href="#5">技术支持</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_1">技术原理</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_2">实现条件</a></span>
+</li>
+<li class="level1">
+<span class="index">6</span>
+<span class="text"><a href="#6">使用前提</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_1">需要CPU支持</a></span>
+</li>
+</ol><ol><li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_2">需要主板芯片组支持</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_3">需要主板BIOS支持</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_4">需要操作系统支持</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_5">需要应用软件支持</a></span>
+</li>
+<li class="level1">
+<span class="index">7</span>
+<span class="text"><a href="#7">实际问题</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">8</span>
+<span class="text"><a href="#8">技术优点</a></span>
+</li>
+<li class="level1">
+<span class="index">9</span>
+<span class="text"><a href="#9">技术缺点</a></span>
+</li>
+<li class="level1">
+<span class="index">10</span>
+<span class="text"><a href="#10">支持的芯片组</a></span>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="anchor-list">
+<a name="1" class="lemma-anchor para-title" ></a>
+<a name="sub39_1" class="lemma-anchor " ></a>
+<a name="基本简介" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">基本简介</span>
+<a class="edit-icon j-edit-link" data-edit-dl="1" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">通过超线程技术，英特尔成为第一家公司实现在一个实体<a target=_blank href="/view/50152.htm">处理器</a>中，提供两个逻辑线程。<div class="lemma-picture text-pic layout-right" style="width:176px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/picture/39/39/0/09bb4f3dff0a1dc43c6d976d.html?fr=lemma&ct=single" target="_blank"
+		title="后期内含超线程技术的P4处理器商标" style="width:176px;height:220px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="http://b.hiphotos.baidu.com/baike/s%3D220/sign=08dee961d11373f0f13f689d940e4b8b/1e30e924b899a90195952a2c1d950a7b0208f50c.jpg"  alt="后期内含超线程技术的P4处理器商标" style="width:176px;height:220px;"/>
+</a>
+<span class="description">
+后期内含超线程技术的P4处理器商标
+</span>
+</div>之后的<a target=_blank href="/view/239686.htm">Pentium D</a>纵使不<a target=_blank href="/view/275495.htm">支持超线程技术</a>，但就集成了两个实体核心，所以仍会见到两个逻辑线程。超线程的未来发展，是提升处理器的逻辑线程，英特尔有计划将8核心的处理器，加以配合<a target=_blank href="/view/13611.htm">超线程技术</a>，使之成为16个逻辑线程的产品。</div>
+<div class="para">英特尔表示，超线程技术让（P4）<a target=_blank href="/view/50152.htm">处理器</a>增加5%的裸晶面积，就可以换来15%~30%的效能提升。但实际上，在某些程序或未对多线程编译的程序而言，超线程反而会降低效能。除此之外，超线程技术亦要操作系统的配合，普通支持多处理器技术的系统亦未必能充分发挥该技术。例如<a target=_blank href="/view/153378.htm">Windows 2000</a>，英特尔并不鼓励使用者在此系统中利用超线程。原先不支持<a target=_blank href="/view/757340.htm">多核心</a>的<a target=_blank href="/view/6399.htm">Windows XP</a>Home Edition却<a target=_blank href="/view/275495.htm">支持超线程技术</a>。</div><div class="anchor-list">
+<a name="2" class="lemma-anchor para-title" ></a>
+<a name="sub39_2" class="lemma-anchor " ></a>
+<a name="工作原理" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">工作原理</span>
+<a class="edit-icon j-edit-link" data-edit-dl="2" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">尽管提高CPU的<a target=_blank href="/view/1087.htm">时钟频率</a>和增加缓存容量后的确可以改善性能，但这样的CPU性能提高在技术上存在较大的难度。实际上在应用中基于很多原因，CPU的执行单元都没有被充分使用。如果CPU不能正常读取数据（总线/内存的瓶颈），其执行单元利用率会明显下降。另外就是目前大<div class="lemma-picture text-pic layout-right" style="width:220px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/picture/39/39/0/b25aae518a110221367abee7.html?fr=lemma&ct=single" target="_blank"
+		title="超线程芯片" style="width:220px;height:218px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="http://c.hiphotos.baidu.com/baike/s%3D220/sign=c8a94928728b4710ca2ffacef3cec3b2/faedab64034f78f0853e2bfa79310a55b3191c85.jpg"  alt="超线程芯片" style="width:220px;height:218px;"/>
+</a>
+<span class="description">
+超线程芯片
+</span>
+</div>多数执行线程缺乏ILP（Instruction-Level Parallelism，指令级别并行）支持。这些都造成了目前CPU的性能没有得到全部的发挥。因此，Intel则采用另一个思路去提高CPU的性能，让CPU可以同时执行多重线程，就能够让CPU发挥更大效率，即所谓“超线程（<a target=_blank href="/view/2806929.htm">Hyper-Threading</a>，简称“HT”）”技术。<a target=_blank href="/view/13611.htm">超线程技术</a>就是利用特殊的硬件指令，把两个逻辑内核模拟成两个物理芯片，让单个<a target=_blank href="/view/50152.htm">处理器</a>都能使用线程级<a target=_blank href="/view/1666.htm">并行计算</a>，进而兼容多线程操作系统和软件，减少了CPU的闲置时间，提高的CPU的运行速度。</div>
+<div class="para">采用超线程即是可在同一时间里，应用程序可以使用芯片的不同部分。虽然<a target=_blank href="/view/2554947.htm">单线程</a>芯片每秒钟能够处理成千上万条指令，但是在任一时刻只能够对一条指令进行操作。而超线程技术可以使芯片同时进行多线程处理，使芯片性能得到提升。</div>
+<div class="para">超线程技术是在一颗CPU同时执行多个程序而共同分享一颗CPU内的资源，理论上要像两颗CPU一样在同一时间执行两个线程，P4处理器需要多加入一个Logical CPU Pointer（逻辑处理单元）。因此新一代的P4 HT的die的面积比以往的P4增大了5%。而其余部分如ALU（整数运算单元）、FPU（<a target=_blank href="/view/827909.htm">浮点运算单元</a>）、L2 Cache（<a target=_blank href="/view/27650.htm">二级缓存</a>）则保持不变，这些部分是被分享的。</div>
+<div class="para">虽然采用<a target=_blank href="/view/13611.htm">超线程技术</a>能同时执行两个线程，但它并不象两个真正的CPU那样，每个CPU都具有独立的资源。当两个线程都同时需要某一个资源时，其中一个要暂时停止，并让出资源，直到这些资源闲置后才能继续。因此超线程的性能并不等于两颗CPU的性能。</div><div class="anchor-list">
+<a name="3" class="lemma-anchor para-title" ></a>
+<a name="sub39_3" class="lemma-anchor " ></a>
+<a name="运行模式" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">运行模式</span>
+<a class="edit-icon j-edit-link" data-edit-dl="3" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">英特尔P4 超线程有两个运行模式，Single Task Mode（单任务模式）及Multi Task Mode（多任务模式），当程序不支持Multi-Processing（多<a target=_blank href="/view/50152.htm">处理器</a>作业）时，系统会停止其中一个逻辑CPU的运行，把资源集中于单个逻辑CPU中，让<a target=_blank href="/view/2554947.htm">单线程</a>程序不会因其中一个逻辑CPU闲置而减低性能，但由于被停止运行的逻辑CPU还是会等待工作，占用一定的资源，因此Hyper-Threading CPU运行Single Task Mode程序模式时，有可能达不到不带超线程功能的CPU性能，但性能差距不会太大。也就是说，当运行单线程运用软件时，<a target=_blank href="/view/13611.htm">超线程技术</a>甚至会降低系统性能，尤其在多线程操作系统运行单线程软件时容易出现此问题。</div>
+<div class="para">需要注意的是，含有超线程技术的CPU需要软件、主板的支持，才能比较理想的发挥该项技术的优势。操作系统如：Microsoft Windows XP、Microsoft Windows 2003，Linux kernel 2.4.x以后的版本也<a target=_blank href="/view/275495.htm">支持超线程技术</a>。目前Intel使用800<a target=_blank href="/view/1377.htm">外频</a>的CPU大多数都支持超线程。在主板方面，则主要由<a target=_blank href="/view/15282.htm">芯片组</a>决定是否支持超线程。</div><div class="anchor-list">
+<a name="4" class="lemma-anchor para-title" ></a>
+<a name="sub39_4" class="lemma-anchor " ></a>
+<a name="运作方式" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">运作方式</span>
+<a class="edit-icon j-edit-link" data-edit-dl="4" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">每个单位时间内，<a target=_blank href="/view/2089.htm">CPU</a>只能处理一个线程，以这样的单位进行，如果想要在单位时间内处理超过一个的线程，是不可能的，除非是有两个核心处理单元，英特尔的<a target=_blank href="/view/22761.htm">HT技术</a>便是以单个核心处理单元，去整合两个逻辑处理单元，也就是一个实体核心，两个逻辑核心，在单位时间内处理两个线程，模拟双核心运作。</div><div class="anchor-list">
+<a name="5" class="lemma-anchor para-title" ></a>
+<a name="sub39_5" class="lemma-anchor " ></a>
+<a name="技术支持" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">技术支持</span>
+<a class="edit-icon j-edit-link" data-edit-dl="5" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="5_1" class="lemma-anchor para-title" ></a>
+<a name="sub39_5_1" class="lemma-anchor " ></a>
+<a name="技术原理" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">技术原理</span>
+</h3>
+<div class="para">“超线程”（Hyperthreading Technology）技术就是通过采用特殊的硬件指令，可以把两个逻辑内核模拟成两个物理超线程芯片，在单<a target=_blank href="/view/50152.htm">处理器</a>中实现线程级的<a target=_blank href="/view/1666.htm">并行计算</a>，同时在相应的软硬<div class="lemma-picture text-pic layout-right" style="width:220px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/picture/39/39/0/61183b2d6d21ac0d349bf7e2.html?fr=lemma&ct=single" target="_blank"
+		title="超线程技术效果图" style="width:220px;height:161px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="http://b.hiphotos.baidu.com/baike/s%3D220/sign=41120221367adab439d01c41bbd4b36b/21a4462309f790522129f6370cf3d7ca7bcbd581.jpg"  alt="超线程技术效果图" style="width:220px;height:161px;"/>
+</a>
+<span class="description">
+超线程技术效果图
+</span>
+</div>件的支持下大幅度的提高运行效能，从而实现在单处理器上模拟双处理器的效能。其实，从实质上说，超线程是一种可以将CPU内部暂时闲置处理资源充分“调动”起来的技术。</div><div class="anchor-list">
+<a name="5_2" class="lemma-anchor para-title" ></a>
+<a name="sub39_5_2" class="lemma-anchor " ></a>
+<a name="实现条件" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">实现条件</span>
+</h3>
+<div class="para">* CPU的支持，实现“超线程”的功能必须选购一块支持“HT”技术的<a target=_blank href="/view/50152.htm">处理器</a>。Intel 支持这一技术的CPU有Core i3、Core i5、Core i7全系。在老CPU中，Pentium4 3.06GHz 、2.40C、2.60C、2.80C 、3.0GHz、3.2GHz以及Prescott处理器，还有部分型号的Xeon<a target=_blank href="/view/275495.htm">支持超线程技术</a>。</div>
+<div class="para">*主板<a target=_blank href="/view/15282.htm">芯片组</a>和主板BIOS的支持</div>
+<div class="para">正式支持“HT”技术的芯片组有Intel的875P、E7205、850E、865PE/G/P、845PE/GE/GV、845G(B-stepping)、845E。其中875P、E7205、865PE/G/P、845PE/GE/GV以及最新推出的 915/925芯片组均可直接支持超线程技术的使用，而早前的845E以及850E芯片组，只要升级BIOS就可以解决支持的问题。SiS方面有SiS645DX（B版）、SiS648（B版）、SiS655、SiS658、SiS648FX。VIA方面有P4X400A、P4X600、P4X800。同时，主板的BIOS也必须支持超线程功能。</div>
+<div class="para">*操作系统和应用软件的支持</div>
+<div class="para">目前在微软的操作系统中只有Windows XP及以上的版本才能正式支持“超线程”技术，Windows 98/Me/2000均不支持此项功能。</div>
+<div class="para">一般说来，最大发挥HT技术的运行效能还需要真正<a target=_blank href="/view/275495.htm">支持超线程技术</a>的软件。</div><div class="anchor-list">
+<a name="6" class="lemma-anchor para-title" ></a>
+<a name="sub39_6" class="lemma-anchor " ></a>
+<a name="使用前提" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">使用前提</span>
+<a class="edit-icon j-edit-link" data-edit-dl="6" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="6_1" class="lemma-anchor para-title" ></a>
+<a name="sub39_6_1" class="lemma-anchor " ></a>
+<a name="需要CPU支持" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">需要CPU支持</span>
+</h3>
+<div class="para">目前正式<a target=_blank href="/view/275495.htm">支持超线程技术</a>的CPU有Core i3、Core i5、Core i7全系。</div>
+<div class="para">在老CPU中，Pentium4 3.06GHz 、2.40C、2.60C、2.80C 、3.0GHz、3.2GHz以及Prescott<a target=_blank href="/view/50152.htm">处理器</a>，还有部分型号的Xeon支持超线程技术。</div><div class="anchor-list">
+<a name="6_2" class="lemma-anchor para-title" ></a>
+<a name="sub39_6_2" class="lemma-anchor " ></a>
+<a name="需要主板芯片组支持" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">需要主板芯片组支持</span>
+</h3>
+<div class="para">需要正式<a target=_blank href="/view/275495.htm">支持超线程技术</a>的主板<a target=_blank href="/view/15282.htm">芯片组</a>支持超线程技术的使用，而早前的一些芯片组只能升级BIOS就可以解决支持的问题</div><div class="anchor-list">
+<a name="6_3" class="lemma-anchor para-title" ></a>
+<a name="sub39_6_3" class="lemma-anchor " ></a>
+<a name="需要主板BIOS支持" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">需要主板BIOS支持</span>
+</h3>
+<div class="para">主板厂商必须在BIOS中支持超线程才行。</div><div class="anchor-list">
+<a name="6_4" class="lemma-anchor para-title" ></a>
+<a name="sub39_6_4" class="lemma-anchor " ></a>
+<a name="需要操作系统支持" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">需要操作系统支持</span>
+</h3>
+<div class="para">目前微软的操作系统中只有Windows XP专业版及后续版本支持此功能，而在Windows 2000上实现对超线程支持的计划已经取消了。</div><div class="anchor-list">
+<a name="6_5" class="lemma-anchor para-title" ></a>
+<a name="sub39_6_5" class="lemma-anchor " ></a>
+<a name="需要应用软件支持" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">需要应用软件支持</span>
+</h3>
+<div class="para">一般来说，只要能够支持多<a target=_blank href="/view/50152.htm">处理器</a>的软件均可<a target=_blank href="/view/275495.htm">支持超线程技术</a>，但是实际上这样的软件并不多，而且偏向于图形、<a target=_blank href="/view/2792642.htm">视频处理</a>等专业软件方面，游戏软件极少有支持的。</div>
+<div class="para">支持超线程的软件：</div>
+<div class="para"><b>Games, Game Engines, And Middleware</b></div>
+<div class="para">Activision Ghostbusters<br/>　　Capcom Lost Planet Colonies<br/>　　Capcom Resident Evil 5<br/>　　CJ Internet Prius Online<br/>　　Codemasters GRID (with<a target=_blank href="/view/449989.htm">patch</a>)<br/>　　Codemasters Operation Flashpoint: Dragon Rising<br/>　　Crytek Crysis Warhead (Windows XP only)<br/>　　EA Need for Speed: SHIFT<br/>　　Havok SDK<a target=_blank href="/view/3282694.htm">v5</a>.5 (Tool / Middleware)<br/>　　Illuminate Labs Beast 5 (Tool/Middleware)<br/>　　Geomerics Enlighten<br/>　　Kingsoft Mission Against Terror<br/>　　Kingsoft JX Online III<br/>　　NC Soft Aion<br/>　　NC Soft Lineage II<br/>　　Neowiz Alliance of Valiant Arms<br/>　　Sega Football Manager 2009<br/>　　Sega Football Manager 2010<br/>　　Sega Empire: Total War (with patch)<br/>　　Simul Software Ltd Simul Weather (Middleware)<br/>　　THQ Relic Company of Heroes<br/>　　Trinigy Vision Engine v7 (Middleware)<br/>　　Ubisoft Assassin’s Creed<br/>　　Ubisoft Far Cry 2 (with patch)<br/>　　Ubisoft HAWX<br/>　　Ubisoft World in Conflict: Soviet Assault<br/>　　Winking Sakura</div>
+<div class="para"><b>Media And Productivity Software</b></div>
+<div class="para">ABBYY Fine Reader<br/>　　Adobe After Effects<br/>　　<a target=_blank href="/view/127346.htm">Adobe Photoshop</a>*<br/>　　Adobe Photoshop Lightroom<br/>　　<a target=_blank href="/view/750295.htm">Adobe Premiere</a>Pro<br/>　　Arcsoft Total Media Showbiz DVD<br/>　　AutoDesk<a target=_blank href="/view/11137.htm">3ds Max</a>*<br/>　　Autodesk Maya<br/>　　Avid Pinnacle Studio<br/>　　<a target=_blank href="/item/Bibble">Bibble</a>Labs Bibble<br/>　　Blender<br/>　　<a target=_blank href="/view/1343578.htm">Cakewalk Sonar</a>Producer<br/>　　Cineform Prospect HD<br/>　　Corel DVD Factory in Digital Studio<br/>　　Corel Video Studio<br/>　　Cyberlink MediaShow &amp; MediaShow Espresso<br/>　　Cyberlink Power Director<br/>　　Cyberlink Power Producer<br/>　　<a target=_blank href="/view/592751.htm">HandBrake</a>*<br/>　　Ichikawa Soft Laboratory SILKYPIX<br/>　　KolorAutopanoPro &amp; Giga<br/>　　Magix Video Deluxe / Movie<a target=_blank href="/view/505928.htm">Edit</a>Pro<br/>　　MainConcept Reference Encoder and Decoder*<br/>　　Maxon Cinema 4D &amp; Cinebench*<br/>　　Microsoft Excel<br/>　　Microsoft Expressions Encoder<br/>　　Microsoft<a target=_blank href="/view/15505.htm">Windows Live</a>Movie Maker<br/>　　Movavi Video Converter<br/>　　<a target=_blank href="/view/115506.htm">Nero</a>Multimedia Suite<br/>　　Newtek Lightwave<br/>　　Nik Software Silver Efex Pro<br/>　　On2 Technology True Motion VP8<br/>　　Pegasys TMPGEnc Xpress<br/>　　Persistence of Vision Raytracer<br/>　　Photodex Proshow Gold<br/>　　RARLAB<a target=_blank href="/view/2345.htm">WinRAR</a>*<br/>　　SonicRoxio Creator<br/>　　Sonic Solutions Cineplayer<br/>　　Sony ACID Music Studio<br/>　　Sony Sound Forge Audio Studio<br/>　　Sony Sound Forge Pro<br/>　　Sony Vegas Pro<br/>　　Sony Acid Pro<br/>　　Sorenson Media Squeeze<br/>　　Steinberg Cubase<br/>　　Steinberg Nuendo<br/>　　<a target=_blank href="/view/549437.htm">VirtualDub</a>w/Divx<br/>　　XtraSens Retina<br/>　　3ivx MPEG-4</div><div class="anchor-list">
+<a name="7" class="lemma-anchor para-title" ></a>
+<a name="sub39_7" class="lemma-anchor " ></a>
+<a name="实际问题" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">实际问题</span>
+<a class="edit-icon j-edit-link" data-edit-dl="7" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">由于<a target=_blank href="/view/50152.htm">处理器</a>实际上只有一个核心，能够提升的效能约为5~15%左右，且万一发生资源互抢的情形时，整体效能反而会下拉。这亦是<a target=_blank href="/view/810.htm">AMD</a>不提供虚拟双核心处理器的理由。另外，由于架构的不同，AMD的处理器对<a target=_blank href="/view/560598.htm">多工</a>处理的表现会较好，所以没有迫切性令产品支持相关的技术。</div>
+<div class="para">要令到计算机<a target=_blank href="/view/275495.htm">支持超线程技术</a>，必须要软件和硬件的配合。处理器本身要支持超线程，<a target=_blank href="/view/15282.htm">芯片组</a>亦要支持相关处理器。为此，当时的Intel推出了新的芯片组，i865PE和i875P。要充分发挥超线程的效能，使用者要使用Windows 2000之后的操作系统，而Windows XP家用版亦同样支持超线程技术。除了微软的Windows外，<a target=_blank href="/view/1634.htm">Linux</a>kernel 2.4.x亦开始支持该技术。软件方面，不是所有程式都可以发挥超线程，通常优化了多<a target=_blank href="/view/50152.htm">处理器</a>的程式都可以支持到。此类软件通常是图形或<a target=_blank href="/view/4005701.htm">视频处理软件</a>。早期，游戏软件的支持是比较少。但随着多核心技术的普及，愈来愈多游戏软件支持多线程的处理器。</div><div class="anchor-list">
+<a name="8" class="lemma-anchor para-title" ></a>
+<a name="sub39_8" class="lemma-anchor " ></a>
+<a name="技术优点" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">技术优点</span>
+<a class="edit-icon j-edit-link" data-edit-dl="8" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">1.<a target=_blank href="/view/13611.htm">超线程技术</a>的优势在于同时进行多任务<a target=_blank href="/view/80110.htm">批处理</a>工作，尽管现在<a target=_blank href="/view/275495.htm">支持超线程技术</a>的软件不多，也只有少数的软件可以享受到由超线程技术带来的性能提升，但是这符合今后软件等技术的发展方向，今后更多的软件将受益于超线程技术。</div>
+<div class="para">2.从目前来看，部分客户发可以发觉在运行某些特定软件时，超线程技术让系统有了30%的性能提升，为超线程技术优化的软件都能够享受到超线程技术的好处。</div>
+<div class="para">3.客户同时运行两个以上的软件时候，将可以明显的感受到这两个软件的性能都得到提升相比关闭超线程技术的情况下都有很大的提升，超线程技术的效率优势只有在多任务操作时候才能得到发挥。</div>
+<div class="para">4.目前<a target=_blank href="/view/275495.htm">支持超线程技术</a>的Windows XP操作系统，其中的很多系统软件都已经针对超线程技术优化过，因此在使用Windows 操作系统的时候可以很好的享受到超线程技术带来好处。</div><div class="anchor-list">
+<a name="9" class="lemma-anchor para-title" ></a>
+<a name="sub39_9" class="lemma-anchor " ></a>
+<a name="技术缺点" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">技术缺点</span>
+<a class="edit-icon j-edit-link" data-edit-dl="9" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">1.因为<a target=_blank href="/view/13611.htm">超线程技术</a>是对<a target=_blank href="/view/4067740.htm">多任务处理</a>有优势，因此当运行<a target=_blank href="/view/2554947.htm">单线程</a>运用软件时，超线程技术将会降低系统性能，尤其在多线程操作系统运行单线程软件时将容易出现此问题。</div>
+<div class="para">2.在打开超线程支持后，如果<a target=_blank href="/view/50152.htm">处理器</a>以双处理器模式工作，那么处理器内部<a target=_blank href="/view/907.htm">缓存</a>就会被划分成几区域，互相共享内部资源。对于不支持多处理器工作的软件在双处理器上运行时出错的概率要比单处理器<a target=_blank href="/view/359510.htm">上高</a>很多。</div>
+<div class="para">3.目前因为很多<a target=_blank href="/view/7977.htm">工作站</a>软件为Windows 2000操作系统进行过优化，但是采用Windows 2000这样的操作系统的工作站无法完全利用超线程技术的优势，也带来不了高的工作效率</div>
+<div class="para">4.<a target=_blank href="/view/13611.htm">超线程技术</a>只能提高40%左右的性能（测评时可以看成50%，即Core i3 的执行效率为3核速率，Core i5 4核 HT与Core i7 的执行效率为6核速率）</div>
+<div class="para">与双核心区别</div>
+<div class="para">超线程（Hyper Threading）技术，是近几年在程序处理上比较经典的解决方案，具有超线程技术的CPU，搭配<a target=_blank href="/view/275495.htm">支持超线程技术</a>的Windows 系统（Windows XP/2003），可以减少系统资源的浪费，从而提高了<a target=_blank href="/view/50152.htm">处理器</a>的工作效率。</div>
+<div class="para">实际上，超线程技术是把一个处理器模拟为两个处理器使用，这样能有效地利用和分配资源，达到提高整体性能的目的，这就是为什么超线程CPU在系统中也会被识别成两个CPU的原因。</div>
+<div class="para">双核心CPU则不同，双核心处理器的概念就是将两颗处理器的芯片，通过全新的封装技术，整合成为一颗处理器，在这一颗处理器中拥有两颗核心，真正地实现了多处理器协同工作。双核心<a target=_blank href="/view/3957.htm">处理器核心</a>内的资源都是独立的，而且也可以交换使用资源，核心与核心之间沟通的延迟远比多个单核心处理器同时运行好。</div><div class="anchor-list">
+<a name="10" class="lemma-anchor para-title" ></a>
+<a name="sub39_10" class="lemma-anchor " ></a>
+<a name="支持的芯片组" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">支持的芯片组</span>
+<a class="edit-icon j-edit-link" data-edit-dl="10" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">目前<a target=_blank href="/view/275495.htm">支持超线程技术</a>的<a target=_blank href="/view/15282.htm">芯片组</a>包括如下：</div>
+<div class="para"><a target=_blank href="/view/19488.htm">Intel芯片组</a>： 845、845D和845GL是不支持支持超线程技术的；845E芯片组自身是支持超线程技术的，许多主板都需要升级BIOS才能支持；在845E之后推出的所有芯片组都支持支持超线程技术，例如845PE/GE/GV以及所有的865/875系列以及915/925系列芯片组都支持超<div class="lemma-picture text-pic layout-right" style="width:220px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/picture/39/39/0/148f28d317c535393bf3cf13.html?fr=lemma&ct=single" target="_blank"
+		title="Intel芯片组:845" style="width:220px;height:145px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="http://c.hiphotos.baidu.com/baike/s%3D220/sign=45fd22b287d6277fed12353a18391f63/7acb0a46f21fbe09a99f751d6b600c338644adf2.jpg"  alt="Intel芯片组:845" style="width:220px;height:145px;"/>
+</a>
+<span class="description">
+Intel芯片组:845
+</span>
+</div>线程技术。</div>
+<div class="para">VIA<a target=_blank href="/view/15282.htm">芯片组</a>： P4X266、P4X266A、P4M266、P4X266E和P4X333是不支持<a target=_blank href="/view/275495.htm">支持超线程技术</a>的，在P4X400之后推出的所有芯片组都支持支持超线程技术，例如P4X400、P4X533、PT800、PT880、PM800和PM880都支持超线程技术。</div>
+<div class="para">SIS芯片组： SIS645、SIS645DX、SIS650、SIS651和SIS648是不支持支持超线程技术的；SIS655、SIS648FX、SIS661FX、SIS655FX、SIS655TX、SIS649和SIS656则都支持超线程技术。</div>
+<div class="para">ULI<a target=_blank href="/view/15282.htm">芯片组</a>：M1683和M1685都<a target=_blank href="/view/275495.htm">支持超线程技术</a>。</div>
+<div class="para">ATI芯片组：ATI在<a target=_blank href="/view/201161.htm">Intel平台</a>所推出的所有芯片组都支持超线程技术，包括Radeon 9100 IGP、Radeon 9100 Pro IGP和RX330。</div>
+<div class="para">nVidia芯片组：即将推出的nForce5系列芯片组都支持超线程</div>
+<div class="para"><a target=_blank href="/view/756369.htm">Pentium 4</a>CPU中，Northwood及其之后推出的版本内建<b>超线程</b>技术；但在早期的<a target=_blank href="/view/14714.htm">Northwood核心</a>中，一些型号的HT技术被关闭，纵使有软件侦测到超线程技术的存在，使用者并不可以启用。；而双核心的<a target=_blank href="/view/239686.htm">Pentium D</a>中也只有EE版提供HT技术。（详见：Pentium D 处理器列表、Intel Pentium 4处理器列表）</div>
+<div class="para">英特尔的<a target=_blank href="/view/1134696.htm">Core 2 Duo</a><a target=_blank href="/view/50152.htm">处理器</a>则没有HT技术。但处理器已集成了两个实体核心，所以仍然支持两个线程。</div>
+<div class="para">而英特尔在2008年推出的<a target=_blank href="/view/4057017.htm">Intel Core i7</a>及Intel Atom处理器又支持类似HT的技术，在<a target=_blank href="/view/625978.htm">Nehalem</a>中，<a target=_blank href="/view/2806929.htm">Hyper-Threading</a>大举卷土重来。在 Intel<a target=_blank href="/view/667988.htm">NetBurst</a>架构的 Northwood 版本中开始导入的 Hyper-Threading－在 Intel 世界之外称为 Simultaneous Multi-Threading (SMT)－是善用线程平行性的方法，让单一核心在应用软件层能提供两个逻辑核心、而且确实可以提升一些效能。</div>
+<div class="anchor-list">
+<a name="a" class="lemma-anchor a" ></a>
+</div><div class="album-list">
+<div class="header">
+<span class="title">词条图册</span>
+<a class="more-link" href="/album/39/39?fr=lemma" target="_blank" nslog-type="10000204">更多图册<em></em></a>
+</div>
+<div class="scroller">
+<div class="list">
+</div>
+</div>
+<div class="footer">
+</div>
+</div>
+<div id="open-tag">
+<div class="open-tag-title">词条标签：</div>
+<dd id="open-tag-item">
+<span class="taglist">
+软件
+</span>
+，<span class="taglist">
+计算机术语
+</span>
+，<span class="taglist">
+计算机学
+</span>
+，<span class="taglist">
+科技产品
+</span>
+，<span class="taglist">
+科技
+</span>
+</dd>
+<div class="open-tag-collapse" id="open-tag-collapse"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="side-content">
+<div class="summary-pic">
+<a href="/picture/39/39/0/d041a4a1599b6ebd46106465.html?fr=lemma&amp;ct=single" target="_blank">
+<img src="http://e.hiphotos.baidu.com/baike/w%3D268/sign=04656af0a7efce1bea2bcfcc9750f3e8/bd3eb13533fa828b3294b4e5fd1f4134970a5a04.jpg" />
+<button class="picAlbumBtn"><em></em><span>图集</span></button>
+<div>超线程图册</div>
+</a>
+</div>
+<div class="lemmaWgt-promotion-vbaike">
+<div class="promotion_title">V百科<a href="/vbaike" target="_blank">往期回顾</a></div>
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightPreciseAd"></div><a name="zhixinWrap" class="qnAnchor"></a>
+<div class="side-box zhixin-box" id="zhixinWrap" data-source="bdg" data-newLemmaId="86034">
+<div class="zhixin-group js-group">
+<h6 class="js-cardTitle">
+<span>其他人还看</span>
+</h6>
+<div class="zhixin-fixBtn js-fixBtn">
+<div class="openFix" title="若推荐内容有误，请点击纠错进行反馈">纠错</div>
+<div class="closeFix">关闭纠错</div>
+</div>
+<div class="zhixin-list zhixin-list-3">
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/65706","targetId":"1190404"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/65706" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=fa8ad51a98504fc2a20ae34583e0d623/d6ca7bcb0a46f21f6bad0741f5246b600c33ae03.jpg" alt="多线程" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/65706" target="_blank" title="多线程">多线程</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="1190404">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/13611","targetId":"276864"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/13611" target="_blank">
+<img width="72" height="72" src="http://c.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=9e03bae878cb0a468577d8790d5ec716/8326cffc1e178a822bf127b2f503738da877e8d7.jpg" alt="超线程技术" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/13611" target="_blank" title="超线程技术">超线程技术</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="276864">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/102947","targetId":"1858238"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/102947" target="_blank">
+<img width="72" height="72" src="http://h.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=89c1e4963a87e9504242a02c76056271/1e30e924b899a90173c9b0631d950a7b0308f5e3.jpg" alt="至强" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/102947" target="_blank" title="至强">至强</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="1858238">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/3277634","targetId":"8836419"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/3277634" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=31ebb7c9a1cc7cd9fa7867995f3c100d/54fbb2fb43166d22d20eb9b0442309f79052d29d.jpg" alt="睿频" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/3277634" target="_blank" title="睿频">睿频</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="8836419">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1053","targetId":"103101"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1053" target="_blank">
+<img width="72" height="72" src="http://h.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=00ca6b0e9f16fdfad83995aed2b2bd66/eaf81a4c510fd9f9700fc54c272dd42a2834a4ff.jpg" alt="线程" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1053" target="_blank" title="线程">线程</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="103101">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/14045","targetId":"284033"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/14045" target="_blank">
+<img width="72" height="72" src="http://g.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=d2dbad74e8f81a4c2667bf89b117516b/3812b31bb051f81958f01c4ad9b44aed2f73e7dd.jpg" alt="中央处理器" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/14045" target="_blank" title="中央处理器">中央处理器</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="284033">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/2187192","targetId":"1347847"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/2187192" target="_blank">
+<img width="72" height="72" src="http://e.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=8e94f1d2a40f4bfb8c85cd14657249c2/4034970a304e251f995c7ab5a786c9177e3e53d7.jpg" alt="酷睿i7" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/2187192" target="_blank" title="酷睿i7">酷睿i7</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="1347847">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/502769","targetId":"9113325"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/502769" target="_blank">
+<img width="72" height="72" src="http://d.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=6a8435b6b31bb0518f71e0685047eb86/fd039245d688d43f4467a8667d1ed21b0ff43b53.jpg" alt="奔腾4" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/502769" target="_blank" title="奔腾4">奔腾4</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="9113325">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/63423","targetId":"1149823"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/63423" target="_blank">
+<img width="72" height="72" src="http://a.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=df301ae79f16fdfad83995aed2b2bd66/eaf81a4c510fd9f9aff5b4a5272dd42a2934a418.jpg" alt="磁盘阵列" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/63423" target="_blank" title="磁盘阵列">磁盘阵列</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="1149823">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<form id="zhixinErrorForm" class="hidden" action="http://f3.baidu.com/index.php/feedback/zx/baikeJC" target="zhixinSubErr" method="post">
+<input class="js-url" name="fb_html_url" type="hidden" />
+<input class="js-query" name="fb_query" type="hidden" />
+<input class="js-title" name="fb_card_title" type="hidden" />
+<input class="js-content" name="fb_content" type="hidden" />
+<input class="js-souceId"name="fb_source_id" type="hidden" />
+</form>
+<iframe id="zhixinSubErr" name="zhixinSubErr" style="display:none;" frameborder="0"></iframe>
+<div class="lemmaWgt-promotion-slide">
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><dl class="side-box lemma-statistics">
+<dt class="title">词条统计</dt>
+<dd class="description">
+<ul>
+<li>浏览次数：<span id="j-lemmaStatistics-pv"></span>次</li>
+<li>编辑次数：35次<a href="/historylist/%E8%B6%85%E7%BA%BF%E7%A8%8B/86034" class="nslog:1021" target="_blank">历史版本</a></li>
+<li>最近更新：<span class="j-modified-time" style="display:none">2015-07-31</span></li>
+<li>创建者：<a class="show-userCard" data-uid="6681189" title="查看此用户资料" target="_blank" href="http://www.baidu.com/p/yefeizi" nslog-type="1022">yefeizi</a></li>
+</ul>
+</dd>
+</dl>
+<div class="side-catalog" style="visibility:hidden">
+<div class="side-bar">
+<em class="circle start"></em>
+<em class="circle end"></em>
+</div>
+<div class="catalog-scroller">
+<dl class="catalog-list">
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">1</span>
+<a href="#1" class="title-link" nslog-type="1026">基本简介</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">2</span>
+<a href="#2" class="title-link" nslog-type="1026">工作原理</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">3</span>
+<a href="#3" class="title-link" nslog-type="1026">运行模式</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">4</span>
+<a href="#4" class="title-link" nslog-type="1026">运作方式</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">5</span>
+<a href="#5" class="title-link" nslog-type="1026">技术支持</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">5.1</span>
+<a href="#5_1" class="title-link" nslog-type="1026">技术原理</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">5.2</span>
+<a href="#5_2" class="title-link" nslog-type="1026">实现条件</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">6</span>
+<a href="#6" class="title-link" nslog-type="1026">使用前提</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.1</span>
+<a href="#6_1" class="title-link" nslog-type="1026">需要CPU支持</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.2</span>
+<a href="#6_2" class="title-link" nslog-type="1026">需要主板芯片组支持</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.3</span>
+<a href="#6_3" class="title-link" nslog-type="1026">需要主板BIOS支持</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.4</span>
+<a href="#6_4" class="title-link" nslog-type="1026">需要操作系统支持</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.5</span>
+<a href="#6_5" class="title-link" nslog-type="1026">需要应用软件支持</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">7</span>
+<a href="#7" class="title-link" nslog-type="1026">实际问题</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">8</span>
+<a href="#8" class="title-link" nslog-type="1026">技术优点</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">9</span>
+<a href="#9" class="title-link" nslog-type="1026">技术缺点</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">10</span>
+<a href="#10" class="title-link" nslog-type="1026">支持的芯片组</a>
+</span>
+</dt>
+<a class="arrow" href="javascript:void(0);"></a>
+</dl>
+</div>
+<div class="right-wrap">
+<a class="go-up disable" href="javascript:void(0);"></a>
+<a class="go-down" href="javascript:void(0);"></a>
+</div>
+<div class="bottom-wrap">
+<a class="toggle-button" href="javascript:void(0);"></a>
+<a class="gotop-button" href="javascript:void(0);"></a>
+</div>
+</div>
+<div class="unionAd_fromPs side-box" id="unionAd_fromPs">
+<script type="BAIDU_HH">
+    {
+        type : 'pageembed',
+        di   : 'u2140330',
+        rsi0 : 270,
+        rsi1 : 175
+    }
+    </script>
+</div>
+<div class="fengchao side-box" nslog="area" nslog-type="10000902">
+</div>
+<div class="unionAd side-box">
+</div>
+</div>
+</div>
+</div>
+<div class="after-content">
+<div class="bottom-promotion" id="bottom-promotion">
+<div id="BOTTOM_PRO_AD"></div>
+</div>
+</div>
+</div>
+
+<div class="wgt-footer-main">
+<div class="content">
+<dl class="fresh">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-fresh"></em>新手上路</dt>
+<dd>
+<div><a target="_blank" href="/usercenter/tasks#guide">成长任务</a></div>
+<div><a target="_blank" href="/help#main01">编辑入门</a></div>
+<div><a target="_blank" href="/help#main06">编辑规则</a></div>
+<div><a target="_blank" href="/help#main05">百科术语</a></div>
+</dd>
+</dl>
+<dl class="question">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-question"></em>我有疑问</dt>
+<dd>
+<div><a target="_blank" href="/user/question">常见问题</a></div>
+<div><a target="_blank" href="http://zhidao.baidu.com/new?ie=GBK">我要提问</a></div>
+<div><a target="_blank" href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91">参加讨论</a></div>
+<div><a target="_blank" href="/feedback">意见反馈</a></div>
+</dd>
+</dl>
+<dl class="suggestion">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-suggestion"></em>投诉建议</dt>
+<dd>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#1">举报不良信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#2">未通过词条申诉</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#4">投诉侵权信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#3">封禁查询与解封</a></div>
+</dd>
+</dl>
+</div>
+<div class="copyright">©2015Baidu&nbsp;<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>&nbsp;|&nbsp;<a href="http://help.baidu.com/question?prod_en=baike&class=159&id=1047" target="_blank">百科协议</a>&nbsp;|&nbsp;<a href="/operation/cooperation" target="_blank">百度百科合作平台</a></div>
+</div>
+
+<div class="lemmaWgt-searchHeader">
+<div class="layout">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="超线程" /><a id="search" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_search"></em></a>
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="tool-buttons">
+<a class="toolButtons-edit button j-edit-link" href="javascript:;" nslog-type="10010001"></a>
+<a class="toolButtons-collect button" href="javascript:;" nslog-type="10010002"></a>
+<a class="toolButtons-vote button" href="javascript:;" nslog-type="10010003"></a>
+</div>
+<div class="user-info">
+<a class="user-link unlogin" href="javascript:;" target="_blank">登录</a>
+</div>
+</div></div>
+<div class="bdsharebuttonbox side-share" data-tag="side-share">
+<span class="title">分享</span>
+<a class="bds_qzone" data-cmd="qzone" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tsina" data-cmd="tsina" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tqq" data-cmd="tqq" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_more" data-cmd="more" href="javascript:void(0);" nslog-type="9068"></a>
+</div>
+
+</body><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_0_8f81ba9.js"></script>
+<script type="text/javascript">require.resourceMap({"res":{"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaInsert_8f95785.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/tangram.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/tangram_67429c3.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js","deps":["wiki-common:widget/lib/jquery/jquery.js","wiki-common:widget/component/nslog/nslog.js"]}},"pkg":{"wiki-lemma:p3":{"url":"http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module-lemmaRelation_36b8718.js"}}});</script><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_1_16bd5e2.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_2_1dca152.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_8597b2f.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js"></script>
+<script type="text/javascript">!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+    userbar = require('wiki-common:widget/component/userbar/userbar.js');
+    
+  $(function() {
+    userbar.buildUserbar($('.wgt-userbar'), null);
+  });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');  
+    initSearchbar($('.wgt-searchbar-main'));
+  }();
+!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+
+  var timer = '';
+
+  $('.wgt-navbar').on('mouseenter', 'dl', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      $('.wgt-navbar').addClass('wgt-navbar-hover');
+    }, 300);
+  }).on('mouseleave', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  }).on('click', 'a', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  });
+}();
+!function(){            var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+            var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+            // 展现策略
+            rightCheck.editView('86034', function(res) {
+                if (!res.errno) {
+                    if (res.data.edit) {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                } else {
+                    if ('1') {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                }
+            }); 
+
+            require('wiki-lemma:widget/basicElement/addSub/addSub.js')({
+                lemmaId: '86034',
+                lemmaTitle: '超线程',
+                lemmaDesc: '',
+                versionId: '82948086',
+                subLemmaId: '39'
+            });
+        }();
+!function(){        var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+        var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+        // 展现策略
+        rightCheck.editView('86034', function(res) {
+            if (!res.errno) {
+                if (res.data.divide) {
+                    $('.top-tool .split-icon').css('display', 'block');
+                }
+            }
+        });
+    }();
+!function(){	require.async("wiki-lemma:widget/basicElement/collect/collect.js",function(collect){
+		collect({
+            newLemmaId:"86034",
+			lemmaId:"39",
+			subLemmaId:"39"
+		});
+	});
+}();
+!function(){	require.async("wiki-lemma:widget/basicElement/vote/vote.js",function(vote){
+		vote({
+			lemmaId:"39",
+            subLemmaId:"39"
+		});
+	});
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "top-share",
+		"bdSize" : 32,
+		"bdMini":1
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        } else {
+            if ('1') {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86034', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){	require.async(["wiki-common:widget/lib/jquery/jquery.js", "wiki-lemma:widget/lemma_content/mainContent/albumList/albumList.js", "wiki-common:widget/component/nslog/nslog.js"],function($,AlbumList,nslog){
+		var list=new AlbumList({
+			lemmaId:"39",
+			subLemmaId:"39",
+			data:[{"coverpic":"d041a4a1599b6ebd46106465","desc":"\u8bcd\u6761\u56fe\u7247","total":5,"coverurl":"http:\/\/e.hiphotos.baidu.com\/baike\/s%3D235\/sign=2db287664fc2d562f608d7eed21090f3\/bd3eb13533fa828b3294b4e5fd1f4134970a5a04.jpg"}]
+		});
+		!!window.ScriptLazyLoad && window.ScriptLazyLoad.regist({
+			dom:$('.album-list'),
+			loadFunc:function(){
+				list.load();
+				nslog(1258);
+			},
+			distance:500
+		});
+	});
+}();
+!function(){        require.async("wiki-common:widget/lib/jquery/jquery.js",function($){
+            function openTagToggle(node) {
+                if ($(node).hasClass("collapse")) {
+                    $(node).removeClass("collapse");
+                    $("#open-tag").css("height", '22px');
+                } else {
+                    $(node).addClass("collapse");
+                    $("#open-tag").css("height", $("#open-tag-item").css("height"));
+                }
+            }
+            if (parseInt($("#open-tag-item").css("height")) <= 30) {
+                $('#open-tag-collapse').hide();
+            }
+            $("#open-tag-collapse").on("click", function () {
+                openTagToggle($("#open-tag")[0]);
+            });
+        });
+    }();
+!function(){            require.async("wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js",function(init){
+                init();
+            });
+        }();
+!function(){    require.async("wiki-lemma:widget/lemma_content/mainContent/lemmaStatistics/lemmaStatistics.js",function(init){
+        init({
+            newLemmaIdEnc:"56eafc207a263b28256b41f5"
+        });
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/sideCatalog/sideCatalog.js",function(SideCatalog){
+		new SideCatalog();
+	});
+}();
+!function(){        require.async(['wiki-lemma:widget/promotion/unionAdFromPs/unionAdFromPs.js'], function (init) {
+            init();
+        });
+    }();
+!function(){    require.async(["wiki-lemma:widget/promotion/fengchao/fengchao.js", "wiki-lemma:widget/promotion/unionAd/unionAd.js"], function (init, unionAd) {
+        init({
+            newLemmaId: "86034",
+            lemmaTitle: "超线程",
+            encodeLemmaTitle: "%B3%AC%CF%DF%B3%CC"
+        }, {
+            errFn: unionAd,
+            dom: $('.unionAd')
+        });
+    });
+}();
+!function(){        require.async('wiki-lemma:widget/promotion/bottomAd/bottomAd.js', function (init) {
+            init('BOTTOM_PRO_AD');
+        });
+    }();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var Dialog = require("wiki-common:widget/ui/dialog/dialog.js");
+    var userLogin = require('wiki-common:widget/component/userLogin/userLogin.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    var editUrl = '/edit/' + encodeURIComponent('超线程') + '/' + '86034';
+
+    $(document.body).on('click', '.j-edit-link', function() {
+        var dl = $(this).attr('data-edit-dl');
+        if (dl) {
+            var url = editUrl + '?dl=' + dl;
+        } else {
+            var url = editUrl;
+        }
+
+        rightCheck.preeditCheck('86034', '超线程', '', '82948086', function(res) {
+            if (res.errno) {
+                userLogin.showLoginPop();
+                return;
+            }
+            if (!res.data.right.edit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    mainMsg: '对不起，您暂时没有权限编辑该词条。',
+                    subMsg: '<p>您好，该词条内容已较丰富，现仅对百科等级达到<b>四级</b>且通过率达到<b>85%</b>的科友开放编辑。</p><p>当您通过努力达到以上要求，就可以参与编辑该词条了。</p><p><img src="http://img.baidu.com/img/baike/usercenter/growuptask/star.gif" class="star" />参加<a target="_blank" href="/usercenter#guide">成长任务</a>，更快掌握百科编辑技巧，加速升级！</p>'
+                });
+                return;
+            }
+            if (!res.data.right.noAudit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '很抱歉，该词条有其他用户编辑的版本正在提交，您暂时无法编辑。<br/>百科建议您晚些时候再编辑该词条，或者尝试编辑其他的词条。'
+                });
+                return;
+            }
+
+            if (res.data.notice.isMidNight) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '晚23:00至次日8:00，因审核系统例行维护，您提交的版本可能需要较长时间才能通过，望您谅解。',
+                    onConfirm: function() {
+                        window.location.href = url;
+                    }
+                });
+            } else {
+                window.location.href = url;
+            }
+        });
+    });
+}();
+!function(){    require.async("wiki-lemma:widget/tools/searchHeader/toolButtons/toolButtons.js",function(init){
+        init({
+            newLemmaId:"86034",
+            lemmaId:"39",
+            subLemmaId:"39"
+        });
+    });
+}();
+!function(){    require('wiki-lemma:widget/tools/searchHeader/toolButtons/userInfo.js')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      animation = require('wiki-common:widget/util/animation.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');
+
+    var isFadeIn = false,
+        isFadeOut = false;
+
+    var fadeInAni, fadeOutAni;
+
+    $(window).on('scroll', function(e) {
+        var scrollTop = $(this).scrollTop();
+
+        if (scrollTop > 200 && !isFadeIn && $('.lemmaWgt-searchHeader').css('display') == 'none') {
+            fadeOutAni && fadeOutAni.stop();
+            fadeInAni = animation({
+                duration: 200,
+                easing: 'linear',
+                onStart: function() {
+                    isFadeOut = false;
+                    isFadeIn = true;
+                    $('.lemmaWgt-searchHeader').css('display', 'block');
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', progress)
+                },
+                onComplete: function(progress) {
+                    isFadeIn = false;
+                }
+            });
+        } else if (scrollTop <= 200 && !isFadeOut && $('.lemmaWgt-searchHeader').css('display') == 'block') {
+            fadeInAni && fadeInAni.stop();
+            fadeOutAni = animation({
+                duration: 300,
+                easing: 'linear',
+                onStart: function() {
+                    $('.lemmaWgt-searchHeader #suggestion').hide();
+                    isFadeIn = false;
+                    isFadeOut = true;
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', 1 - progress);
+                },
+                onComplete: function(progress) {
+                    isFadeOut = false;
+                    $('.lemmaWgt-searchHeader').css('display', 'none');
+                }
+            });
+        }
+    });
+
+    initSearchbar($('.lemmaWgt-searchHeader'));
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "side-share",
+		"bdSize" : 32,
+		"bdMini":1,
+		"bdPopupOffsetLeft":-72
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var nslog = require("wiki-common:widget/component/nslog/nslog.js");
+
+    require.async("wiki-lemma:widget/tools/lazyLoad/lazyLoad.js", function(LazyLoad) {
+        new LazyLoad();
+    });
+
+    require.async(['wiki-common:widget/component/nslog/nslog.js', 'wiki-common:widget/lib/jquery/jquery.js'], function(nslog, $) {
+        nslog().setGlobal({
+            lemmaId: "39",
+            newLemmaId: "86034",
+            subLemmaId: "39",
+            lemmaTitle: "超线程"
+        });
+        nslog(9322);
+    });
+
+    var map = [1, 2, 4, 3];
+    $('.wgt-footer-main .suggestion').find('a').each(function(i) {
+        $(this).attr('href', 'http://tousu.baidu.com/baike/add?word=%E8%B6%85%E7%BA%BF%E7%A8%8B' + '&&submit_link=' + encodeURIComponent(window.location.href) + '#' + map[i]);
+    });
+
+    window.BKShare.setCommon({
+        bdText: '【超线程_百度百科】超线程是英特尔所研发的一种技术，于2002年发布。超线程的英文是HT技术，全名为Hyper-Threading，中文又名超线程。超线程技术原先只应用于Xeon处理器中，当时称为Super-Threading。之后陆续应用在Pentium 4中，将技术主流化。.....（分享自@百度百科）',
+        bdDesc: '',
+        bdUrl: '',
+        bdPic: ''
+    });
+
+    $.getJSON('/api/wikiad/getads?lemmaId=' + 86034, function(res) {
+        if (!res.errno) {
+            if (res.data[5]) {
+                require.async(['wiki-lemma:widget/promotion/rightPreciseAd/rightPreciseAd.js'], function(rightPreciseAd) {
+                    rightPreciseAd(res.data[5]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[5][0].adId
+                    });
+                });
+            } else if (res.data[1]) {
+                require.async(['wiki-lemma:widget/promotion/vbaike/vbaike.js'], function(vbaike) {
+                    vbaike(res.data[1]);
+                    for(var i in res.data[1]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[1][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[2]) {
+                require.async(['wiki-lemma:widget/promotion/slide/slide.js'], function(slide) {
+                    slide(res.data[2]);
+                    for(var i in res.data[2]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[2][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[3]) {
+                require.async(['wiki-lemma:widget/promotion/topAd/topAd.js'], function(topAd) {
+                    topAd(res.data[3]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[3][0].adId
+                    });
+                });
+            }
+            if (res.data[4]) {
+                require.async(['wiki-lemma:widget/promotion/rightAd/rightAd.js'], function(rightAd) {
+                    rightAd(res.data[4]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[4][0].adId
+                    });
+                });
+            }
+        }
+    });
+}();
+!function(){      require('wiki-common:widget/component/psLink/psLink.js');
+    }();</script>
+<script type="text/javascript">
+  var Hunter = window.Hunter || {};
+  Hunter.userConfig = Hunter.userConfig || [];
+  </script>
+<script type="text/javascript" src="http://img.baidu.com/hunter/baike.js?st=16692" defer></script></html><!--07891147760197995018091610-->
+<script> var _trace_page_logid = 0789114776; </script>

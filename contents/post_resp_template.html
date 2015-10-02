@@ -1,0 +1,101 @@
+<html>
+ <head>
+    <title>奇怪的中文搜索引擎</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <style>
+        .navbar{
+            margin: 0px auto;
+            margin-top: 10px;
+            /*width: 300px;*/
+            width: 185px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+        }
+        .btn{
+            margin-left: 20px;
+        }
+        .form-control{
+            margin: 0px auto;
+            /*width: 270px;*/
+            width: 150px;
+        }
+    </style>
+    <script type="text/javascript">
+        function CheckSubmit()
+            {
+              if(document.form1.keyword.value == "")
+              {
+                 document.form1.keyword.focus();
+                 return false;
+              }
+              return true;
+            }
+        $(document).ready(function(){
+            $(".form-control").click(function(){
+                $(".navbar").animate({
+                    width:'400px'
+                });
+                $(".form-control").animate({
+                    width:'270px'
+                });
+                $("#submitbtn").delay(500).fadeIn(300);
+            });
+            $(".form-control").focusout(function(){
+                $(".navbar").delay(500).animate({
+                    width:'185px'
+                });
+                $(".form-control").delay(500).animate({
+                    width:'150px'
+                });
+                $("#submitbtn").fadeOut(300);
+            });
+
+        });
+    </script>
+</head>
+
+
+  <body>
+    <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+            <form name="form1" class="navbar-form" method="POST" action="/" role="search" onsubmit="return CheckSubmit()">
+                <div class="form-group">
+                    <input type="text" value="{{ .Keyword }}" class="form-control" placeholder="关键词" id="keyword" name="keyword">
+                </div>
+                <button id="submitbtn" style="display: none;" type="submit" class="btn btn-success">Search</button>
+            </form>
+        </nav>
+    </div>
+    <br />
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr><th>搜索结果</th></tr>
+            </thead>
+            <tbody>
+                {{ if .TableItems }}
+                    {{ range $element := .TableItems }}
+                        <tr>
+                            <td>
+                                <a href="{{ .Link }}" target="_blank">{{ .Title }}</a>
+                            </td>
+                        </tr>
+                    {{ end }}
+                {{ else }}
+                    <tr><td>not found.</td></tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        if (document.getElementById('keyword').value == "") {
+            document.form1.keyword.focus();
+        }
+    </script>
+  </body>
+
+</html>

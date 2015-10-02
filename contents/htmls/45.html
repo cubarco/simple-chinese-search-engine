@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+
+
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="description" content="回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。...">
+<title>回溯法_百度百科</title>
+
+<meta name="keywords" content="回溯法  百度百科 baike  回溯法的一般描述 用回溯法解题的一般步骤">
+<meta name="image" content="http://baike.bdimg.com/cms/static/baike.png">
+
+<!--[if lte IE 9]>
+<script>
+    (function() {
+      var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+        i = e.length;
+      while (i--) {
+        document.createElement(e[i]);
+      }
+    })();
+  </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_ffb1ec5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common-base_19edda6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/praise/praise_2120cd2.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/toolButtons_a2c470f.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/userInfo_9ba20c1.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/video/pageMask/pageMask_ff9a193.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module_e4fa793.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/cardLink/cardLink_40dc1e5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/mainContent_847fed6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaRelation_f8d61eb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_93e49e0.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/searchHeader_e786bfb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/sideShare/sideShare_afe05e7.css"/></head>
+<body class="wiki-lemma normal">
+
+
+<div class="header-wrapper">
+<ul class="wgt-userbar">
+<li>
+<a href="http://www.baidu.com/">百度首页</a>
+</li>
+</ul>
+<div class="header">
+<div class="layout">
+<div class="wgt-searchbar wgt-searchbar-main cmn-clearfix">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="nav">
+<a href="http://news.baidu.com/" data-href="http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=">新闻</a><a href="http://www.baidu.com/" data-href="http://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=">网页</a><a href="http://tieba.baidu.com/" data-href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=">贴吧</a><a href="http://zhidao.baidu.com/" data-href="http://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=">知道</a><a href="http://music.baidu.com/" data-href="http://music.baidu.com/search?f=ms&ct=134217728&ie=utf-8&rn=&lm=-1&pn=30fr=bks0000&key=">音乐</a><a href="http://image.baidu.com/" data-href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=">图片</a><a href="http://v.baidu.com/" data-href="http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=22&ie=utf-8&fr=bks0000&word=">视频</a><a href="http://map.baidu.com/" data-href="http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=">地图</a><a class="baike">百科</a><a href="http://wenku.baidu.com/" data-href="http://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=">文库</a>
+</div>
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="回溯法" /><button id="search" type="button">进入词条</button><button id="searchLemma" type="button">搜索词条</button><a class="help" href="/help" target="_blank">帮助</a>
+</form>
+<form id="searchLemmaForm" action="/search" method="GET" target="_self">
+<input id="searchLemmaQuery" name="word" type="hidden" />
+<input name="pn" type="hidden" value="0" />
+<input name="rn" type="hidden" value="0" />
+<input name="enc" type="hidden" value="utf8" />
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar-wrapper">
+<div class="wgt-navbar">
+<div class="navbar-bg">
+<div class="navbar-bg-top">
+<div class="navbar-content layout">
+<div class="navbar-content-box">
+<dl class="index ">
+<dt><a href="/">首页</a></dt>
+</dl>
+<dl class="cat ">
+<dt><a>分类</a></dt>
+<dd>
+<div><a href="/ziran" target="_blank">自然</a></div>
+<div><a href="/wenhua" target="_blank">文化</a></div>
+<div><a href="/dili" target="_blank">地理</a></div>
+<div><a href="/lishi" target="_blank">历史</a></div>
+<div><a href="/shenghuo" target="_blank">生活</a></div>
+<div><a href="/shehui" target="_blank">社会</a></div>
+<div><a href="/yishu" target="_blank">艺术</a></div>
+<div><a href="/renwu" target="_blank">人物</a></div>
+<div><a href="/jingji" target="_blank">经济</a></div>
+<div><a href="/keji" target="_blank">科技</a></div>
+<div><a href="/tiyu" target="_blank">体育</a></div>
+</dd>
+</dl>
+<dl class="special ">
+<dt><a>特色百科</a></dt>
+<dd>
+<div><a href="/calendar/" target="_blank">历史上的今天</a></div>
+<div><a href="/museum/" target="_blank">数字博物馆</a></div>
+<div><a href="/city/" target="_blank">城市百科</a></div>
+<div><a href="/operation/worldwar2" target="_blank">二战百科</a></div>
+<div><a href="/art" target="_blank">艺术百科</a></div>
+<div><a href="/science" target="_blank">科学百科</a></div>
+</dd>
+</dl>
+<dl class="user" >
+<dt><a>用户</a></dt>
+<dd>
+<div><a href="/kedou/" target="_blank">蝌蚪团</a></div>
+<div><a href="/event/ranmeng/" target="_blank">燃梦计划</a></div>
+<div><a href="/task/" target="_blank">百科任务</a></div>
+<div><a href="/mall/" target="_blank">百科商城</a></div>
+</dd>
+</dl>
+<dl class="cooperation" >
+<dt><a>权威合作</a></dt>
+<dd>
+<div><a href="/operation/cooperation#joint" target="_blank">合作模式</a></div>
+<div><a href="/operation/cooperation#issue" target="_blank">常见问题</a></div>
+<div><a href="/operation/cooperation#connection" target="_blank">联系方式</a></div>
+</dd>
+</dl>
+<dl class="mobile" >
+<dt><a>手机百科</a></dt>
+<dd>
+<div><a href="/m#download" target="_blank">客户端</a></div>
+<div><a href="/m#wap" target="_blank">网页版</a></div>
+</dd>
+</dl>
+<div class="usercenter">
+<div><a href="/usercenter" target="_blank"><em class="cmn-icon cmn-icons cmn-icons_navbar-usercenter"></em>个人中心</a></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="body-wrapper">
+<div class="before-content">
+</div>
+<div class="content-wrapper">
+<div class="content">
+<div class="main-content">
+<div class="top-tool">
+<a class="add-sub-icon" href="javascript:;" title="添加义项" nslog-type="50000101"></a>
+<a href="/divideload/%E5%9B%9E%E6%BA%AF%E6%B3%95" title="拆分词条" target="_blank" class="split-icon" style="display:none;" nslog-type="50000104"></a>
+<div class="top-collect">
+<span class="collect-text" nslog-type="50000102">收藏</span>
+<div class="collect-tip">查看<a href="/uc/favolemma" target="_blank">我的收藏</a></div>
+</div>
+<a href="javascript:void(0);" class="top-vote" nslog-type="50000103">
+<span class="vote-count">0</span>
+<span class="vote-tip">有用+1</span>
+<span class="voted-tip">已投票</span>
+</a>
+<div class="bdsharebuttonbox top-share" data-tag="top-share">
+<a class="bds_more top-share-icon" data-cmd="more" nslog-type="9067">
+<span class="bds_count share-count" id="j-topShareCount" data-cmd="count">0</span>
+</a>
+</div>
+</div>
+<div style="width:0;height:0;clear:both"></div><dl class="lemmaWgt-lemmaTitle lemmaWgt-lemmaTitle-">
+<dd class="lemmaWgt-lemmaTitle-title">
+<h1>回溯法</h1>
+<a href="javascript:;" class="edit-lemma cmn-btn-hover-blue cmn-btn-28 j-edit-link"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+<a class="lock-lemma" target="_blank" href="/view/10812319.htm" title="锁定"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_lock-lemma"></em>锁定</a>
+</dd>
+</dl><div class="lemma-summary">
+<div class="para">回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯<a target=_blank href="/subview/98838/12653620.htm">条件</a>的某个<a target=_blank href="/view/705553.htm">状态</a>的点称为“回溯点”。</div>
+</div>
+<div class="basic-info">
+<dl class="basicInfo-block basicInfo-left">
+<dt class="basicInfo-item name">中文名</dt>
+<dd class="basicInfo-item value">
+回溯法
+</dd>
+<dt class="basicInfo-item name">全&nbsp;&nbsp;&nbsp;&nbsp;称</dt>
+<dd class="basicInfo-item value">
+探索与回溯法
+</dd>
+</dl><dl class="basicInfo-block basicInfo-right">
+<dt class="basicInfo-item name">属&nbsp;&nbsp;&nbsp;&nbsp;性</dt>
+<dd class="basicInfo-item value">
+选优搜索法
+</dd>
+<dt class="basicInfo-item name">别&nbsp;&nbsp;&nbsp;&nbsp;称</dt>
+<dd class="basicInfo-item value">
+试探法
+</dd>
+</dl><div style="clear:both;"></div>
+</div>
+<div class="lemmaWgt-lemmaCatalog">
+<div class="lemma-catalog">
+<h2 class="block-title">目录</h2>
+<div class="catalog-list column-3">
+<ol>
+<li class="level1">
+<span class="index">1</span>
+<span class="text"><a href="#1">回溯法的一般描述</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#1_1">基本思想</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#1_2">一般表达</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#1_3">规律</a></span>
+</li>
+</ol><ol><li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#1_4">空间树</a></span>
+</li>
+<li class="level1">
+<span class="index">2</span>
+<span class="text"><a href="#2">用回溯法解题的一般步骤</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#2_1">用回溯法解决八皇后问题的C语言程序</a></span>
+</li>
+</ol><ol><li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#2_2">用回溯法解决八皇后问题的PASCAL语言程序</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#2_3">回溯法解决迷宫问题</a></span>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="anchor-list">
+<a name="1" class="lemma-anchor para-title" ></a>
+<a name="sub45_1" class="lemma-anchor " ></a>
+<a name="回溯法的一般描述" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">回溯法的一般描述</span>
+<a class="edit-icon j-edit-link" data-edit-dl="1" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="1_1" class="lemma-anchor para-title" ></a>
+<a name="sub45_1_1" class="lemma-anchor " ></a>
+<a name="基本思想" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">基本思想</span>
+</h3>
+<div class="para">在包含问题的所有解的解空间树中，按照深度优先搜索的策略，从根结点出发深度探索解空间树。当探索到某一结点时，要先判断该结点是否包含问题的解，如果包含，就从该结点出发继续探索下去，如果该结点不包含问题的解，则逐层向其祖先结点回溯。（其实回溯法就是对隐式图的深度优先搜索算法）。 若用回溯法求问题的所有解时，要回溯到根，且根结点的所有可行的子树都要已被搜索遍才结束。 而若使用回溯法求任一个解时，只要搜索到问题的一个解就可以结束</div><div class="anchor-list">
+<a name="1_2" class="lemma-anchor para-title" ></a>
+<a name="sub45_1_2" class="lemma-anchor " ></a>
+<a name="一般表达" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">一般表达</span>
+</h3>
+<div class="para">可用回溯法求解的问题P，通常要能表达为：对于已知的由n元组（x1，x2，…，xn）组成的一个<a target=_blank href="/view/3821785.htm">状态空间</a>E={（x1，x2，…，xn）∣xi∈Si ，i=1，2，…，n}，给定关于n元组中的一个分量的一个约束集D，要求E中满足D的全部约束条件的所有n元组。其中Si是分量xi的定义域，且 |Si| 有限，i=1，2，…，n。我们称E中满足D的全部约束条件的任一n元组为问题P的一个解。</div>
+<div class="para">解问题P的最朴素的方法就是<a target=_blank href="/view/845143.htm">枚举法</a>，即对E中的所有n元组逐一地检测其是否满足D的全部约束，若满足，则为问题P的一个解。但显然，其计算量是相当大的。</div><div class="anchor-list">
+<a name="1_3" class="lemma-anchor para-title" ></a>
+<a name="sub45_1_3" class="lemma-anchor " ></a>
+<a name="规律" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">规律</span>
+</h3>
+<div class="para">我们发现，对于许多问题，所给定的约束集D具有完备性，即i<a target=_blank href="/view/176522.htm">元组</a>（x1，x2，…，xi）满足D中仅涉及到x1，x2，…，xi的所有约束意味着j（j&lt;=i）元组（x1，x2，…，xj）一定也满足d中仅涉及到x1，x2，…，xj的所有约束，i=1，2，…，n。换句话说，只要存在0≤j≤n-1，使得（x1，x2，…，xj）违反d中仅涉及到x1，x2，…，xj的约束之一，则以（x1，x2，…，xj）为前缀的任何n元组（x1，x2，…，xj，xj+1，…，xn）一定也违反d中仅涉及到x1，x2，…，xi的一个约束，n≥i≥j。因此，对于约束集d具有完备性的问题p，一旦检测断定某个j元组（x1，x2，…，xj）违反d中仅涉及x1，x2，…，xj的一个约束，就可以肯定，以（x1，x2，…，xj）为前缀的任何n元组（x1，x2，…，xj，xj+1，…，xn）都不会是问题p的解，因而就不必去搜索它们、检测它们。回溯法正是针对这类问题，利用这类问题的上述性质而提出来的比枚举法效率更高的算法。</div>
+<div class="para"></div><div class="anchor-list">
+<a name="1_4" class="lemma-anchor para-title" ></a>
+<a name="sub45_1_4" class="lemma-anchor " ></a>
+<a name="空间树" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">空间树</span>
+</h3>
+<div class="para">回溯法首先将问题P的n元组的</div>
+<div class="para"><a target=_blank href="/view/705553.htm">状态</a>空间E表示成一棵高为n的带权有序树T，把在E中求问题P的所有解转化为在T中搜索问题P的所有解。树T类似于检索树，它可以这样构造：</div>
+<div class="para">设Si中的元素可排成xi(1) ，xi(2) ，…，xi(mi-1) ，|Si| =mi，i=1，2，…，n。从根开始，让T的第I层的每一个结点都有mi个儿子。这mi个儿子到它们的<a target=_blank href="/view/620266.htm">双亲</a>的边，按从左到右的次序，分别带权xi+1(1) ，xi+1(2) ，…，xi+1(mi) ，i=0，1，2，…，n-1。照这种构造方式，E中的一个n元组（x1，x2，…，xn）对应于T中的一个<a target=_blank href="/view/2335663.htm">叶子结点</a>，T的根到这个叶子结点的路径上依次的n条边的权分别为x1，x2，…，xn，反之亦然。另外，对于任意的0≤i≤n-1，E中n元组（x1，x2，…，xn）的一个前缀I元组（x1，x2，…，xi）对应于T中的一个非叶子结点，T的根到这个非叶子结点的路径上依次的I条边的权分别为x1，x2，…，xi，反之亦然。特别，E中的任意一个n元组的空前缀（），对应于T的根。</div>
+<div class="para">因而，在E中寻找问题P的一个解等价于在T中搜索一个叶子结点，要求从T的根到该叶子结点的路径上依次的n条边相应带的n个权x1，x2，…，xn满足约束集D的全部约束。在T中搜索所要求的叶子结点，很自然的一种方式是从根出发，按深度优先的策略逐步深入，即依次搜索满足约束条件的前缀1元组（x1i）、前缀2元组（x1，x2）、…，前缀I元组（x1，x2，…，xi），…，直到i=n为止。</div>
+<div class="para">在回溯法中，上述引入的树被称为问题P的<a target=_blank href="/view/3821785.htm">状态空间</a>树；树T上任意一个结点被称为问题P的状态结点；树T上的任意一个<a target=_blank href="/view/2335663.htm">叶子结点</a>被称为问题P的一个解状态结点；树T上满足约束集D的全部约束的任意一个叶子结点被称为问题P的一个回答状态结点，它对应于问题P的一个解</div><div class="anchor-list">
+<a name="2" class="lemma-anchor para-title" ></a>
+<a name="sub45_2" class="lemma-anchor " ></a>
+<a name="用回溯法解题的一般步骤" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">用回溯法解题的一般步骤</span>
+<a class="edit-icon j-edit-link" data-edit-dl="2" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">（1）针对所给问题，定义问题的解空间；</div>
+<div class="para">（2）确定易于搜索的解空间结构；</div>
+<div class="para">（3）以深度优先方式搜索解空间，并在搜索过程中用剪枝函数避免无效搜索。</div>
+<div class="para">回溯法C语言举例</div>
+<div class="para">八皇后问题是能用回溯法解决的一个经典问题。</div>
+<div class="para"><a target=_blank href="/view/698719.htm">八皇后问题</a>是一个古老而著名的问题。该问题是十九世纪著名的数学家<a target=_blank href="/view/2129.htm">高斯</a>1850年提出：在8X8格的国际象棋上摆放八个皇后，使其不能互相攻击，即任意两个皇后都不能处于同一行、同一列或同一对角线上，问有多少种摆法。引入一个整型一维数组<b>col[]</b>来存放最终结果，<b>col[i]</b>就表示在棋盘第i列、<b>col[i]</b>行有一个皇后，为了使程序再找完了全部解后回到最初位置，设定<b>col[0]</b>的初值为<b>0</b>，即当回溯到第0列时，说明以求得全部解，结束程序运行。为了方便算法的实现，引入三个整型数组来表示当前列在三个方向上的状态 ：</div>
+<div class="para"><b>a[] a[i]=0</b>表示第i行上还没有皇后；</div>
+<div class="para"><b>b[] b[i]=0</b>表示第i列反斜线/上没有皇后；</div>
+<div class="para"><b>c[] c[i]=0</b>表示第i列正斜线\上没有皇后。</div>
+<div class="para">棋盘中同一反斜线/上的方格的行号与列号相同；同一正斜线\上的方格的行号与列号之差均相同，这就是判断斜线的依据。</div>
+<div class="para">初始时，所有行和斜线上都没有皇后，从第1列的第1行配置第一个皇后开始，在第<b>m</b>列，<b>col[m]</b>行放置了一个合理的皇后，准备考察第<b>m+1</b>列时，在数组<b>a[]，</b><b>b[]</b>和c[]中为第<b>m</b>列，<b>col[m]</b>行的位置设定有皇后的标志；当从第<b>m</b>列回溯到<b>m-1</b>列时，并准备调整第m-1列的皇后配置时，清除在数组<b>a[],b[]</b>和<b>c[]</b>对应位置的值都为1来确定。</div><div class="anchor-list">
+<a name="2_1" class="lemma-anchor para-title" ></a>
+<a name="sub45_2_1" class="lemma-anchor " ></a>
+<a name="用回溯法解决八皇后问题的C语言程序" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">用回溯法解决八皇后问题的C语言程序</span>
+</h3>
+<div class="para">#include&lt;stdio.h&gt;</div>
+<div class="para">#include&lt;stdlib.h&gt;</div>
+<div class="para">#define Queens 8</div>
+<div class="para">int a[Queens+1]; //八皇后问题的皇后所在每一行位置，从1开始算</div>
+<div class="para">int main()</div>
+<div class="para">{</div>
+<div class="para">int i,k,flag,not_finish=1,count=0;</div>
+<div class="para">i=1;//初始</div>
+<div class="para">a[1]=1;</div>
+<div class="para">printf(&quot;the possible configuration of 8 queesns are:\n&quot;);</div>
+<div class="para">while(not_finish) //not_finsh=1:处理未结束</div>
+<div class="para">{</div>
+<div class="para">while(not_finish &amp;&amp; i&lt;Queens+1) //处理未结束</div>
+<div class="para">{</div>
+<div class="para">for(flag=1,k=1;flag &amp;&amp; k&lt;i;k++)//判断是否有多个皇后在同一行</div>
+<div class="para">if(a[k]==a[i])</div>
+<div class="para">flag=0;</div>
+<div class="para">for(k=1;flag &amp;&amp; k&lt;i;k++) //判断是否有多个皇后在对角线</div>
+<div class="para">if((a[i]==a[k]-(k-i))||(a[i]==a[k]+(k-i)))</div>
+<div class="para">flag=0;</div>
+<div class="para">if(!flag) //若存在矛盾 重设第i个元素</div>
+<div class="para">{</div>
+<div class="para">if(a[i]==a[i-1]) //若a[i]的值已经已经一圈追上a[i-1]的值</div>
+<div class="para">{</div>
+<div class="para">i--; //退回一步 重新试探处理前一个元素</div>
+<div class="para">if(i&gt;1 &amp;&amp; a[i]==Queens)</div>
+<div class="para">a[i]=1; // 当a[i]为 Queens时 将a[i]的值重置</div>
+<div class="para">else</div>
+<div class="para">if(i==1 &amp;&amp; a[i]==Queens)//当第一未位的值达到Queens时结束</div>
+<div class="para">not_finish=0;</div>
+<div class="para">else</div>
+<div class="para">a[i]++;</div>
+<div class="para">}</div>
+<div class="para">else</div>
+<div class="para">if(a[i]==Queens)</div>
+<div class="para">a[i]=1;</div>
+<div class="para">else</div>
+<div class="para">a[i]++;</div>
+<div class="para">}</div>
+<div class="para">else</div>
+<div class="para">if(++i&lt;=Queens) //若前一个元素的值为Queens</div>
+<div class="para">if(a[i-1]==Queens)</div>
+<div class="para">a[i]=1;</div>
+<div class="para">else //否则元素为前一个元素的下一个值</div>
+<div class="para">a[i]=a[i-1]+1;</div>
+<div class="para">}</div>
+<div class="para">if (not_finish)</div>
+<div class="para">{</div>
+<div class="para">++count;</div>
+<div class="para">printf((count-1)%3?&quot;[%2d]:&quot;:&quot;\n[%2d]:&quot;,count);</div>
+<div class="para">for(k=1;k&lt;=Queens;k++) //输出结果</div>
+<div class="para">printf(&quot;%d&quot;,a[k]);</div>
+<div class="para">if(a[Queens-1]&lt;Queens)</div>
+<div class="para">a[Queens-1]++;</div>
+<div class="para">else</div>
+<div class="para">a[Queens-1]=1;</div>
+<div class="para">i=Queens-1;</div>
+<div class="para">}</div>
+<div class="para">}</div>
+<div class="para">system(&quot;pause&quot;);</div>
+<div class="para">}</div><div class="anchor-list">
+<a name="2_2" class="lemma-anchor para-title" ></a>
+<a name="sub45_2_2" class="lemma-anchor " ></a>
+<a name="用回溯法解决八皇后问题的PASCAL语言程序" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">用回溯法解决八皇后问题的PASCAL语言程序</span>
+</h3>
+<div class="para">var</div>
+<div class="para">n,k,t,i:longint;</div>
+<div class="para">x:array[1..100] of integer;</div>
+<div class="para">function pa(k:integer):boolean;</div>
+<div class="para">begin</div>
+<div class="para">pa:=true;</div>
+<div class="para">for i:=1 to k-1 do</div>
+<div class="para">if (x[i]=x[k]) or (abs(x[i]-x[k])=abs(i-k)) then pa:=false;</div>
+<div class="para">end;</div>
+<div class="para">procedure try(k:integer);</div>
+<div class="para">var</div>
+<div class="para">i:integer;</div>
+<div class="para">begin</div>
+<div class="para">if k&gt;n then</div>
+<div class="para">begin</div>
+<div class="para">t:=t+1;</div>
+<div class="para">exit;</div>
+<div class="para">end;</div>
+<div class="para">for i:=1 to n do</div>
+<div class="para">begin</div>
+<div class="para">x[k]:=i;</div>
+<div class="para">if pa(k) then try(k+1);</div>
+<div class="para">end;</div>
+<div class="para">end;</div>
+<div class="para">begin</div>
+<div class="para">read(n);</div>
+<div class="para">t:=0;</div>
+<div class="para">try(1);</div>
+<div class="para">write(t);</div>
+<div class="para">end.</div><div class="anchor-list">
+<a name="2_3" class="lemma-anchor para-title" ></a>
+<a name="sub45_2_3" class="lemma-anchor " ></a>
+<a name="回溯法解决迷宫问题" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">回溯法解决迷宫问题</span>
+</h3>
+<div class="para">#include</div>
+<div class="para">#include</div>
+<div class="para">#define m 5</div>
+<div class="para">#define n 6</div>
+<div class="para">int sf=0;</div>
+<div class="para">int mase[m][n]={{0,0,0,1,0,0},{0,1,0,0,0,0},{0,1,1,1,1,0},{0,0,0,0,0,1},{1,0,1,1,0,0}};</div>
+<div class="para">void search(int x,int y)</div>
+<div class="para">{</div>
+<div class="para">if((x==m-1)&amp;&amp;(y==n-1))</div>
+<div class="para">sf=1;</div>
+<div class="para">else</div>
+<div class="para">{</div>
+<div class="para">mase[x][y]=1;</div>
+<div class="para">if((sf!=1)&amp;&amp;(y!=n-1)&amp;&amp;mase[x][y+1]==0)</div>
+<div class="para">search(x,y+1);</div>
+<div class="para">if((sf!=1)&amp;&amp;(x!=m-1)&amp;&amp;mase[x+1][y]==0)</div>
+<div class="para">search(x+1,y);</div>
+<div class="para">if((sf!=1)&amp;&amp;(y!=0)&amp;&amp;mase[x][y-1]==0)</div>
+<div class="para">search(x,y-1);</div>
+<div class="para">if((sf!=1)&amp;&amp;(x!=0)&amp;&amp;mase[x-1][y]==0)</div>
+<div class="para">search(x-1,y);</div>
+<div class="para">}</div>
+<div class="para">mase[x][y]=0;</div>
+<div class="para">if(sf==1)</div>
+<div class="para">mase[x][y]=5;//通过路径用数字的表示</div>
+<div class="para">}</div>
+<div class="para">int main()</div>
+<div class="para">{</div>
+<div class="para">int i=0,j=0;</div>
+<div class="para">//clrscr();</div>
+<div class="para">search(0,0);</div>
+<div class="para">for(i=0;i&lt;m;i++) p=&quot;&quot;&gt;&lt;/m;i++)&gt;</div>
+<div class="para">{</div>
+<div class="para">for(j=0;j&lt;n;j++) p=&quot;&quot;&gt;&lt;/n;j++)&gt;</div>
+<div class="para">printf(&quot;%d&quot;,mase[i][j]);</div>
+<div class="para">printf(&quot;\n&quot;);</div>
+<div class="para">}</div>
+<div class="para">system(&quot;pause&quot;);</div>
+<div class="para">return 0;</div>
+<div class="para">}</div>
+<div class="para">回溯法解决迷宫问题PASCAL语言</div>
+<div class="para">program migong;</div>
+<div class="para">var</div>
+<div class="para">n,k,j,x,y:integer;</div>
+<div class="para">a:array[0..10000,0..10000] of integer;</div>
+<div class="para">b:array[0..1000000,0..2] of integer;</div>
+<div class="para">procedure search(x,y,i:integer);</div>
+<div class="para">begin</div>
+<div class="para">a[x,y]:=1;</div>
+<div class="para">if (x=n) and (y=n) then</div>
+<div class="para">begin</div>
+<div class="para">for j:=1 to i-1 do</div>
+<div class="para">writeln(j,&#39;:(&#39;,b[j,1],&#39;,&#39;,b[j,2],&#39;)&#39;);</div>
+<div class="para">writeln(i,&#39;:(&#39;,x,&#39;,&#39;,y,&#39;)&#39;);</div>
+<div class="para">halt;</div>
+<div class="para">end;</div>
+<div class="para">if a[x-1,y]=0 then begin b[i,1]:=x;b[i,2]:=y;search(x-1,y,i+1);end;</div>
+<div class="para">if a[x+1,y]=0 then begin b[i,1]:=x;b[i,2]:=y;search(x+1,y,i+1);end;</div>
+<div class="para">if a[x,y-1]=0 then begin b[i,1]:=x;b[i,2]:=y;search(x,y-1,i+1);end;</div>
+<div class="para">if a[x,y+1]=0 then begin b[i,1]:=x;b[i,2]:=y;search(x,y+1,i+1);end;</div>
+<div class="para">a[x,y]:=0;</div>
+<div class="para">end;</div>
+<div class="para">begin</div>
+<div class="para">read(n);</div>
+<div class="para">for k:=1 to n do</div>
+<div class="para">for j:=1 to n do</div>
+<div class="para">read(a[k,j]);</div>
+<div class="para">for k:=0 to n+1 do</div>
+<div class="para">begin</div>
+<div class="para">a[k,0]:=-1;</div>
+<div class="para">a[k,n+1]:=-1;</div>
+<div class="para">a[n+1,k]:=-1;</div>
+<div class="para">a[0,k]:=-1;</div>
+<div class="para">end;</div>
+<div class="para">x:=1;y:=1;</div>
+<div class="para">if a[x+1,y]=0 then begin a[x,y]:=1;b[1,1]:=x;b[1,2]:=y;search(x+1,y,1);a[x,y]:=0;end;</div>
+<div class="para">if a[x,y+1]=0 then begin a[x,y]:=1;b[1,1]:=x;b[1,2]:=y;search(x,y+1,1);a[x,y]:=0;end;</div>
+<div class="para">end.</div>
+<div id="open-tag">
+<div class="open-tag-title">词条标签：</div>
+<dd id="open-tag-item">
+<span class="taglist">
+计算机学
+</span>
+</dd>
+<div class="open-tag-collapse" id="open-tag-collapse"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="side-content">
+<div class="summary-pic">
+<a href="/picture/45/45/0/9e3df8dcd100baa1ee27ecd94410b912c8fc2e4c.html?fr=lemma&amp;ct=single" target="_blank">
+<img src="http://d.hiphotos.baidu.com/baike/w%3D268/sign=ae8755414a540923aa696478aa58d1dc/9e3df8dcd100baa1ee27ecd94410b912c8fc2e4c.jpg" />
+<button class="picAlbumBtn"><em></em><span>图集</span></button>
+<div>回溯法图册</div>
+</a>
+</div>
+<div class="lemmaWgt-promotion-vbaike">
+<div class="promotion_title">V百科<a href="/vbaike" target="_blank">往期回顾</a></div>
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightPreciseAd"></div><a name="zhixinWrap" class="qnAnchor"></a>
+<div class="side-box zhixin-box" id="zhixinWrap" data-source="bdg" data-newLemmaId="86074">
+<div class="zhixin-group js-group">
+<h6 class="js-cardTitle">
+<span>其他人还看</span>
+</h6>
+<div class="zhixin-fixBtn js-fixBtn">
+<div class="openFix" title="若推荐内容有误，请点击纠错进行反馈">纠错</div>
+<div class="closeFix">关闭纠错</div>
+</div>
+<div class="zhixin-list zhixin-list-3">
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/698719","targetId":"11053477"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/698719" target="_blank">
+<img width="72" height="72" src="http://c.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=7a2c610bbd3eb1354492e4fbc02399e1/d1a20cf431adcbef8c2f33e5adaf2edda3cc9f3e.jpg" alt="八皇后问题" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/698719" target="_blank" title="八皇后问题">八皇后问题</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="11053477">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/298415","targetId":"5411800"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/298415" target="_blank">
+<img width="72" height="72" src="http://d.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=ad17d9730e3387449c907c3c3732e8cb/8718367adab44aed754039c7b11c8701a18bfb83.jpg" alt="贪心算法" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/298415" target="_blank" title="贪心算法">贪心算法</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="5411800">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/6056523","targetId":"9258495"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/6056523" target="_blank">
+<img width="72" height="72" src="http://d.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=c12ab770738da9774e7ad56bd66cc92b/c9fcc3cec3fdfc0319ff97fbd43f8794a5c226e9.jpg" alt="回溯算法" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/6056523" target="_blank" title="回溯算法">回溯算法</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="9258495">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/28146","targetId":"529408"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/28146" target="_blank">
+<img width="72" height="72" src="http://c.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=fcad02b1d3160924dc70f15bb23a04c8/bd315c6034a85edfc7e19bc44a540923dc5475e3.jpg" alt="动态规划" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/28146" target="_blank" title="动态规划">动态规划</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="529408">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1366867","targetId":"10578442"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1366867" target="_blank">
+<img width="72" height="72" src="http://a.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=7a22614fbc096b63814c0d106a0eb676/8b82b9014a90f60303e93a273b12b31bb051ed71.jpg" alt="2038年问题" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1366867" target="_blank" title="2038年问题">2038年问题</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="10578442">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/102246","targetId":"1845646"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/102246" target="_blank">
+<img width="72" height="72" src="http://g.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=e018ea225143fbf2c579f563d643fbb2/6f061d950a7b02085db0f0cb60d9f2d3572cc89b.jpg" alt="一句话木马" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/102246" target="_blank" title="一句话木马">一句话木马</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="1845646">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/841810","targetId":"2416931"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/841810" target="_blank">
+<img width="72" height="72" src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/img/cityzhixinemptyimg_1a62423.png" alt="背包问题" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/841810" target="_blank" title="背包问题">背包问题</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="2416931">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/191666","targetId":"3468295"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/191666" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=6083a47caf51f3dec3e7ea24f2d3c12d/2934349b033b5bb5347f4c4836d3d539b700bcd8.jpg" alt="汉诺塔" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/191666" target="_blank" title="汉诺塔">汉诺塔</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="3468295">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/4479359","targetId":"4605597"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/4479359" target="_blank">
+<img width="72" height="72" src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/img/cityzhixinemptyimg_1a62423.png" alt="分支限界法" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/4479359" target="_blank" title="分支限界法">分支限界法</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="4605597">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<form id="zhixinErrorForm" class="hidden" action="http://f3.baidu.com/index.php/feedback/zx/baikeJC" target="zhixinSubErr" method="post">
+<input class="js-url" name="fb_html_url" type="hidden" />
+<input class="js-query" name="fb_query" type="hidden" />
+<input class="js-title" name="fb_card_title" type="hidden" />
+<input class="js-content" name="fb_content" type="hidden" />
+<input class="js-souceId"name="fb_source_id" type="hidden" />
+</form>
+<iframe id="zhixinSubErr" name="zhixinSubErr" style="display:none;" frameborder="0"></iframe>
+<div class="lemmaWgt-promotion-slide">
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><dl class="side-box lemma-statistics">
+<dt class="title">词条统计</dt>
+<dd class="description">
+<ul>
+<li>浏览次数：<span id="j-lemmaStatistics-pv"></span>次</li>
+<li>编辑次数：33次<a href="/historylist/%E5%9B%9E%E6%BA%AF%E6%B3%95/86074" class="nslog:1021" target="_blank">历史版本</a></li>
+<li>最近更新：<span class="j-modified-time" style="display:none">2015-05-19</span></li>
+<li>创建者：<a class="show-userCard" data-uid="52988862" title="查看此用户资料" target="_blank" href="http://www.baidu.com/p/HELLO%E5%B0%8F%E6%98%8E" nslog-type="1022">HELLO小明</a></li>
+</ul>
+</dd>
+</dl>
+<div class="side-catalog" style="visibility:hidden">
+<div class="side-bar">
+<em class="circle start"></em>
+<em class="circle end"></em>
+</div>
+<div class="catalog-scroller">
+<dl class="catalog-list">
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">1</span>
+<a href="#1" class="title-link" nslog-type="1026">回溯法的一般描述</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">1.1</span>
+<a href="#1_1" class="title-link" nslog-type="1026">基本思想</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">1.2</span>
+<a href="#1_2" class="title-link" nslog-type="1026">一般表达</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">1.3</span>
+<a href="#1_3" class="title-link" nslog-type="1026">规律</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">1.4</span>
+<a href="#1_4" class="title-link" nslog-type="1026">空间树</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">2</span>
+<a href="#2" class="title-link" nslog-type="1026">用回溯法解题的一般步骤</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">2.1</span>
+<a href="#2_1" class="title-link" nslog-type="1026">用回溯法解决八皇后问题的C语言程序</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">2.2</span>
+<a href="#2_2" class="title-link" nslog-type="1026">用回溯法解决八皇后问题的PASCAL语言程序</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">2.3</span>
+<a href="#2_3" class="title-link" nslog-type="1026">回溯法解决迷宫问题</a>
+</span>
+</dd>
+<a class="arrow" href="javascript:void(0);"></a>
+</dl>
+</div>
+<div class="right-wrap">
+<a class="go-up disable" href="javascript:void(0);"></a>
+<a class="go-down" href="javascript:void(0);"></a>
+</div>
+<div class="bottom-wrap">
+<a class="toggle-button" href="javascript:void(0);"></a>
+<a class="gotop-button" href="javascript:void(0);"></a>
+</div>
+</div>
+<div class="unionAd_fromPs side-box" id="unionAd_fromPs">
+<script type="BAIDU_HH">
+    {
+        type : 'pageembed',
+        di   : 'u2140330',
+        rsi0 : 270,
+        rsi1 : 175
+    }
+    </script>
+</div>
+<div class="fengchao side-box" nslog="area" nslog-type="10000902">
+</div>
+<div class="unionAd side-box">
+</div>
+</div>
+</div>
+</div>
+<div class="after-content">
+<div class="bottom-promotion" id="bottom-promotion">
+<div id="BOTTOM_PRO_AD"></div>
+</div>
+</div>
+</div>
+
+<div class="wgt-footer-main">
+<div class="content">
+<dl class="fresh">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-fresh"></em>新手上路</dt>
+<dd>
+<div><a target="_blank" href="/usercenter/tasks#guide">成长任务</a></div>
+<div><a target="_blank" href="/help#main01">编辑入门</a></div>
+<div><a target="_blank" href="/help#main06">编辑规则</a></div>
+<div><a target="_blank" href="/help#main05">百科术语</a></div>
+</dd>
+</dl>
+<dl class="question">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-question"></em>我有疑问</dt>
+<dd>
+<div><a target="_blank" href="/user/question">常见问题</a></div>
+<div><a target="_blank" href="http://zhidao.baidu.com/new?ie=GBK">我要提问</a></div>
+<div><a target="_blank" href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91">参加讨论</a></div>
+<div><a target="_blank" href="/feedback">意见反馈</a></div>
+</dd>
+</dl>
+<dl class="suggestion">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-suggestion"></em>投诉建议</dt>
+<dd>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#1">举报不良信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#2">未通过词条申诉</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#4">投诉侵权信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#3">封禁查询与解封</a></div>
+</dd>
+</dl>
+</div>
+<div class="copyright">©2015Baidu&nbsp;<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>&nbsp;|&nbsp;<a href="http://help.baidu.com/question?prod_en=baike&class=159&id=1047" target="_blank">百科协议</a>&nbsp;|&nbsp;<a href="/operation/cooperation" target="_blank">百度百科合作平台</a></div>
+</div>
+
+<div class="lemmaWgt-searchHeader">
+<div class="layout">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="回溯法" /><a id="search" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_search"></em></a>
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="tool-buttons">
+<a class="toolButtons-edit button j-edit-link" href="javascript:;" nslog-type="10010001"></a>
+<a class="toolButtons-collect button" href="javascript:;" nslog-type="10010002"></a>
+<a class="toolButtons-vote button" href="javascript:;" nslog-type="10010003"></a>
+</div>
+<div class="user-info">
+<a class="user-link unlogin" href="javascript:;" target="_blank">登录</a>
+</div>
+</div></div>
+<div class="bdsharebuttonbox side-share" data-tag="side-share">
+<span class="title">分享</span>
+<a class="bds_qzone" data-cmd="qzone" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tsina" data-cmd="tsina" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tqq" data-cmd="tqq" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_more" data-cmd="more" href="javascript:void(0);" nslog-type="9068"></a>
+</div>
+
+</body><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_0_8f81ba9.js"></script>
+<script type="text/javascript">require.resourceMap({"res":{"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaInsert_8f95785.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/tangram.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/tangram_67429c3.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js","deps":["wiki-common:widget/lib/jquery/jquery.js","wiki-common:widget/component/nslog/nslog.js"]}},"pkg":{"wiki-lemma:p3":{"url":"http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module-lemmaRelation_36b8718.js"}}});</script><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_1_16bd5e2.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_2_1dca152.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_8597b2f.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js"></script>
+<script type="text/javascript">!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+    userbar = require('wiki-common:widget/component/userbar/userbar.js');
+    
+  $(function() {
+    userbar.buildUserbar($('.wgt-userbar'), null);
+  });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');  
+    initSearchbar($('.wgt-searchbar-main'));
+  }();
+!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+
+  var timer = '';
+
+  $('.wgt-navbar').on('mouseenter', 'dl', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      $('.wgt-navbar').addClass('wgt-navbar-hover');
+    }, 300);
+  }).on('mouseleave', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  }).on('click', 'a', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  });
+}();
+!function(){            var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+            var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+            // 展现策略
+            rightCheck.editView('86074', function(res) {
+                if (!res.errno) {
+                    if (res.data.edit) {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                } else {
+                    if ('1') {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                }
+            }); 
+
+            require('wiki-lemma:widget/basicElement/addSub/addSub.js')({
+                lemmaId: '86074',
+                lemmaTitle: '回溯法',
+                lemmaDesc: '',
+                versionId: '78367095',
+                subLemmaId: '45'
+            });
+        }();
+!function(){        var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+        var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+        // 展现策略
+        rightCheck.editView('86074', function(res) {
+            if (!res.errno) {
+                if (res.data.divide) {
+                    $('.top-tool .split-icon').css('display', 'block');
+                }
+            }
+        });
+    }();
+!function(){	require.async("wiki-lemma:widget/basicElement/collect/collect.js",function(collect){
+		collect({
+            newLemmaId:"86074",
+			lemmaId:"45",
+			subLemmaId:"45"
+		});
+	});
+}();
+!function(){	require.async("wiki-lemma:widget/basicElement/vote/vote.js",function(vote){
+		vote({
+			lemmaId:"45",
+            subLemmaId:"45"
+		});
+	});
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "top-share",
+		"bdSize" : 32,
+		"bdMini":1
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        } else {
+            if ('1') {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        }
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/basicInfo/basicInfo.js",function(init){
+		init();
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('86074', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){        require.async("wiki-common:widget/lib/jquery/jquery.js",function($){
+            function openTagToggle(node) {
+                if ($(node).hasClass("collapse")) {
+                    $(node).removeClass("collapse");
+                    $("#open-tag").css("height", '22px');
+                } else {
+                    $(node).addClass("collapse");
+                    $("#open-tag").css("height", $("#open-tag-item").css("height"));
+                }
+            }
+            if (parseInt($("#open-tag-item").css("height")) <= 30) {
+                $('#open-tag-collapse').hide();
+            }
+            $("#open-tag-collapse").on("click", function () {
+                openTagToggle($("#open-tag")[0]);
+            });
+        });
+    }();
+!function(){            require.async("wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js",function(init){
+                init();
+            });
+        }();
+!function(){    require.async("wiki-lemma:widget/lemma_content/mainContent/lemmaStatistics/lemmaStatistics.js",function(init){
+        init({
+            newLemmaIdEnc:"ca3021126a806041444629f5"
+        });
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/sideCatalog/sideCatalog.js",function(SideCatalog){
+		new SideCatalog();
+	});
+}();
+!function(){        require.async(['wiki-lemma:widget/promotion/unionAdFromPs/unionAdFromPs.js'], function (init) {
+            init();
+        });
+    }();
+!function(){    require.async(["wiki-lemma:widget/promotion/fengchao/fengchao.js", "wiki-lemma:widget/promotion/unionAd/unionAd.js"], function (init, unionAd) {
+        init({
+            newLemmaId: "86074",
+            lemmaTitle: "回溯法",
+            encodeLemmaTitle: "%BB%D8%CB%DD%B7%A8"
+        }, {
+            errFn: unionAd,
+            dom: $('.unionAd')
+        });
+    });
+}();
+!function(){        require.async('wiki-lemma:widget/promotion/bottomAd/bottomAd.js', function (init) {
+            init('BOTTOM_PRO_AD');
+        });
+    }();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var Dialog = require("wiki-common:widget/ui/dialog/dialog.js");
+    var userLogin = require('wiki-common:widget/component/userLogin/userLogin.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    var editUrl = '/edit/' + encodeURIComponent('回溯法') + '/' + '86074';
+
+    $(document.body).on('click', '.j-edit-link', function() {
+        var dl = $(this).attr('data-edit-dl');
+        if (dl) {
+            var url = editUrl + '?dl=' + dl;
+        } else {
+            var url = editUrl;
+        }
+
+        rightCheck.preeditCheck('86074', '回溯法', '', '78367095', function(res) {
+            if (res.errno) {
+                userLogin.showLoginPop();
+                return;
+            }
+            if (!res.data.right.edit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    mainMsg: '对不起，您暂时没有权限编辑该词条。',
+                    subMsg: '<p>您好，该词条内容已较丰富，现仅对百科等级达到<b>四级</b>且通过率达到<b>85%</b>的科友开放编辑。</p><p>当您通过努力达到以上要求，就可以参与编辑该词条了。</p><p><img src="http://img.baidu.com/img/baike/usercenter/growuptask/star.gif" class="star" />参加<a target="_blank" href="/usercenter#guide">成长任务</a>，更快掌握百科编辑技巧，加速升级！</p>'
+                });
+                return;
+            }
+            if (!res.data.right.noAudit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '很抱歉，该词条有其他用户编辑的版本正在提交，您暂时无法编辑。<br/>百科建议您晚些时候再编辑该词条，或者尝试编辑其他的词条。'
+                });
+                return;
+            }
+
+            if (res.data.notice.isMidNight) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '晚23:00至次日8:00，因审核系统例行维护，您提交的版本可能需要较长时间才能通过，望您谅解。',
+                    onConfirm: function() {
+                        window.location.href = url;
+                    }
+                });
+            } else {
+                window.location.href = url;
+            }
+        });
+    });
+}();
+!function(){    require.async("wiki-lemma:widget/tools/searchHeader/toolButtons/toolButtons.js",function(init){
+        init({
+            newLemmaId:"86074",
+            lemmaId:"45",
+            subLemmaId:"45"
+        });
+    });
+}();
+!function(){    require('wiki-lemma:widget/tools/searchHeader/toolButtons/userInfo.js')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      animation = require('wiki-common:widget/util/animation.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');
+
+    var isFadeIn = false,
+        isFadeOut = false;
+
+    var fadeInAni, fadeOutAni;
+
+    $(window).on('scroll', function(e) {
+        var scrollTop = $(this).scrollTop();
+
+        if (scrollTop > 200 && !isFadeIn && $('.lemmaWgt-searchHeader').css('display') == 'none') {
+            fadeOutAni && fadeOutAni.stop();
+            fadeInAni = animation({
+                duration: 200,
+                easing: 'linear',
+                onStart: function() {
+                    isFadeOut = false;
+                    isFadeIn = true;
+                    $('.lemmaWgt-searchHeader').css('display', 'block');
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', progress)
+                },
+                onComplete: function(progress) {
+                    isFadeIn = false;
+                }
+            });
+        } else if (scrollTop <= 200 && !isFadeOut && $('.lemmaWgt-searchHeader').css('display') == 'block') {
+            fadeInAni && fadeInAni.stop();
+            fadeOutAni = animation({
+                duration: 300,
+                easing: 'linear',
+                onStart: function() {
+                    $('.lemmaWgt-searchHeader #suggestion').hide();
+                    isFadeIn = false;
+                    isFadeOut = true;
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', 1 - progress);
+                },
+                onComplete: function(progress) {
+                    isFadeOut = false;
+                    $('.lemmaWgt-searchHeader').css('display', 'none');
+                }
+            });
+        }
+    });
+
+    initSearchbar($('.lemmaWgt-searchHeader'));
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "side-share",
+		"bdSize" : 32,
+		"bdMini":1,
+		"bdPopupOffsetLeft":-72
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var nslog = require("wiki-common:widget/component/nslog/nslog.js");
+
+    require.async("wiki-lemma:widget/tools/lazyLoad/lazyLoad.js", function(LazyLoad) {
+        new LazyLoad();
+    });
+
+    require.async(['wiki-common:widget/component/nslog/nslog.js', 'wiki-common:widget/lib/jquery/jquery.js'], function(nslog, $) {
+        nslog().setGlobal({
+            lemmaId: "45",
+            newLemmaId: "86074",
+            subLemmaId: "45",
+            lemmaTitle: "回溯法"
+        });
+        nslog(9322);
+    });
+
+    var map = [1, 2, 4, 3];
+    $('.wgt-footer-main .suggestion').find('a').each(function(i) {
+        $(this).attr('href', 'http://tousu.baidu.com/baike/add?word=%E5%9B%9E%E6%BA%AF%E6%B3%95' + '&&submit_link=' + encodeURIComponent(window.location.href) + '#' + map[i]);
+    });
+
+    window.BKShare.setCommon({
+        bdText: '【回溯法_百度百科】回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。.....（分享自@百度百科）',
+        bdDesc: '',
+        bdUrl: '',
+        bdPic: ''
+    });
+
+    $.getJSON('/api/wikiad/getads?lemmaId=' + 86074, function(res) {
+        if (!res.errno) {
+            if (res.data[5]) {
+                require.async(['wiki-lemma:widget/promotion/rightPreciseAd/rightPreciseAd.js'], function(rightPreciseAd) {
+                    rightPreciseAd(res.data[5]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[5][0].adId
+                    });
+                });
+            } else if (res.data[1]) {
+                require.async(['wiki-lemma:widget/promotion/vbaike/vbaike.js'], function(vbaike) {
+                    vbaike(res.data[1]);
+                    for(var i in res.data[1]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[1][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[2]) {
+                require.async(['wiki-lemma:widget/promotion/slide/slide.js'], function(slide) {
+                    slide(res.data[2]);
+                    for(var i in res.data[2]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[2][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[3]) {
+                require.async(['wiki-lemma:widget/promotion/topAd/topAd.js'], function(topAd) {
+                    topAd(res.data[3]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[3][0].adId
+                    });
+                });
+            }
+            if (res.data[4]) {
+                require.async(['wiki-lemma:widget/promotion/rightAd/rightAd.js'], function(rightAd) {
+                    rightAd(res.data[4]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[4][0].adId
+                    });
+                });
+            }
+        }
+    });
+}();
+!function(){      require('wiki-common:widget/component/psLink/psLink.js');
+    }();</script>
+<script type="text/javascript">
+  var Hunter = window.Hunter || {};
+  Hunter.userConfig = Hunter.userConfig || [];
+  </script>
+<script type="text/javascript" src="http://img.baidu.com/hunter/baike.js?st=16692" defer></script></html><!--08182513490197995018091610-->
+<script> var _trace_page_logid = 0818251349; </script>

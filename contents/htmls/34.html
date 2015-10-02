@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+
+
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="description" content="结构化查询语言(Structured Query Language)简称SQL(发音：/ˈes kjuː ˈel/ &quot;S-Q-L&quot;)，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。结构化查询语言是高级的非过程化编程语言，允许用户在高层数据...">
+<title>结构化查询语言_百度百科</title>
+
+<meta name="keywords" content="结构化查询语言  百度百科 baike  语言简介 语句结构 发展历史 数据类型 语言特点 使用简要 相关函数">
+<meta name="image" content="http://baike.bdimg.com/cms/static/baike.png">
+
+<!--[if lte IE 9]>
+<script>
+    (function() {
+      var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+        i = e.length;
+      while (i--) {
+        document.createElement(e[i]);
+      }
+    })();
+  </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_ffb1ec5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common-base_19edda6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/praise/praise_2120cd2.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/toolButtons_a2c470f.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/userInfo_9ba20c1.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/video/pageMask/pageMask_ff9a193.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module_a5107b7.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/cardLink/cardLink_40dc1e5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/style/shCore_7fba49a.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/style/shCoreDefault_3f91dc3.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/mainContent_847fed6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaRelation_f8d61eb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_93e49e0.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/sideAuth/sideAuth_6f2b031.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/searchHeader_e786bfb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/sideShare/sideShare_afe05e7.css"/></head>
+<body class="wiki-lemma normal">
+
+
+<div class="header-wrapper">
+<ul class="wgt-userbar">
+<li>
+<a href="http://www.baidu.com/">百度首页</a>
+</li>
+</ul>
+<div class="header">
+<div class="layout">
+<div class="wgt-searchbar wgt-searchbar-main cmn-clearfix">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="nav">
+<a href="http://news.baidu.com/" data-href="http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=">新闻</a><a href="http://www.baidu.com/" data-href="http://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=">网页</a><a href="http://tieba.baidu.com/" data-href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=">贴吧</a><a href="http://zhidao.baidu.com/" data-href="http://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=">知道</a><a href="http://music.baidu.com/" data-href="http://music.baidu.com/search?f=ms&ct=134217728&ie=utf-8&rn=&lm=-1&pn=30fr=bks0000&key=">音乐</a><a href="http://image.baidu.com/" data-href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=">图片</a><a href="http://v.baidu.com/" data-href="http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=22&ie=utf-8&fr=bks0000&word=">视频</a><a href="http://map.baidu.com/" data-href="http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=">地图</a><a class="baike">百科</a><a href="http://wenku.baidu.com/" data-href="http://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=">文库</a>
+</div>
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="结构化查询语言" /><button id="search" type="button">进入词条</button><button id="searchLemma" type="button">搜索词条</button><a class="help" href="/help" target="_blank">帮助</a>
+</form>
+<form id="searchLemmaForm" action="/search" method="GET" target="_self">
+<input id="searchLemmaQuery" name="word" type="hidden" />
+<input name="pn" type="hidden" value="0" />
+<input name="rn" type="hidden" value="0" />
+<input name="enc" type="hidden" value="utf8" />
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar-wrapper">
+<div class="wgt-navbar">
+<div class="navbar-bg">
+<div class="navbar-bg-top">
+<div class="navbar-content layout">
+<div class="navbar-content-box">
+<dl class="index ">
+<dt><a href="/">首页</a></dt>
+</dl>
+<dl class="cat ">
+<dt><a>分类</a></dt>
+<dd>
+<div><a href="/ziran" target="_blank">自然</a></div>
+<div><a href="/wenhua" target="_blank">文化</a></div>
+<div><a href="/dili" target="_blank">地理</a></div>
+<div><a href="/lishi" target="_blank">历史</a></div>
+<div><a href="/shenghuo" target="_blank">生活</a></div>
+<div><a href="/shehui" target="_blank">社会</a></div>
+<div><a href="/yishu" target="_blank">艺术</a></div>
+<div><a href="/renwu" target="_blank">人物</a></div>
+<div><a href="/jingji" target="_blank">经济</a></div>
+<div><a href="/keji" target="_blank">科技</a></div>
+<div><a href="/tiyu" target="_blank">体育</a></div>
+</dd>
+</dl>
+<dl class="special ">
+<dt><a>特色百科</a></dt>
+<dd>
+<div><a href="/calendar/" target="_blank">历史上的今天</a></div>
+<div><a href="/museum/" target="_blank">数字博物馆</a></div>
+<div><a href="/city/" target="_blank">城市百科</a></div>
+<div><a href="/operation/worldwar2" target="_blank">二战百科</a></div>
+<div><a href="/art" target="_blank">艺术百科</a></div>
+<div><a href="/science" target="_blank">科学百科</a></div>
+</dd>
+</dl>
+<dl class="user" >
+<dt><a>用户</a></dt>
+<dd>
+<div><a href="/kedou/" target="_blank">蝌蚪团</a></div>
+<div><a href="/event/ranmeng/" target="_blank">燃梦计划</a></div>
+<div><a href="/task/" target="_blank">百科任务</a></div>
+<div><a href="/mall/" target="_blank">百科商城</a></div>
+</dd>
+</dl>
+<dl class="cooperation" >
+<dt><a>权威合作</a></dt>
+<dd>
+<div><a href="/operation/cooperation#joint" target="_blank">合作模式</a></div>
+<div><a href="/operation/cooperation#issue" target="_blank">常见问题</a></div>
+<div><a href="/operation/cooperation#connection" target="_blank">联系方式</a></div>
+</dd>
+</dl>
+<dl class="mobile" >
+<dt><a>手机百科</a></dt>
+<dd>
+<div><a href="/m#download" target="_blank">客户端</a></div>
+<div><a href="/m#wap" target="_blank">网页版</a></div>
+</dd>
+</dl>
+<div class="usercenter">
+<div><a href="/usercenter" target="_blank"><em class="cmn-icon cmn-icons cmn-icons_navbar-usercenter"></em>个人中心</a></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="body-wrapper">
+<div class="before-content">
+</div>
+<div class="content-wrapper">
+<div class="content">
+<div class="main-content">
+<a class="posterFlag expert-icon " href="javascript:;" title="权威专家认证词条"></a>
+<div class="top-tool">
+<a class="add-sub-icon" href="javascript:;" title="添加义项" nslog-type="50000101"></a>
+<a href="/divideload/%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80" title="拆分词条" target="_blank" class="split-icon" style="display:none;" nslog-type="50000104"></a>
+<div class="top-collect">
+<span class="collect-text" nslog-type="50000102">收藏</span>
+<div class="collect-tip">查看<a href="/uc/favolemma" target="_blank">我的收藏</a></div>
+</div>
+<a href="javascript:void(0);" class="top-vote" nslog-type="50000103">
+<span class="vote-count">0</span>
+<span class="vote-tip">有用+1</span>
+<span class="voted-tip">已投票</span>
+</a>
+<div class="bdsharebuttonbox top-share" data-tag="top-share">
+<a class="bds_more top-share-icon" data-cmd="more" nslog-type="9067">
+<span class="bds_count share-count" id="j-topShareCount" data-cmd="count">0</span>
+</a>
+</div>
+</div>
+<div style="width:0;height:0;clear:both"></div><dl class="lemmaWgt-lemmaTitle lemmaWgt-lemmaTitle-">
+<dd class="lemmaWgt-lemmaTitle-title">
+<h1>结构化查询语言</h1>
+<a href="javascript:;" class="edit-lemma cmn-btn-hover-blue cmn-btn-28 j-edit-link"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+<a class="lock-lemma" target="_blank" href="/view/10812319.htm" title="锁定"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_lock-lemma"></em>锁定</a>
+</dd>
+</dl><div class="authorityListPrompt">
+<div class="main-content-zj">
+本词条由<a href="http://www.cast.org.cn/n35081/" target="_blank" class="nslog:7175">“科普中国”百科科学词条编写与应用工作项目</a>
+审核
+。</div>
+</div>
+<div class="lemma-summary">
+<div class="para">结构化查询语言(Structured Query Language)简称SQL(发音：/ˈes kjuː ˈel/ &quot;S-Q-L&quot;)，是一种特殊目的的编程语言，是一种数据库查询和<a target=_blank href="/view/128511.htm">程序设计语言</a>，用于存取数据以及查询、更新和管理<a target=_blank href="/view/549699.htm">关系数据库系统</a>；同时也是<a target=_blank href="/view/3542225.htm">数据库脚本文件</a>的扩展名。</div><div class="para">结构化查询语言是高级的非过程化编程语言，允许用户在高层<a target=_blank href="/view/9900.htm">数据结构</a>上工作。它不要求用户指定对数据的存放方法，也不需要用户了解具体的数据存放方式，所以具有完全不同底层结构的不同<a target=_blank href="/view/7809.htm">数据库系统</a>, 可以使用相同的结构化查询语言作为数据输入与管理的接口。结构化查询语言语句可以嵌套，这使它具有极大的灵活性和强大的功能。</div><div class="para">1986年10月，美国国家标准协会对SQL进行规范后，以此作为关系式数据库管理系统的标准语言（ANSI X3. 135-1986），1987年得到国际标准组织的支持下成为国际标准。不过各种通行的数据库系统在其实践过程中都对SQL规范作了某些编改和扩充。所以，实际上不同数据库系统之间的SQL不能完全相互通用。</div>
+</div>
+<div class="basic-info">
+<dl class="basicInfo-block basicInfo-left">
+<dt class="basicInfo-item name">中文名</dt>
+<dd class="basicInfo-item value">
+&nbsp;结构化查询语言
+</dd>
+<dt class="basicInfo-item name">外文名</dt>
+<dd class="basicInfo-item value">
+&nbsp;Structured Query Language
+</dd>
+</dl><dl class="basicInfo-block basicInfo-right">
+<dt class="basicInfo-item name">通过时间</dt>
+<dd class="basicInfo-item value">
+1986年10月
+</dd>
+<dt class="basicInfo-item name">所属领域</dt>
+<dd class="basicInfo-item value">
+数据库
+</dd>
+<dt class="basicInfo-item name">持续时间</dt>
+<dd class="basicInfo-item value">
+28年经久不衰
+</dd>
+</dl><div style="clear:both;"></div>
+</div>
+<div class="lemmaWgt-lemmaCatalog">
+<div class="lemma-catalog">
+<h2 class="block-title">目录</h2>
+<div class="catalog-list column-4">
+<ol>
+<li class="level1">
+<span class="index">1</span>
+<span class="text"><a href="#1">语言简介</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#1_1">应用</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#1_2">支持标准</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#1_3">其他版本</a></span>
+</li>
+<li class="level1">
+<span class="index">2</span>
+<span class="text"><a href="#2">语句结构</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">3</span>
+<span class="text"><a href="#3">发展历史</a></span>
+</li>
+<li class="level1">
+<span class="index">4</span>
+<span class="text"><a href="#4">数据类型</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#4_1">字符型</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#4_2">文本型</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#4_3">数值型</a></span>
+</li>
+</ol><ol><li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#4_4">逻辑型</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#4_5">日期型</a></span>
+</li>
+<li class="level1">
+<span class="index">5</span>
+<span class="text"><a href="#5">语言特点</a></span>
+</li>
+<li class="level1">
+<span class="index">6</span>
+<span class="text"><a href="#6">使用简要</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_1">选择列表</a></span>
+</li>
+</ol><ol><li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_2">FROM子句</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_3">WHERE子句</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_4">查询结果排序</a></span>
+</li>
+<li class="level1">
+<span class="index">7</span>
+<span class="text"><a href="#7">相关函数</a></span>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="anchor-list">
+<a name="1" class="lemma-anchor para-title" ></a>
+<a name="sub595350_1" class="lemma-anchor " ></a>
+<a name="语言简介" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">语言简介</span>
+</h2>
+<div class="anchor-list">
+<a name="1_1" class="lemma-anchor para-title" ></a>
+<a name="sub595350_1_1" class="lemma-anchor " ></a>
+<a name="应用" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">应用</span>
+</h3>
+<div class="para">结构化查询语言SQL（STRUCTURED QUERY LANGUAGE）是最重要的<a target=_blank href="/view/68348.htm">关系数据库</a>操作语言，并且它的影响已经超出<a target=_blank href="/view/1088.htm">数据库</a>领域，得到其他领域的重视和采用，如<a target=_blank href="/view/2949.htm">人工智能</a>领域的数据检索，第四代软件开发工具中嵌入SQL的语言等。</div><div class="anchor-list">
+<a name="1_2" class="lemma-anchor para-title" ></a>
+<a name="sub595350_1_2" class="lemma-anchor " ></a>
+<a name="支持标准" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">支持标准</span>
+</h3>
+<div class="para">SQL 是1986年10 月由<a target=_blank href="/view/185283.htm">美国国家标准局</a>（<a target=_blank href="/view/185282.htm">ANSI</a>）通过的<a target=_blank href="/view/1088.htm">数据库</a>语言美国标准，接着，国际标准化组织（<a target=_blank href="/view/1007.htm">ISO</a>）颁布了SQL正式国际标准。1989年4月，ISO提出了具有完整性特征的SQL89标准，1992年11月又公布了<a target=_blank href="/view/1889818.htm">SQL92</a>标准，在此标准中，把<a target=_blank href="/view/1088.htm">数据库</a>分为三个级别：基本集、标准集和完全集。</div><div class="anchor-list">
+<a name="1_3" class="lemma-anchor para-title" ></a>
+<a name="sub595350_1_3" class="lemma-anchor " ></a>
+<a name="其他版本" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">其他版本</span>
+</h3>
+<div class="para">各种不同的<a target=_blank href="/view/1088.htm">数据库</a>对<a target=_blank href="/view/34.htm">SQL</a>语言的支持与标准存在着细微的不同，这是因为，有的产品的开发先于标准的公布，另外，各产品开发商为了达到特殊的性能或新的特性，需要对标准进行扩展。已有100多种遍布在从微机到大型机上的数据库产品SQL，其中包括<a target=_blank href="/view/387066.htm">DB2</a>、SQL/DS、<a target=_blank href="/view/15020.htm">ORACLE</a>、<a target=_blank href="/view/3228821.htm">INGRES</a>、<a target=_blank href="/view/118488.htm">SYBASE</a>、<a target=_blank href="/view/24335.htm">SQLSERVER</a>、DBASEⅣ、<a target=_blank href="/view/910543.htm">PARADOX</a>、MICROSOFTACCESS等。</div>
+<div class="para">SQL语言基本上独立于<a target=_blank href="/view/1088.htm">数据库</a>本身、使用的机器、网络、操作系统，基于SQL的<a target=_blank href="/view/68450.htm">DBMS</a>产品可以运行在从个人机、工作站到基于<a target=_blank href="/view/788.htm">局域网</a>、小型机和大型机的各种计算机系统上，具有良好的可移植性。可以看出标准化的工作是很有意义的。早在1987年就有些有识之士预测SQL的标准化是“一场革命”，是“关系数据库管理系统的转折点”。数据库和各种产品都使用SQL作为共同的数据存取语言和标准的接口，使不同数据库系统之间的互操作有了共同的基础，进而实现异构机、各种操作环境的共享与移植。</div>
+<div class="para">1974年，在<a target=_blank href="/view/1937.htm">IBM</a>公司圣约瑟研究实验室研制的大型关系数据库管理系统SYSTEM R 中，使用SEQUEL语言（由BOYCE 和CHAMBERLIN 提出），后来在SEQUEL 的基础上发展了SQL 语言。 SQL语言是一种交互式查询语言，允许用户直接查询存储数据，但它不是完整的程序语言，如它没有DO或FOR 类似的循环语句，但它可以嵌入到另一种语言中，也可以借用<a target=_blank href="/view/3063.htm">VB</a>、C、<a target=_blank href="/view/29.htm">JAVA</a>等语言，通过调用级接口（CALL LEVEL INTERFACE）直接发送到数据库管理系统。SQL基本上是域关系演算，但可以实现关系代数操作。</div><div class="anchor-list">
+<a name="2" class="lemma-anchor para-title" ></a>
+<a name="sub595350_2" class="lemma-anchor " ></a>
+<a name="语句结构" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">语句结构</span>
+</h2>
+<div class="para">结构化查询语言包含<b>6</b><b>个部分</b>：</div>
+<div class="para">一：<a target=_blank href="/view/38752.htm">数据</a>查询语言（<a target=_blank href="/view/1776009.htm">DQL</a>:Data Query Language）：</div>
+<div class="para">其语句，也称为“数据检索<a target=_blank href="/view/537751.htm">语句</a>”，用以从表中获得数据，确定数据怎样在应用程序给出。保留字<a target=_blank href="/subview/621719/11844438.htm">SELECT</a>是DQL（也是所有SQL）用得最多的动词，其他DQL常用的保留字有WHERE，ORDER BY，GROUP BY和HAVING。这些DQL保留字常与其他类型的SQL语句一起使用。</div>
+<div class="para">二：<a target=_blank href="/view/3426309.htm">数据操作语言</a>（DML：Data Manipulation Language）：</div>
+<div class="para">其语句包括动词<a target=_blank href="/view/270874.htm">INSERT</a>，<a target=_blank href="/view/1028155.htm">UPDATE</a>和<a target=_blank href="/view/4794.htm">DELETE</a>。它们分别用于添加，修改和删除表中的行。也称为动作查询语言。</div>
+<div class="para">三：事务处理语言（TPL）：</div>
+<div class="para">它的语句能确保被DML语句影响的表的所有行及时得以更新。TPL语句包括BEGIN TRANSACTION，COMMIT和ROLLBACK。</div>
+<div class="para">四：<a target=_blank href="/view/702650.htm">数据控制语言</a>（DCL）：</div>
+<div class="para">它的语句通过GRANT或REVOKE获得许可，确定单个用户和用户组对<a target=_blank href="/view/50913.htm">数据库对象</a>的访问。某些RDBMS可用GRANT或REVOKE控制对<a target=_blank href="/view/296684.htm">表单</a>个列的访问。</div>
+<div class="para">五：数据定义语言（<a target=_blank href="/subview/68372/6717975.htm">DDL</a>）：</div>
+<div class="para">其语句包括动词CREATE和DROP。在数据库中创建新表或删除表（CREAT TABLE 或 DROP TABLE）；为表加入索引等。DDL包括许多与人<a target=_blank href="/view/4369490.htm">数据库目录</a>中获得数据有关的保留字。它也是动作查询的一部分。</div>
+<div class="para">六：指针控制语言（CCL）：</div>
+<div class="para">它的语句，像DECLARE CURSOR，FETCH INTO和UPDATE WHERE CURRENT用于对一个或多个表单独行的操作。</div><div class="anchor-list">
+<a name="3" class="lemma-anchor para-title" ></a>
+<a name="sub595350_3" class="lemma-anchor " ></a>
+<a name="发展历史" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">发展历史</span>
+</h2>
+<div class="para"><sup>[1]</sup><a class="sup-anchor" name="ref_[1]_595350">&nbsp;</a>
+在1970年代初，由<a target=_blank href="/view/1937.htm">IBM</a>公司San Jose,California研究实验室的<a target=_blank href="/view/9379340.htm">埃德加·科德</a>发表将数据组成表格的应用原则（Codd&#39;s Relational Algebra）。1974年，同一实验室的D.D.Chamberlin和R.F. Boyce对Codd&#39;s Relational Algebra在研制关系数据库管理系统System R中，研制出一套规范语言-SEQUEL（Structured English QUEry Language），并在1976年11月的IBM Journal of R&amp;D上公布新版本的SQL（叫SEQUEL/2）。1980年改名为SQL。</div>
+<div class="para">1979年ORACLE公司首先提供商用的SQL，IBM公司在DB2和SQL/DS数据库系统中也实现了SQL。</div>
+<div class="para">1986年10月，美国ANSI采用SQL作为关系数据库管理系统的标准语言（ANSI X3. 135-1986），后为国际标准化组织（ISO）采纳为国际标准。</div>
+<div class="para">1989年，美国ANSI采纳在ANSI X3.135-1989报告中定义的关系数据库管理系统的SQL标准语言，称为ANSI SQL 89，该标准替代ANSI X3.135-1986版本。该标准为下列组织所采纳：</div>
+<div class="para">国际标准化组织（ISO），为ISO 9075-1989报告“Database Language SQL With Integrity Enhancement”</div>
+<div class="para">美国联邦政府，发布在The Federal Information Processing Standard Publication(FIPS PUB)127</div>
+<div class="para">目前（21世纪初期）主要的关系数据库管理系统支持某些形式的SQL，大部分数据库打算遵守ANSI SQL89标准。</div><div class="anchor-list">
+<a name="4" class="lemma-anchor para-title" ></a>
+<a name="sub595350_4" class="lemma-anchor " ></a>
+<a name="数据类型" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">数据类型</span>
+</h2>
+<div class="para">简要描述一下结构化查询语言中的五种数据类型：<b>字符型，文本型，数值型，逻辑型和日期型。</b></div><div class="anchor-list">
+<a name="4_1" class="lemma-anchor para-title" ></a>
+<a name="sub595350_4_1" class="lemma-anchor " ></a>
+<a name="字符型" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">字符型</span>
+</h3>
+<div class="para"><a target=_blank href="/view/2954857.htm"><b>VARCHAR</b></a>VS <a target=_blank href="/view/1006519.htm"><b>CHAR</b></a></div>
+<div class="para">VARCHAR型和CHAR型数据的这个差别是细微的，但是非常重要。他们都是用来储存字符串长度小于255的字符。</div>
+<div class="para">假如你向一个长度为四十个字符的VARCHAR型字段中输入数据Bill Gates。当你以后从这个字段中取出此数据时，你取出的数据其长度为十个字符——字符串Bill Gates的长度。假如你把字符串输入一个长度为四十个字符的CHAR型字段中，那么当你取出数据时，所取出的数据长度将是四十个字符。字符串的后面会被附加多余的空格。</div>
+<div class="para">当你建立自己的站点时，你会发现使用VARCHAR型字段要比CHAR型字段方便的多。使用VARCHAR型字段时，你不需要为剪掉你数据中多余的空格而操心。</div>
+<div class="para">VARCHAR型字段的另一个突出的好处是它可以比CHAR型字段占用更少的内存和硬盘空间。当你的数据库很大时，这种内存和磁盘空间的节省会变得非常重要。</div><div class="anchor-list">
+<a name="4_2" class="lemma-anchor para-title" ></a>
+<a name="sub595350_4_2" class="lemma-anchor " ></a>
+<a name="文本型" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">文本型</span>
+</h3>
+<div class="para"><b>TEXT</b></div>
+<div class="para">使用<a target=_blank href="/view/3924589.htm">文本型数据</a>，你可以存放超过二十亿个字符的字符串。当你需要存储大串的字符时，应该使用<a target=_blank href="/view/3924589.htm">文本型数据</a>。</div>
+<div class="para">注意<a target=_blank href="/view/3924589.htm">文本型数据</a>没有长度，而上一节中所讲的<a target=_blank href="/view/4733975.htm">字符型数据</a>是有长度的。一个文本型字段中的数据通常要么为空，要么很大。</div>
+<div class="para">当你从HTML FORM的多行文本编辑框（<a target=_blank href="/view/3521746.htm">TEXTAREA</a>）中收集数据时，你应该把收集的信息存储于文本型字段中。但是，无论何时，只要你能避免使用<a target=_blank href="/view/300107.htm">文本</a>型字段，你就应该不使用它。文本型字段既大且慢，滥用文本型字段会使服务器速度变慢。文本型字段还会吃掉大量的磁盘空间。</div>
+<div class="para">一旦你向文本型字段中输入了任何数据（甚至是空值），就会有2K的空间被自动分配给该数据。除非删除该记录，否则你无法收回这部分<a target=_blank href="/view/1375172.htm">存储空间</a>。</div><div class="anchor-list">
+<a name="4_3" class="lemma-anchor para-title" ></a>
+<a name="sub595350_4_3" class="lemma-anchor " ></a>
+<a name="数值型" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">数值型</span>
+</h3>
+<div class="para"><b>整数</b><b>INT 、小数NUMERIC、钱数MONEY</b></div>
+<div class="para"><b>INT</b> VS <b>SMALLINT</b> VS <b>TINYINT</b></div>
+<div class="para">通常，为了节省空间，应该尽可能的使用最小的<a target=_blank href="/view/2317434.htm">整型数据</a>。一个TINYINT型数据只占用一个字节；一个<a target=_blank href="/view/804413.htm">INT</a>型数据占用四个字节。这看起来似乎差别不大，但是在比较大的表中，字节数的增长是很快的。另一方面，一旦你已经创建了一个字段，要修改它是很困难的。因此，为安全起见，你应该预测一下，一个字段所需要存储的数值最大有可能是多大，然后选择适当的数据类型。</div>
+<div class="para"><b>NUMERIC</b></div>
+<div class="para">为了能对字段所存放的数据有更多的控制，你可以使用NUMERIC型数据来同时表示一个数的整数部分和小数部分。NUMERIC型数据使你能表示非常大的数——比INT型数据要大得多。一个NUMERIC型字段可以存储从-10^38到10^38范围内的数。NUMERIC型数据还使你能表示有小数部分的数。例如，你可以在NUMERIC型字段中存储小数3.14。</div>
+<div class="para"><b>MONEY </b>VS<b>SMALLMONEY</b></div>
+<div class="para">你可以使用 INT型或NUMERIC型数据来存储钱数。但是，专门有另外两种<a target=_blank href="/view/675645.htm">数据类型</a>用于此目的。如果你希望你的网点能挣很多钱，你可以使用MONEY型数据。如果你的野心不大，你可以使用SMALLMONEY型数据。MONEY型数据可以存储从-922,337,203,685,477.5808到922,337,203,685,477.5807的钱数。如果你需要存储比这还大的金额，你可以使用NUMERIC型数据。</div>
+<div class="para">SMALLMONEY型数据只能存储从-214,748.3648到214,748.3647 的钱数。同样，如果可以的话，你应该用SMALLMONEY型来代替MONEY型数据，以节省空间。</div><div class="anchor-list">
+<a name="4_4" class="lemma-anchor para-title" ></a>
+<a name="sub595350_4_4" class="lemma-anchor " ></a>
+<a name="逻辑型" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">逻辑型</span>
+</h3>
+<div class="para"><b>BIT</b></div>
+<div class="para">如果你使用复选框（<a target=_blank href="/view/675583.htm">CHECKBOX</a>）从网页中搜集信息，你可以把此信息存储在BIT型字段中。BIT型字段只能取两个值：0或1。</div>
+<div class="para">当心，在你创建好一个表之后，你不能向表中添加 BIT型字段。如果你打算在一个表中包含BIT型字段，你必须在创建表时完成。</div><div class="anchor-list">
+<a name="4_5" class="lemma-anchor para-title" ></a>
+<a name="sub595350_4_5" class="lemma-anchor " ></a>
+<a name="日期型" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">日期型</span>
+</h3>
+<div class="para"><b>DATETIME</b> VS <b>SMALLDATETIME</b></div>
+<div class="para">一个 DATETIME型的字段可以<a target=_blank href="/view/87682.htm">存储</a>的日期范围是从1753年1月1日第一毫秒到9999年12月31日最后一毫秒。</div>
+<div class="para">如果你不需要覆盖这么大范围的日期和时间，你可以使用SMALLDATETIME型数据。它与DATETIME型数据同样使用，只不过它能表示的日期和时间范围比DATETIME型数据小，而且不如DATETIME型数据精确。一个SMALLDATETIME型的字段能够存储从1900年1月1日到2079年6月6日的日期，它只能精确到秒。</div>
+<div class="para">DATETIME型字段在你输入日期和时间之前并不包含实际的数据，认识这一点是重要的。</div><div class="anchor-list">
+<a name="5" class="lemma-anchor para-title" ></a>
+<a name="sub595350_5" class="lemma-anchor " ></a>
+<a name="语言特点" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">语言特点</span>
+</h2>
+<div class="para">1．一体化：SQL集数据定义<a target=_blank href="/view/68372.htm">DDL</a>、数据操纵<a target=_blank href="/view/566000.htm">DML</a>和数据控制<a target=_blank href="/view/1089254.htm">DCL</a>于一体，可以完成数据库中的全部工作。</div>
+<div class="para">2．使用方式灵活：它具有两种使用方式，即可以直接以命令方式交互使用；也可以嵌入使用，嵌入到C、<a target=_blank href="/view/824.htm">C++</a>、FORTRAN、<a target=_blank href="/view/90933.htm">COBOL</a>、<a target=_blank href="/view/29.htm">JAVA</a>等主语言中使用。</div>
+<div class="para">3．非过程化：只提操作要求，不必描述操作步骤，也不需要导航。使用时只需要告诉计算机“做什么”，而不需要告诉它“怎么做”。<sup>[2]</sup><a class="sup-anchor" name="ref_[2]_595350">&nbsp;</a>
+</div>
+<div class="para">4．语言简洁，语法简单，好学好用：在ANSI标准中，只包含了94个英文单词，核心功能只用6个动词，语法接近英语口语。</div>
+<div class="para">软道语录</div>
+<div class="para">结构化查询语言</div>
+<div class="para">SQL(Structured Query Language，结构化查询语言)是一种用于数据库操作的语言。</div><div class="anchor-list">
+<a name="6" class="lemma-anchor para-title" ></a>
+<a name="sub595350_6" class="lemma-anchor " ></a>
+<a name="使用简要" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">使用简要</span>
+</h2>
+<div class="para">简单的Transact-结构化查询语言查询只包括选择列表、FROM子句和WHERE子句。它们分别说明所查询列、查询的表或视图、以及搜索条件等。</div><div class="anchor-list">
+<a name="6_1" class="lemma-anchor para-title" ></a>
+<a name="sub595350_6_1" class="lemma-anchor " ></a>
+<a name="选择列表" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">选择列表</span>
+</h3>
+<div class="para">选择列表（select_list）指出所查询列，它可以是一组列名列表、星号、表达式、变量（包括<a target=_blank href="/view/552847.htm">局部变量</a>和全局变量）等构成。</div>
+<div class="para">1、选择所有列</div>
+<div class="para">例如，下面语句显示testtable表中所有列的数据：</div>
+<div class="para">SELECT *　FROM testtable</div>
+<div class="para">2、选择部分列并指定它们的显示次序</div>
+<div class="para">查询结果集合中数据的排列顺序与选择列表中所指定的列名排列顺序相同。</div>
+<div class="para">3、更改列标题</div>
+<div class="para">在选择列表中，可重新指定列标题。定义格式为：</div>
+<div class="para">列标题=列名　列名 列标题</div>
+<div class="para">如果指定的列标题不是标准的<a target=_blank href="/view/390932.htm">标识符</a>格式时，应使用引号定界符，例如，下列语句使用汉字显示列标题：　SELECT 昵称=nickname，电子邮件=email　FROM testtable。</div>
+<div class="para">4、删除重复行</div>
+<div class="para">SELECT语句中使用ALL或DISTINCT选项来显示表中符合条件的所有行或删除其中重复的数据行，默认为ALL。使用DISTINCT选项时，对于所有重复的数据行在SELECT返回的<a target=_blank href="/view/691831.htm">结果集</a>合中只保留一行。</div>
+<div class="para">5、限制返回的行数</div>
+<div class="para">使用TOP n [PERCENT]选项限制返回的数据行数，TOP n说明返回n行，而TOP n PERCENT时，说明n是表示一百分数，指定返回的行数等于总行数的百分之几。TOP命令仅针对SQL Server系列数据库，并不支持<a target=_blank href="/view/1685727.htm">Oracle数据库</a>。</div><div class="anchor-list">
+<a name="6_2" class="lemma-anchor para-title" ></a>
+<a name="sub595350_6_2" class="lemma-anchor " ></a>
+<a name="FROM子句" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">FROM子句</span>
+</h3>
+<div class="para">FROM子句指定SELECT语句查询及与查询相关的表或视图。在FROM子句中最多可指定256个表或视图，它们之间用逗号分隔。</div>
+<div class="para">在FROM子句同时指定多个表或视图时，如果选择列表中存在同名列，这时应使用对象名限定这些列所属的表或视图。例如在usertable和citytable表中同时存在cityid列，在查询两个表中的cityid时应使用下面语句格式加以限定：</div>
+<pre class="brush: sql">SELECTusername,citytable.cityid
+　FROMusertable,citytable
+　WHEREusertable.cityid=citytable.cityid
+
+</pre><div class="para">在FROM子句中可用以下两种格式为表或视图指定别名：<br/>　　表名 as 别名<br/>　　表名 别名</div><div class="anchor-list">
+<a name="6_3" class="lemma-anchor para-title" ></a>
+<a name="sub595350_6_3" class="lemma-anchor " ></a>
+<a name="WHERE子句" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">WHERE子句</span>
+</h3>
+<div class="para">WHERE子句设置查询条件，过滤掉不需要的数据行。</div>
+<div class="para">WHERE子句可包括各种条件运算符：</div>
+<div class="para">比较运算符（大小比较）：&gt;；、&gt;=、=、&lt;；、&lt;=、&lt;&gt;；、！&gt;；、！&lt;</div>
+<div class="para">范围运算符（表达式值是否在指定的范围）：BETWEEN…AND…</div>
+<div class="para">NOT BETWEEN…AND…</div>
+<div class="para">列表运算符（判断表达式是否为列表中的指定项）：IN （项1，项2……）</div>
+<div class="para">NOT IN （项1，项2……）</div>
+<div class="para">模式匹配符（判断值是否与指定的字符通配格式相符）：LIKE、NOT LIKE</div>
+<div class="para">空值判断符（判断表达式是否为空）：IS NULL、IS NOT NULL</div>
+<div class="para">逻辑运算符（用于多条件的逻辑连接）：NOT、AND、OR</div>
+<div class="para">1、范围运算符例：age BETWEEN 10 AND 30相当于age&gt;=10 AND age&lt;=30</div>
+<div class="para">2、列表运算符例：country IN (&#39;Germany&#39;,&#39;China&#39;)</div>
+<div class="para">3、模式匹配符例：常用于模糊查找，它判断列值是否与指定的字符串格式相匹配。可用于char、varchar、text、ntext、datetime和smalldatetime等类型查询。</div>
+<div class="para">可使用以下通配字符：</div>
+<div class="para"><a target=_blank href="/view/1332267.htm">百分号</a>%：可<a target=_blank href="/view/352573.htm">匹配</a>任意类型和长度的<a target=_blank href="/view/263416.htm">字符</a>，如果是中文，请使用两个百分号即%%。</div>
+<div class="para">下划线_：匹配单个任意字符，它常用来限制<a target=_blank href="/view/420676.htm">表达式</a>的字符长度。</div>
+<div class="para">方括号[]：指定一个字符、字符串或范围，要求所匹配对象为它们中的任一个。[^]：其取值也[] 相同，但它要求所匹配对象为指定字符以外的任一个字符。</div><div class="anchor-list">
+<a name="6_4" class="lemma-anchor para-title" ></a>
+<a name="sub595350_6_4" class="lemma-anchor " ></a>
+<a name="查询结果排序" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">查询结果排序</span>
+</h3>
+<div class="para">使用ORDER BY子句对查询返回的结果按一列或多列排序。ORDER BY子句的语法格式为：</div>
+<div class="para">ORDER BY {column_name [ASC|DESC]} [，…n]</div>
+<div class="para">其中ASC表示升序，为默认值，DESC为降序。ORDER BY不能按ntext、text和image<a target=_blank href="/view/675645.htm">数据类型</a>进行排序。</div><div class="anchor-list">
+<a name="7" class="lemma-anchor para-title" ></a>
+<a name="sub595350_7" class="lemma-anchor " ></a>
+<a name="相关函数" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">相关函数</span>
+</h2>
+<div class="para"><b>SQL Aggregate 函数</b></div>
+<div class="para">SQL Aggregate 函数计算从列中取得的值，返回一个单一的值。<sup>[3]</sup><a class="sup-anchor" name="ref_[3]_595350">&nbsp;</a>
+</div>
+<div class="para">有用的 Aggregate 函数：</div>
+<ul class="custom_dot para-list list-paddingleft-1"><li class="list-dot list-dot-paddingleft"><div class="para">AVG() - 返回平均值</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">COUNT() - 返回行数</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">FIRST() - 返回第一个记录的值</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">LAST() - 返回最后一个记录的值</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">MAX() - 返回最大值</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">MIN() - 返回最小值</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">SUM() - 返回总和</div>
+</li></ul><div class="para"><b>SQL Scalar 函数</b></div>
+<div class="para">SQL Scalar 函数基于输入值，返回一个单一的值。<sup>[3]</sup><a class="sup-anchor" name="ref_[3]_595350">&nbsp;</a>
+</div>
+<div class="para">有用的 Scalar 函数：</div>
+<ul class="custom_dot para-list list-paddingleft-1"><li class="list-dot list-dot-paddingleft"><div class="para">UCASE() - 将某个字段转换为大写</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">LCASE() - 将某个字段转换为小写</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">MID() - 从某个文本字段提取字符</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">LEN() - 返回某个文本字段的长度</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">ROUND() - 对某个数值字段进行指定小数位数的四舍五入</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">NOW() - 返回当前的系统日期和时间</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">FORMAT() - 格式化某个字段的显示方式</div>
+</li></ul><div class="rs-container-foot">
+<a name="rs-1"></a>
+<a name="rs_595350_35345" class="anchor-2"></a>
+<div id="rs-container-595350-35345" class="rslazy rs-container" lazy-init="lemmars.tableAction(baidu.g('rs-595350-35345'))"></div>
+</div><script type="text/javascript">
+        window.rsInsertData = window['rsInsertData'] || [];
+        var rsdataList = {"foot":[{"fentryTableId":35345,"fentryTableName":"\u5730\u7406\u4fe1\u606f\u7cfb\u7edf","fentryTableType":1,"entryId":2683993,"templateId":0,"entryTitle":"\u5730\u7406\u4fe1\u606f\u7cfb\u7edf","isManual":0,"isExpand":1}],"top":[]};
+
+        if (rsdataList.top || rsdataList.foot) {
+            rsInsertData.push([595350, rsdataList]);
+        }
+    </script>
+<dl class="lemma-reference collapse nslog-area log-set-param" data-nslog-type="2" log-set-param="ext_reference">
+<dt class="reference-title">参考资料<em class="toggle"></em></dt>
+<dd class="reference-list-wrap">
+<ul class="reference-list">
+<li class="reference-item " id="reference-[1]-595350-wrap">
+<span class="index">1.</span>
+<a class="gotop anchor"  name="refIndex_1_595350" id="refIndex_1_595350" title="向上跳转" href="#ref_[1]_595350">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/8f6eRSMaaYPOXLTRx2EDa5RXLEFUjOKYN90o3KmElD1Ibllj3pWl5gINHxkDWxEUMKMO7-kKjPtnobD7gg" target="_blank" class="text">SQL<span class="linkout">&nbsp;</span></a>
+<span class="site">．维基百科</span><span>&#91;引用日期2015-01-31&#93;</span></li><li class="reference-item " id="reference-[2]-595350-wrap">
+<span class="index">2.</span>
+<a class="gotop anchor"  name="refIndex_2_595350" id="refIndex_2_595350" title="向上跳转" href="#ref_[2]_595350">&nbsp;&nbsp;</a>
+<span>李武   姚珺</span><span class="text">．数据库原理及应用</span><span>．哈尔滨</span><span>：哈尔滨工程大学出版社</span><span>，2011</span><span>：179</span></li><li class="reference-item " id="reference-[3]-595350-wrap">
+<span class="index">3.</span>
+<a class="gotop anchor"  name="refIndex_3_595350" id="refIndex_3_595350" title="向上跳转" href="#ref_[3]_595350">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/f56dTdcnE_bGLX70zO9qI3T2HNNOvzJyaI0qszUzqJCHfqCXQyS4gT-1EFWQtdB5DKEr5cbt5n556XJ-6VyyHreq-Mew98FFwjY" target="_blank" class="text">SQL 函数<span class="linkout">&nbsp;</span></a>
+<span class="site">．w3cschool </span><span>．2014-11-21</span><span>&#91;引用日期2014-01-21&#93;</span></li></ul>
+</dd>
+</dl>
+<div id="open-tag">
+<div class="open-tag-title">词条标签：</div>
+<dd id="open-tag-item">
+<span class="taglist">
+<a target="_blank" href="/wikitag/taglist?tagId=68031">中国电子学会</a>
+</span>
+，<span class="taglist">
+计算机术语
+</span>
+，<span class="taglist">
+计算机学
+</span>
+，<span class="taglist">
+互联网
+</span>
+</dd>
+<div class="open-tag-collapse" id="open-tag-collapse"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="side-content">
+<div class="summary-pic">
+<a href="/picture/595350/595350/0/0b46f21fbe096b6340eee5740e338744ebf8ac1b.html?fr=lemma&amp;ct=single" target="_blank">
+<img src="http://g.hiphotos.baidu.com/baike/w%3D268/sign=ab5f846f00087bf47dec50efcad2575e/0b46f21fbe096b6340eee5740e338744ebf8ac1b.jpg" />
+<button class="picAlbumBtn"><em></em><span>图集</span></button>
+<div>结构化查询语言图册</div>
+</a>
+</div>
+<div class="lemmaWgt-promotion-vbaike">
+<div class="promotion_title">V百科<a href="/vbaike" target="_blank">往期回顾</a></div>
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightPreciseAd"></div><a name="zhixinWrap" class="qnAnchor"></a>
+<div class="side-box zhixin-box" id="zhixinWrap" data-source="bdg" data-newLemmaId="10450182">
+<div class="zhixin-group js-group">
+<h6 class="js-cardTitle">
+<span>其他人还看</span>
+</h6>
+<div class="zhixin-fixBtn js-fixBtn">
+<div class="openFix" title="若推荐内容有误，请点击纠错进行反馈">纠错</div>
+<div class="closeFix">关闭纠错</div>
+</div>
+<div class="zhixin-list zhixin-list-3">
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1088","targetId":"103728"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1088" target="_blank">
+<img width="72" height="72" src="http://g.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=af72666f544e9258a661d5aefabfe06a/c75c10385343fbf214402828b27eca8065388f49.jpg" alt="数据库" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1088" target="_blank" title="数据库">数据库</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="103728">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/subview/24816/15308361","targetId":"471251"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/subview/24816/15308361" target="_blank">
+<img width="72" height="72" src="http://c.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=a488996829381f309e4cdee9cf3c7d3a/ac6eddc451da81cb037c289d5366d016082431c3.jpg" alt="mySQL" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/subview/24816/15308361" target="_blank" title="mySQL">mySQL</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="471251">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/22424","targetId":"430115"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/22424" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=d5ef2073700e0cf3a0a21dbb6c7bc32d/eac4b74543a982268a41a6468882b9014b90ebcb.jpg" alt="甲骨文公司" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/22424" target="_blank" title="甲骨文公司">甲骨文公司</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="430115">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1626075","targetId":"2947866"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1626075" target="_blank">
+<img width="72" height="72" src="http://h.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=7aa4adf2950a304e5277f3bab7f596b4/30adcbef76094b362b14c21ba1cc7cd98c109d46.jpg" alt="microsoft sql server" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1626075" target="_blank" title="microsoft sql server">microsoft sql server</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="2947866">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/subview/99/5828265","targetId":"9337"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/subview/99/5828265" target="_blank">
+<img width="72" height="72" src="http://b.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=228b5205530fd9f9a04206294310e518/2f738bd4b31c870168f8cf9f257f9e2f0708ff79.jpg" alt="php" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/subview/99/5828265" target="_blank" title="php">php</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="9337">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1685727","targetId":"3710800"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1685727" target="_blank">
+<img width="72" height="72" src="http://a.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=3fd600778735e5dd9079f69f10fb96dd/f31fbe096b63f6241b74d9268544ebf81a4ca3ee.jpg" alt="Oracle数据库" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1685727" target="_blank" title="Oracle数据库">Oracle数据库</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="3710800">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/subview/29/12654100","targetId":"85979"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/subview/29/12654100" target="_blank">
+<img width="72" height="72" src="http://c.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=09a25603c9ea15ce41bbb349d03d0bc1/a08b87d6277f9e2f0d91258e1f30e924b999f38b.jpg" alt="java" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/subview/29/12654100" target="_blank" title="java">java</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="85979">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/115293","targetId":"2081086"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/115293" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=f4c452c8a344ad342eead4c7b69f3dc6/a8ec8a13632762d092e4549aa2ec08fa513dc639.jpg" alt="SQL数据库" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/115293" target="_blank" title="SQL数据库">SQL数据库</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="2081086">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1162845","targetId":"7748166"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1162845" target="_blank">
+<img width="72" height="72" src="http://b.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=4572af498fb1cb133e3c6f53bb69677c/11385343fbf2b211e2c941e8c88065380dd78eb5.jpg" alt="Microsoft Office Access" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1162845" target="_blank" title="Microsoft Office Access">Microsoft Office Access</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="7748166">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<form id="zhixinErrorForm" class="hidden" action="http://f3.baidu.com/index.php/feedback/zx/baikeJC" target="zhixinSubErr" method="post">
+<input class="js-url" name="fb_html_url" type="hidden" />
+<input class="js-query" name="fb_query" type="hidden" />
+<input class="js-title" name="fb_card_title" type="hidden" />
+<input class="js-content" name="fb_content" type="hidden" />
+<input class="js-souceId"name="fb_source_id" type="hidden" />
+</form>
+<iframe id="zhixinSubErr" name="zhixinSubErr" style="display:none;" frameborder="0"></iframe>
+<div class="lemmaWgt-promotion-slide">
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div id="side-auth">
+<div id="authEdit" class="side-box">
+<dl>
+<dt class="sidetitle">权威合作编辑</dt>
+<dd class="side-auth-content">
+<div class="side-auth-img">
+<a href="http://www.cast.org.cn/n35081/" target="_blank" class="nslog:7075" id="authOrgRightEditPic">
+<img style="display: none" onload="this.style.width = '50px';this.style.display='';" src="http://baike.baidu.com/cms/rc/QQ%E5%9B%BE%E7%89%8720141121003618.jpg" alt="权威编辑" title="权威编辑"/>
+</a>
+</div>
+<div class="side-auth-info">
+<p class="auth-info-name">
+<a href="http://www.cast.org.cn/n35081/" nslog-type="7075" target="_blank" id="authOrgRightEdit">“科普中国”百科科学词条编写与应用工作项目</a>
+</p>
+<span id="authDetail">
+“科普中国”是为我国科普信息化建设塑造的全...
+</span>
+</div>
+<div class="clear"></div>
+</dd>
+<dd class="authVersion">
+<span style="">
+<a class="whatIs" align="absmiddle" href="javascript:void(0);"></a><a href="/hezuo/qwbj.html" target="_blank" nslog-type="36" class="link-toggle" id="whatIsAuthEdit">什么是权威编辑</a>
+</span>
+<span class="divisionLine"></span>
+<a href="/history/73871196" class="nslog:37" target="_blank" id="authEditVersion">查看编辑版本</a>
+</dd>
+</dl>
+</div>
+<div id="authResource" class="side-box">
+<dl>
+<dt class="sidetitle">资源提供</dt>
+<dd class="side-auth-content">
+<div class="side-auth-img">
+<a href="http://www.cie-info.org.cn/" target="_blank" nslog-type="7096">
+<img style="display: none" onload="this.style.width = '50px';this.style.display='';" src="http://baike.bdimg.com/cms/static/cie-logo.jpg" alt="资源合作" title="资源合作"/>
+</a>
+</div>
+<div class="side-auth-info">
+<div class="auth-info-name">
+<a href="http://www.cie-info.org.cn/" class="nslog:7096" target="_blank">中国电子学会</a>
+</div>
+<p>中国电子学会（Chinese Instit...</p>
+<p>提供资源类型：<span style="color: #555555;">内容</span></p>
+</div>
+</dd>
+<dd class="authVersion">
+<span>
+<a class="whatIs" align="absmiddle" href="javascript:void(0);"></a>
+<a href="/hezuo/zyhz.html" target="_blank" nslog-type="3024" class="link-toggle">什么是资源合作</a>
+</span>
+</dd>
+</dl>
+</div>
+</div><dl class="side-box lemma-statistics">
+<dt class="title">词条统计</dt>
+<dd class="description">
+<ul>
+<li>浏览次数：<span id="j-lemmaStatistics-pv"></span>次</li>
+<li>编辑次数：83次<a href="/historylist/%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80/10450182" class="nslog:1021" target="_blank">历史版本</a></li>
+<li>最近更新：<span class="j-modified-time" style="display:none">2015-02-02</span></li>
+<li>创建者：<a class="show-userCard" data-uid="23247464" title="查看此用户资料" target="_blank" href="http://www.baidu.com/p/goodluo" nslog-type="1022">goodluo</a></li>
+</ul>
+</dd>
+</dl>
+<div class="side-catalog" style="visibility:hidden">
+<div class="side-bar">
+<em class="circle start"></em>
+<em class="circle end"></em>
+</div>
+<div class="catalog-scroller">
+<dl class="catalog-list">
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">1</span>
+<a href="#1" class="title-link" nslog-type="1026">语言简介</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">1.1</span>
+<a href="#1_1" class="title-link" nslog-type="1026">应用</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">1.2</span>
+<a href="#1_2" class="title-link" nslog-type="1026">支持标准</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">1.3</span>
+<a href="#1_3" class="title-link" nslog-type="1026">其他版本</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">2</span>
+<a href="#2" class="title-link" nslog-type="1026">语句结构</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">3</span>
+<a href="#3" class="title-link" nslog-type="1026">发展历史</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">4</span>
+<a href="#4" class="title-link" nslog-type="1026">数据类型</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">4.1</span>
+<a href="#4_1" class="title-link" nslog-type="1026">字符型</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">4.2</span>
+<a href="#4_2" class="title-link" nslog-type="1026">文本型</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">4.3</span>
+<a href="#4_3" class="title-link" nslog-type="1026">数值型</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">4.4</span>
+<a href="#4_4" class="title-link" nslog-type="1026">逻辑型</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">4.5</span>
+<a href="#4_5" class="title-link" nslog-type="1026">日期型</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">5</span>
+<a href="#5" class="title-link" nslog-type="1026">语言特点</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">6</span>
+<a href="#6" class="title-link" nslog-type="1026">使用简要</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.1</span>
+<a href="#6_1" class="title-link" nslog-type="1026">选择列表</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.2</span>
+<a href="#6_2" class="title-link" nslog-type="1026">FROM子句</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.3</span>
+<a href="#6_3" class="title-link" nslog-type="1026">WHERE子句</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.4</span>
+<a href="#6_4" class="title-link" nslog-type="1026">查询结果排序</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">7</span>
+<a href="#7" class="title-link" nslog-type="1026">相关函数</a>
+</span>
+</dt>
+<a class="arrow" href="javascript:void(0);"></a>
+</dl>
+</div>
+<div class="right-wrap">
+<a class="go-up disable" href="javascript:void(0);"></a>
+<a class="go-down" href="javascript:void(0);"></a>
+</div>
+<div class="bottom-wrap">
+<a class="toggle-button" href="javascript:void(0);"></a>
+<a class="gotop-button" href="javascript:void(0);"></a>
+</div>
+</div>
+<div class="unionAd_fromPs side-box" id="unionAd_fromPs">
+<script type="BAIDU_HH">
+    {
+        type : 'pageembed',
+        di   : 'u2140330',
+        rsi0 : 270,
+        rsi1 : 175
+    }
+    </script>
+</div>
+<div class="fengchao side-box" nslog="area" nslog-type="10000902">
+</div>
+<div class="unionAd side-box">
+<p>推广链接</p>
+<div class="union-content"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="after-content">
+<div class="bottom-promotion" id="bottom-promotion">
+<div id="BOTTOM_PRO_AD"></div>
+</div>
+</div>
+</div>
+
+<div class="wgt-footer-main">
+<div class="content">
+<dl class="fresh">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-fresh"></em>新手上路</dt>
+<dd>
+<div><a target="_blank" href="/usercenter/tasks#guide">成长任务</a></div>
+<div><a target="_blank" href="/help#main01">编辑入门</a></div>
+<div><a target="_blank" href="/help#main06">编辑规则</a></div>
+<div><a target="_blank" href="/help#main05">百科术语</a></div>
+</dd>
+</dl>
+<dl class="question">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-question"></em>我有疑问</dt>
+<dd>
+<div><a target="_blank" href="/user/question">常见问题</a></div>
+<div><a target="_blank" href="http://zhidao.baidu.com/new?ie=GBK">我要提问</a></div>
+<div><a target="_blank" href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91">参加讨论</a></div>
+<div><a target="_blank" href="/feedback">意见反馈</a></div>
+</dd>
+</dl>
+<dl class="suggestion">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-suggestion"></em>投诉建议</dt>
+<dd>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#1">举报不良信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#2">未通过词条申诉</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#4">投诉侵权信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#3">封禁查询与解封</a></div>
+</dd>
+</dl>
+</div>
+<div class="copyright">©2015Baidu&nbsp;<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>&nbsp;|&nbsp;<a href="http://help.baidu.com/question?prod_en=baike&class=159&id=1047" target="_blank">百科协议</a>&nbsp;|&nbsp;<a href="/operation/cooperation" target="_blank">百度百科合作平台</a></div>
+</div>
+
+<div class="lemmaWgt-searchHeader">
+<div class="layout">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="结构化查询语言" /><a id="search" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_search"></em></a>
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="tool-buttons">
+<a class="toolButtons-edit button j-edit-link" href="javascript:;" nslog-type="10010001"></a>
+<a class="toolButtons-collect button" href="javascript:;" nslog-type="10010002"></a>
+<a class="toolButtons-vote button" href="javascript:;" nslog-type="10010003"></a>
+</div>
+<div class="user-info">
+<a class="user-link unlogin" href="javascript:;" target="_blank">登录</a>
+</div>
+</div></div>
+<div class="bdsharebuttonbox side-share" data-tag="side-share">
+<span class="title">分享</span>
+<a class="bds_qzone" data-cmd="qzone" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tsina" data-cmd="tsina" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tqq" data-cmd="tqq" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_more" data-cmd="more" href="javascript:void(0);" nslog-type="9068"></a>
+</div>
+
+</body><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_0_8f81ba9.js"></script>
+<script type="text/javascript">require.resourceMap({"res":{"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaInsert_8f95785.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/tangram.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/tangram_67429c3.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip_98e1259.js","deps":["wiki-common:widget/lib/jquery/jquery.js"]},"wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js","deps":["wiki-common:widget/lib/jquery/jquery.js","wiki-common:widget/component/nslog/nslog.js"]}},"pkg":{"wiki-lemma:p3":{"url":"http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module-lemmaRelation_36b8718.js"}}});</script><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_1_16bd5e2.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_2_1dca152.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_cb85c8e.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/script/XRegExp_3e3f85b.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/script/shCore_e2d4316.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/script/shBrushSql_a714638.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js"></script>
+<script type="text/javascript">!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+    userbar = require('wiki-common:widget/component/userbar/userbar.js');
+    
+  $(function() {
+    userbar.buildUserbar($('.wgt-userbar'), null);
+  });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');  
+    initSearchbar($('.wgt-searchbar-main'));
+  }();
+!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+
+  var timer = '';
+
+  $('.wgt-navbar').on('mouseenter', 'dl', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      $('.wgt-navbar').addClass('wgt-navbar-hover');
+    }, 300);
+  }).on('mouseleave', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  }).on('click', 'a', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  });
+}();
+!function(){            var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+            var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+            // 展现策略
+            rightCheck.editView('10450182', function(res) {
+                if (!res.errno) {
+                    if (res.data.edit) {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                } else {
+                    if ('') {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                }
+            }); 
+
+            require('wiki-lemma:widget/basicElement/addSub/addSub.js')({
+                lemmaId: '10450182',
+                lemmaTitle: '结构化查询语言',
+                lemmaDesc: '',
+                versionId: '73871196',
+                subLemmaId: '595350'
+            });
+        }();
+!function(){        var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+        var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+        // 展现策略
+        rightCheck.editView('10450182', function(res) {
+            if (!res.errno) {
+                if (res.data.divide) {
+                    $('.top-tool .split-icon').css('display', 'block');
+                }
+            }
+        });
+    }();
+!function(){	require.async("wiki-lemma:widget/basicElement/collect/collect.js",function(collect){
+		collect({
+            newLemmaId:"10450182",
+			lemmaId:"595350",
+			subLemmaId:"595350"
+		});
+	});
+}();
+!function(){	require.async("wiki-lemma:widget/basicElement/vote/vote.js",function(vote){
+		vote({
+			lemmaId:"595350",
+            subLemmaId:"595350"
+		});
+	});
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "top-share",
+		"bdSize" : 32,
+		"bdMini":1
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        } else {
+            if ('') {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        }
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/basicInfo/basicInfo.js",function(init){
+		init();
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('10450182', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){        SyntaxHighlighter.all();
+    }();
+!function(){        require.async(['wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js'], function(init) {
+            init();
+        });
+    }();
+!function(){		require.async(["wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReference.js", "wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip.js"],function(Reference,ReferenceTip){
+			new Reference({
+				subLemmaId:"595350"
+			});
+			new ReferenceTip({
+				subLemmaId:"595350"
+			});
+		});
+	}();
+!function(){        require.async("wiki-common:widget/lib/jquery/jquery.js",function($){
+            function openTagToggle(node) {
+                if ($(node).hasClass("collapse")) {
+                    $(node).removeClass("collapse");
+                    $("#open-tag").css("height", '22px');
+                } else {
+                    $(node).addClass("collapse");
+                    $("#open-tag").css("height", $("#open-tag-item").css("height"));
+                }
+            }
+            if (parseInt($("#open-tag-item").css("height")) <= 30) {
+                $('#open-tag-collapse').hide();
+            }
+            $("#open-tag-collapse").on("click", function () {
+                openTagToggle($("#open-tag")[0]);
+            });
+        });
+    }();
+!function(){            require.async("wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js",function(init){
+                init();
+            });
+        }();
+!function(){    require.async("wiki-lemma:widget/lemma_content/mainContent/lemmaStatistics/lemmaStatistics.js",function(init){
+        init({
+            newLemmaIdEnc:"b8afdc44bdc51438626eb7d2"
+        });
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/sideCatalog/sideCatalog.js",function(SideCatalog){
+		new SideCatalog();
+	});
+}();
+!function(){        require.async(['wiki-lemma:widget/promotion/unionAdFromPs/unionAdFromPs.js'], function (init) {
+            init();
+        });
+    }();
+!function(){    require.async(["wiki-lemma:widget/promotion/fengchao/fengchao.js", "wiki-lemma:widget/promotion/unionAd/unionAd.js"], function (init, unionAd) {
+        init({
+            newLemmaId: "10450182",
+            lemmaTitle: "结构化查询语言",
+            encodeLemmaTitle: "%BD%E1%B9%B9%BB%AF%B2%E9%D1%AF%D3%EF%D1%D4"
+        }, {
+            errFn: unionAd,
+            dom: $('.unionAd')
+        });
+    });
+}();
+!function(){        require.async('wiki-lemma:widget/promotion/bottomAd/bottomAd.js', function (init) {
+            init('BOTTOM_PRO_AD');
+        });
+    }();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var Dialog = require("wiki-common:widget/ui/dialog/dialog.js");
+    var userLogin = require('wiki-common:widget/component/userLogin/userLogin.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    var editUrl = '/edit/' + encodeURIComponent('结构化查询语言') + '/' + '10450182';
+
+    $(document.body).on('click', '.j-edit-link', function() {
+        var dl = $(this).attr('data-edit-dl');
+        if (dl) {
+            var url = editUrl + '?dl=' + dl;
+        } else {
+            var url = editUrl;
+        }
+
+        rightCheck.preeditCheck('10450182', '结构化查询语言', '', '73871196', function(res) {
+            if (res.errno) {
+                userLogin.showLoginPop();
+                return;
+            }
+            if (!res.data.right.edit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    mainMsg: '对不起，您暂时没有权限编辑该词条。',
+                    subMsg: '<p>您好，该词条内容已较丰富，现仅对百科等级达到<b>四级</b>且通过率达到<b>85%</b>的科友开放编辑。</p><p>当您通过努力达到以上要求，就可以参与编辑该词条了。</p><p><img src="http://img.baidu.com/img/baike/usercenter/growuptask/star.gif" class="star" />参加<a target="_blank" href="/usercenter#guide">成长任务</a>，更快掌握百科编辑技巧，加速升级！</p>'
+                });
+                return;
+            }
+            if (!res.data.right.noAudit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '很抱歉，该词条有其他用户编辑的版本正在提交，您暂时无法编辑。<br/>百科建议您晚些时候再编辑该词条，或者尝试编辑其他的词条。'
+                });
+                return;
+            }
+
+            if (res.data.notice.isMidNight) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '晚23:00至次日8:00，因审核系统例行维护，您提交的版本可能需要较长时间才能通过，望您谅解。',
+                    onConfirm: function() {
+                        window.location.href = url;
+                    }
+                });
+            } else {
+                window.location.href = url;
+            }
+        });
+    });
+}();
+!function(){    require.async("wiki-lemma:widget/tools/searchHeader/toolButtons/toolButtons.js",function(init){
+        init({
+            newLemmaId:"10450182",
+            lemmaId:"595350",
+            subLemmaId:"595350"
+        });
+    });
+}();
+!function(){    require('wiki-lemma:widget/tools/searchHeader/toolButtons/userInfo.js')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      animation = require('wiki-common:widget/util/animation.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');
+
+    var isFadeIn = false,
+        isFadeOut = false;
+
+    var fadeInAni, fadeOutAni;
+
+    $(window).on('scroll', function(e) {
+        var scrollTop = $(this).scrollTop();
+
+        if (scrollTop > 200 && !isFadeIn && $('.lemmaWgt-searchHeader').css('display') == 'none') {
+            fadeOutAni && fadeOutAni.stop();
+            fadeInAni = animation({
+                duration: 200,
+                easing: 'linear',
+                onStart: function() {
+                    isFadeOut = false;
+                    isFadeIn = true;
+                    $('.lemmaWgt-searchHeader').css('display', 'block');
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', progress)
+                },
+                onComplete: function(progress) {
+                    isFadeIn = false;
+                }
+            });
+        } else if (scrollTop <= 200 && !isFadeOut && $('.lemmaWgt-searchHeader').css('display') == 'block') {
+            fadeInAni && fadeInAni.stop();
+            fadeOutAni = animation({
+                duration: 300,
+                easing: 'linear',
+                onStart: function() {
+                    $('.lemmaWgt-searchHeader #suggestion').hide();
+                    isFadeIn = false;
+                    isFadeOut = true;
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', 1 - progress);
+                },
+                onComplete: function(progress) {
+                    isFadeOut = false;
+                    $('.lemmaWgt-searchHeader').css('display', 'none');
+                }
+            });
+        }
+    });
+
+    initSearchbar($('.lemmaWgt-searchHeader'));
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "side-share",
+		"bdSize" : 32,
+		"bdMini":1,
+		"bdPopupOffsetLeft":-72
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var nslog = require("wiki-common:widget/component/nslog/nslog.js");
+
+    require.async("wiki-lemma:widget/tools/lazyLoad/lazyLoad.js", function(LazyLoad) {
+        new LazyLoad();
+    });
+
+    require.async(['wiki-common:widget/component/nslog/nslog.js', 'wiki-common:widget/lib/jquery/jquery.js'], function(nslog, $) {
+        nslog().setGlobal({
+            lemmaId: "595350",
+            newLemmaId: "10450182",
+            subLemmaId: "595350",
+            lemmaTitle: "结构化查询语言"
+        });
+        nslog(9322);
+    });
+
+    var map = [1, 2, 4, 3];
+    $('.wgt-footer-main .suggestion').find('a').each(function(i) {
+        $(this).attr('href', 'http://tousu.baidu.com/baike/add?word=%E7%BB%93%E6%9E%84%E5%8C%96%E6%9F%A5%E8%AF%A2%E8%AF%AD%E8%A8%80' + '&&submit_link=' + encodeURIComponent(window.location.href) + '#' + map[i]);
+    });
+
+    window.BKShare.setCommon({
+        bdText: '【结构化查询语言_百度百科】结构化查询语言(Structured Query Language)简称SQL(发音：\/ˈes kjuː ˈel\/ &quot;S-Q-L&quot;)，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。结构化查询语言是高级的非过程化编程语言，允许用户在高层数据.....（分享自@百度百科）',
+        bdDesc: '',
+        bdUrl: '',
+        bdPic: ''
+    });
+
+    $.getJSON('/api/wikiad/getads?lemmaId=' + 10450182, function(res) {
+        if (!res.errno) {
+            if (res.data[5]) {
+                require.async(['wiki-lemma:widget/promotion/rightPreciseAd/rightPreciseAd.js'], function(rightPreciseAd) {
+                    rightPreciseAd(res.data[5]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[5][0].adId
+                    });
+                });
+            } else if (res.data[1]) {
+                require.async(['wiki-lemma:widget/promotion/vbaike/vbaike.js'], function(vbaike) {
+                    vbaike(res.data[1]);
+                    for(var i in res.data[1]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[1][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[2]) {
+                require.async(['wiki-lemma:widget/promotion/slide/slide.js'], function(slide) {
+                    slide(res.data[2]);
+                    for(var i in res.data[2]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[2][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[3]) {
+                require.async(['wiki-lemma:widget/promotion/topAd/topAd.js'], function(topAd) {
+                    topAd(res.data[3]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[3][0].adId
+                    });
+                });
+            }
+            if (res.data[4]) {
+                require.async(['wiki-lemma:widget/promotion/rightAd/rightAd.js'], function(rightAd) {
+                    rightAd(res.data[4]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[4][0].adId
+                    });
+                });
+            }
+        }
+    });
+}();
+!function(){      require('wiki-common:widget/component/psLink/psLink.js');
+    }();</script>
+<script type="text/javascript">
+  var Hunter = window.Hunter || {};
+  Hunter.userConfig = Hunter.userConfig || [];
+  </script>
+<script type="text/javascript" src="http://img.baidu.com/hunter/baike.js?st=16693" defer></script></html><!--07659155381009136138091610-->
+<script> var _trace_page_logid = 0765915538; </script>

@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+
+
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="description" content="MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入...">
+<title>MVC框架_百度百科</title>
+
+<meta name="keywords" content="MVC框架  百度百科 baike  简介 MVC 编程模式 框架内容 区别 常见框架 特点 外界评价 MVC控件">
+<meta name="image" content="http://baike.bdimg.com/cms/static/baike.png">
+
+<!--[if lte IE 9]>
+<script>
+    (function() {
+      var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+        i = e.length;
+      while (i--) {
+        document.createElement(e[i]);
+      }
+    })();
+  </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_ffb1ec5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common-base_19edda6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/praise/praise_2120cd2.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/toolButtons_a2c470f.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/userInfo_9ba20c1.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/video/pageMask/pageMask_ff9a193.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module_e4fa793.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/cardLink/cardLink_40dc1e5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/mainContent_847fed6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaRelation_f8d61eb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_93e49e0.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/searchHeader_e786bfb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/sideShare/sideShare_afe05e7.css"/></head>
+<body class="wiki-lemma normal">
+
+
+<div class="header-wrapper">
+<ul class="wgt-userbar">
+<li>
+<a href="http://www.baidu.com/">百度首页</a>
+</li>
+</ul>
+<div class="header">
+<div class="layout">
+<div class="wgt-searchbar wgt-searchbar-main cmn-clearfix">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="nav">
+<a href="http://news.baidu.com/" data-href="http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=">新闻</a><a href="http://www.baidu.com/" data-href="http://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=">网页</a><a href="http://tieba.baidu.com/" data-href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=">贴吧</a><a href="http://zhidao.baidu.com/" data-href="http://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=">知道</a><a href="http://music.baidu.com/" data-href="http://music.baidu.com/search?f=ms&ct=134217728&ie=utf-8&rn=&lm=-1&pn=30fr=bks0000&key=">音乐</a><a href="http://image.baidu.com/" data-href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=">图片</a><a href="http://v.baidu.com/" data-href="http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=22&ie=utf-8&fr=bks0000&word=">视频</a><a href="http://map.baidu.com/" data-href="http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=">地图</a><a class="baike">百科</a><a href="http://wenku.baidu.com/" data-href="http://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=">文库</a>
+</div>
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="MVC" /><button id="search" type="button">进入词条</button><button id="searchLemma" type="button">搜索词条</button><a class="help" href="/help" target="_blank">帮助</a>
+</form>
+<form id="searchLemmaForm" action="/search" method="GET" target="_self">
+<input id="searchLemmaQuery" name="word" type="hidden" />
+<input name="pn" type="hidden" value="0" />
+<input name="rn" type="hidden" value="0" />
+<input name="enc" type="hidden" value="utf8" />
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar-wrapper">
+<div class="wgt-navbar">
+<div class="navbar-bg">
+<div class="navbar-bg-top">
+<div class="navbar-content layout">
+<div class="navbar-content-box">
+<dl class="index ">
+<dt><a href="/">首页</a></dt>
+</dl>
+<dl class="cat ">
+<dt><a>分类</a></dt>
+<dd>
+<div><a href="/ziran" target="_blank">自然</a></div>
+<div><a href="/wenhua" target="_blank">文化</a></div>
+<div><a href="/dili" target="_blank">地理</a></div>
+<div><a href="/lishi" target="_blank">历史</a></div>
+<div><a href="/shenghuo" target="_blank">生活</a></div>
+<div><a href="/shehui" target="_blank">社会</a></div>
+<div><a href="/yishu" target="_blank">艺术</a></div>
+<div><a href="/renwu" target="_blank">人物</a></div>
+<div><a href="/jingji" target="_blank">经济</a></div>
+<div><a href="/keji" target="_blank">科技</a></div>
+<div><a href="/tiyu" target="_blank">体育</a></div>
+</dd>
+</dl>
+<dl class="special ">
+<dt><a>特色百科</a></dt>
+<dd>
+<div><a href="/calendar/" target="_blank">历史上的今天</a></div>
+<div><a href="/museum/" target="_blank">数字博物馆</a></div>
+<div><a href="/city/" target="_blank">城市百科</a></div>
+<div><a href="/operation/worldwar2" target="_blank">二战百科</a></div>
+<div><a href="/art" target="_blank">艺术百科</a></div>
+<div><a href="/science" target="_blank">科学百科</a></div>
+</dd>
+</dl>
+<dl class="user" >
+<dt><a>用户</a></dt>
+<dd>
+<div><a href="/kedou/" target="_blank">蝌蚪团</a></div>
+<div><a href="/event/ranmeng/" target="_blank">燃梦计划</a></div>
+<div><a href="/task/" target="_blank">百科任务</a></div>
+<div><a href="/mall/" target="_blank">百科商城</a></div>
+</dd>
+</dl>
+<dl class="cooperation" >
+<dt><a>权威合作</a></dt>
+<dd>
+<div><a href="/operation/cooperation#joint" target="_blank">合作模式</a></div>
+<div><a href="/operation/cooperation#issue" target="_blank">常见问题</a></div>
+<div><a href="/operation/cooperation#connection" target="_blank">联系方式</a></div>
+</dd>
+</dl>
+<dl class="mobile" >
+<dt><a>手机百科</a></dt>
+<dd>
+<div><a href="/m#download" target="_blank">客户端</a></div>
+<div><a href="/m#wap" target="_blank">网页版</a></div>
+</dd>
+</dl>
+<div class="usercenter">
+<div><a href="/usercenter" target="_blank"><em class="cmn-icon cmn-icons cmn-icons_navbar-usercenter"></em>个人中心</a></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="body-wrapper">
+<div class="before-content">
+</div>
+<div class="content-wrapper">
+<div class="content">
+<div class="main-content">
+<a class="posterFlag excellent-icon" target="_blank" href="/tese" title="特色词条经过百科资深用户精心编写，是符合百科编辑精神的典范之作。"></a>
+<div class="top-tool">
+<a class="add-sub-icon" href="javascript:;" title="添加义项" nslog-type="50000101"></a>
+<a href="/divideload/MVC%E6%A1%86%E6%9E%B6" title="拆分词条" target="_blank" class="split-icon" style="display:none;" nslog-type="50000104"></a>
+<div class="top-collect">
+<span class="collect-text" nslog-type="50000102">收藏</span>
+<div class="collect-tip">查看<a href="/uc/favolemma" target="_blank">我的收藏</a></div>
+</div>
+<a href="javascript:void(0);" class="top-vote" nslog-type="50000103">
+<span class="vote-count">0</span>
+<span class="vote-tip">有用+1</span>
+<span class="voted-tip">已投票</span>
+</a>
+<div class="bdsharebuttonbox top-share" data-tag="top-share">
+<a class="bds_more top-share-icon" data-cmd="more" nslog-type="9067">
+<span class="bds_count share-count" id="j-topShareCount" data-cmd="count">0</span>
+</a>
+</div>
+</div>
+<div style="width:0;height:0;clear:both"></div><dl class="lemmaWgt-lemmaTitle lemmaWgt-lemmaTitle-">
+<dd class="lemmaWgt-lemmaTitle-title">
+<h1>MVC框架</h1>
+<a href="javascript:;" class="edit-lemma cmn-btn-hover-blue cmn-btn-28 j-edit-link"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+<a class="lock-lemma" target="_blank" href="/view/10812319.htm" title="锁定"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_lock-lemma"></em>锁定</a>
+</dd>
+</dl><span class="view-tip-panel">
+<a class="viewTip-icon" href="/subview/71844/10028254.htm" target="_blank" title="同义词">同义词</a>
+<span class="viewTip-fromTitle">MVC</span>一般指MVC框架
+</span>
+<div class="lemma-summary">
+<div class="para">MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入、处理和输出功能在一个逻辑的图形化用户界面的结构中。</div>
+</div>
+<div class="basic-info">
+<dl class="basicInfo-block basicInfo-left">
+<dt class="basicInfo-item name">外文名</dt>
+<dd class="basicInfo-item value">
+MVC框架
+</dd>
+<dt class="basicInfo-item name">全&nbsp;&nbsp;&nbsp;&nbsp;名</dt>
+<dd class="basicInfo-item value">
+Model View Controller
+</dd>
+</dl><dl class="basicInfo-block basicInfo-right">
+<dt class="basicInfo-item name">产生时间</dt>
+<dd class="basicInfo-item value">
+1982年
+</dd>
+<dt class="basicInfo-item name">架构内容</dt>
+<dd class="basicInfo-item value">
+视图，模型，控制器
+</dd>
+<dt class="basicInfo-item name">类&nbsp;&nbsp;&nbsp;&nbsp;别</dt>
+<dd class="basicInfo-item value">
+软件构件模式
+</dd>
+</dl><div style="clear:both;"></div>
+</div>
+<div class="lemmaWgt-lemmaCatalog">
+<div class="lemma-catalog">
+<h2 class="block-title">目录</h2>
+<div class="catalog-list column-3">
+<ol>
+<li class="level1">
+<span class="index">1</span>
+<span class="text"><a href="#1">简介</a></span>
+</li>
+<li class="level1">
+<span class="index">2</span>
+<span class="text"><a href="#2">MVC 编程模式</a></span>
+</li>
+<li class="level1">
+<span class="index">3</span>
+<span class="text"><a href="#3">框架内容</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#3_1">视图</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#3_2">模型</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#3_3">控制器</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">4</span>
+<span class="text"><a href="#4">区别</a></span>
+</li>
+<li class="level1">
+<span class="index">5</span>
+<span class="text"><a href="#5">常见框架</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_1">Struts</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_2">Spring</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_3">ZF</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#5_4">.NET</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">6</span>
+<span class="text"><a href="#6">特点</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_1">优点</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#6_2">缺点</a></span>
+</li>
+<li class="level1">
+<span class="index">7</span>
+<span class="text"><a href="#7">外界评价</a></span>
+</li>
+<li class="level1">
+<span class="index">8</span>
+<span class="text"><a href="#8">MVC控件</a></span>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="anchor-list">
+<a name="1" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_1" class="lemma-anchor " ></a>
+<a name="简介" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">简介</span>
+<a class="edit-icon j-edit-link" data-edit-dl="1" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">MVC开始是存在于桌面程序中的，M是指业务模型，V是指<a target=_blank href="/view/362528.htm">用户界面</a>，C则是控制器，使用MVC的目的是将M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式。比如一批统计数据可以分别用<a target=_blank href="/view/663861.htm">柱状图</a>、<a target=_blank href="/view/1396536.htm">饼图</a>来表示。C存在的目的则是确保M和V的同步，一旦M改变，V应该同步更新。<sup>[1-2]</sup><a class="sup-anchor" name="ref_[1-2]_5468343">&nbsp;</a>
+</div>
+<div class="para">模型－视图－控制器（<a target=_blank href="/view/31.htm">MVC</a>）是<a target=_blank href="/view/616837.htm">Xerox PARC</a>在二十世纪八十年代为编程语言Smalltalk－80发明的一种<a target=_blank href="/view/117325.htm">软件设计模式</a>，已被广泛使用。后来被推荐为<a target=_blank href="/view/15020.htm">Oracle</a>旗下<a target=_blank href="/view/24856.htm">Sun</a>公司<a target=_blank href="/view/1566145.htm">Java EE</a>平台的设计模式，并且受到越来越多的使用<a target=_blank href="/view/276562.htm">ColdFusion</a>和<a target=_blank href="/view/99.htm">PHP</a>的开发者的欢迎。模型－视图－控制器模式是一个有用的<a target=_blank href="/view/1241761.htm">工具箱</a>，它有很多好处，但也有一些缺点。<sup>[3]</sup><a class="sup-anchor" name="ref_[3]_5468343">&nbsp;</a>
+</div>
+<div class="para">（概述内容来源：<sup>[4]</sup><a class="sup-anchor" name="ref_[4]_5468343">&nbsp;</a>
+）</div><div class="anchor-list">
+<a name="2" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_2" class="lemma-anchor " ></a>
+<a name="MVC 编程模式" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">MVC 编程模式</span>
+<a class="edit-icon j-edit-link" data-edit-dl="2" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">MVC 是一种使用 MVC（Model View Controller 模型-视图-控制器）设计创建 Web 应用程序的模式：<sup>[1]</sup><a class="sup-anchor" name="ref_[1]_5468343">&nbsp;</a>
+</div>
+<ul class="custom_dot para-list list-paddingleft-1"><li class="list-dot list-dot-paddingleft"><div class="para">Model（模型）表示应用程序核心（比如数据库记录列表）。</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">View（视图）显示数据（数据库记录）。</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">Controller（控制器）处理输入（写入数据库记录）。</div>
+</li></ul><div class="para">MVC 模式同时提供了对 HTML、CSS 和 JavaScript 的完全控制。</div>
+<div class="para"><b>Model（模型）</b>是应用程序中用于处理应用程序数据逻辑的部分。<br/>　　通常模型对象负责在数据库中存取数据。</div>
+<div class="para"><b>View（视图）</b>是应用程序中处理数据显示的部分。<br/>　　通常视图是依据模型数据创建的。</div>
+<div class="para"><b>Controller（控制器）</b>是应用程序中处理用户交互的部分。<br/>　　通常控制器负责从视图读取数据，控制用户输入，并向模型发送数据。</div>
+<div class="para">MVC 分层有助于管理复杂的应用程序，因为您可以在一个时间内专门关注一个方面。例如，您可以在不依赖业务逻辑的情况下专注于视图设计。同时也让应用程序的测试更加容易。</div>
+<div class="para">MVC 分层同时也简化了分组开发。不同的开发人员可同时开发视图、控制器逻辑和业务逻辑。</div><div class="anchor-list">
+<a name="3" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_3" class="lemma-anchor " ></a>
+<a name="框架内容" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">框架内容</span>
+<a class="edit-icon j-edit-link" data-edit-dl="3" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">MVC是一个框架模式，它强制性的使应用程序的输入、处理和<a target=_blank href="/view/700402.htm">输出</a>分开。使用MVC应用程序被分成三个核心部件：模型、<a target=_blank href="/view/71981.htm">视图</a>、控制器。它们各自处理自己的任务。最典型的MVC就是JSP + <a target=_blank href="/view/25169.htm">servlet</a> + <a target=_blank href="/view/28155.htm">javabean</a>的模式。<sup>[5]</sup><a class="sup-anchor" name="ref_[5]_5468343">&nbsp;</a>
+</div>
+<div class="para"><div class="lemma-picture text-pic layout-right" style="width:220px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/picture/5432454/5468343/0/b03533fa828ba61edbddc04d4034970a304e59a4.html?fr=lemma&ct=single" target="_blank"
+		title="" style="width:220px;height:162px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="http://d.hiphotos.baidu.com/baike/s%3D220/sign=08e269b537d12f2eca05a9627fc2d5ff/b03533fa828ba61edbddc04d4034970a304e59a4.jpg"  alt="" style="width:220px;height:162px;"/>
+</a>
+</div></div><div class="anchor-list">
+<a name="3_1" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_3_1" class="lemma-anchor " ></a>
+<a name="视图" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">视图</span>
+</h3>
+<div class="para">视图是用户看到并与之交互的界面。对老式的Web应用程序来说，视图就是由<a target=_blank href="/view/692.htm">HTML</a>元素组成的界面，在新式的Web应用程序中，<a target=_blank href="/view/177797.htm">HTM</a>L依旧在视图中扮演着重要的角色，但一些新的技术已层出不穷，它们包括<a target=_blank href="/view/1128244.htm">Adobe Flash</a>和像<a target=_blank href="/view/15906.htm">XHTML</a>，<a target=_blank href="/view/63.htm">XML</a>/<a target=_blank href="/view/45861.htm">XSL</a>,<a target=_blank href="/view/160091.htm">WML</a>等一些标识语言和<a target=_blank href="/view/1086510.htm">Web services</a>.</div>
+<div class="para">MVC好处是它能为应用程序处理很多不同的<a target=_blank href="/view/71981.htm">视图</a>。在视图中其实没有真正的处理发生，不管这些数据是联机存储的还是一个雇员列表，作为视图来讲，它只是作为一种输出数据并允许用户操纵的方式。<sup>[6]</sup><a class="sup-anchor" name="ref_[6]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="3_2" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_3_2" class="lemma-anchor " ></a>
+<a name="模型" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">模型</span>
+</h3>
+<div class="para">模型表示企业数据和业务规则。在MVC的三个部件中，模型拥有最多的处理任务。例如它可能用像<a target=_blank href="/view/3542.htm">EJB</a>s和ColdFusion Components这样的构件对象来处理数据库，被模型返回的数据是中立的，就是说模型与数据格式无关，这样一个模型能为多个视图提供数据，由于应用于模型的代码只需写一次就可以被多个视图重用，所以减少了代码的重复性。<sup>[6]</sup><a class="sup-anchor" name="ref_[6]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="3_3" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_3_3" class="lemma-anchor " ></a>
+<a name="控制器" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">控制器</span>
+</h3>
+<div class="para">控制器接受用户的输入并调用模型和视图去完成用户的需求，所以当单击Web页面中的超链接和发送<a target=_blank href="/view/3488030.htm">HTML表单</a>时，控制器本身不输出任何东西和做任何处理。它只是接收请求并决定调用哪个模型构件去处理请求，然后再确定用哪个视图来显示返回的数据。<sup>[6]</sup><a class="sup-anchor" name="ref_[6]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="4" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_4" class="lemma-anchor " ></a>
+<a name="区别" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">区别</span>
+<a class="edit-icon j-edit-link" data-edit-dl="4" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para"><b>框架和设计模式的区别</b></div>
+<div class="para">有很多程序员往往把框架模式和设计模式混淆，认为MVC是一种设计模式。实际上它们完全是不同的概念。<sup>[7]</sup><a class="sup-anchor" name="ref_[7]_5468343">&nbsp;</a>
+</div>
+<div class="para">框架、设计模式这两个概念总容易被混淆，其实它们之间还是有区别的。框架通常是代码重用，而设计模式是设计重用，架构则介于两者之间，部分代码重用，部分设计重用，有时分析也可重用。在软件生产中有三种级别的重用：内部重用，即在同一应用中能公共使用的抽象块;代码重用，即将通用模块组合成库或工具集，以便在多个应用和领域都能使用；应用框架的重用，即为专用领域提供通用的或现成的基础结构，以获得最高级别的重用性。</div>
+<div class="para">框架与设计模式虽然相似，但却有着根本的不同。设计模式是对在某种环境中反复出现的问题以及解决该问题的方案的描述，它比框架更抽象；框架可以用代码表示，也能直接执行或复用，而对模式而言只有实例才能用代码表示;设计模式是比框架更小的元素，一个框架中往往含有一个或多个设计模式，框架总是针对某一特定应用领域，但同一模式却可适用于各种应用。可以说，框架是软件，而设计模式是软件的知识。</div>
+<div class="para">框架模式有哪些？</div>
+<div class="para">MVC、MTV、<a target=_blank href="/subview/7294/10754979.htm">MVP</a>、CBD、<a target=_blank href="/view/197951.htm">ORM</a>等等；</div>
+<div class="para">框架有哪些？</div>
+<div class="para"><a target=_blank href="/view/824.htm">C++</a>语言的QT、MFC、gtk，Java语言的<a target=_blank href="/view/16184.htm">SSH</a> 、<a target=_blank href="/view/188371.htm"><b>SSI</b></a>，<a target=_blank href="/view/99.htm">php</a>语言的 smarty(MVC模式)，<a target=_blank href="/view/21087.htm">python</a>语言的django(MTV模式)等等</div>
+<div class="para">设计模式有哪些？</div>
+<div class="para"><a target=_blank href="/view/1306799.htm">工厂模式</a>、适配器模式、策略模式等等</div>
+<div class="para">简而言之：框架是大智慧，用来对软件设计进行分工；设计模式是小技巧，对具体问题提出解决方案，以提高代码复用率，降低耦合度。</div><div class="anchor-list">
+<a name="5" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_5" class="lemma-anchor " ></a>
+<a name="常见框架" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">常见框架</span>
+<a class="edit-icon j-edit-link" data-edit-dl="5" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="5_1" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_5_1" class="lemma-anchor " ></a>
+<a name="Struts" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">Struts</span>
+</h3>
+<div class="para"><a target=_blank href="/view/25603.htm">Struts</a>是<a target=_blank href="/view/28283.htm">Apache</a>软件基金下Jakarta项目的一部分。Struts框架的主要架构设计和开发者是Craig R.McClanahan。Struts 是Java Web MVC框架中不争的王者。经过长达九年的发展，Struts已经逐渐成长为一个稳定、成熟的框架，并且占有了MVC框架中最大的市场份额。但是Struts某些技术特性上已经落后于新兴的MVC框架。面对<a target=_blank href="/view/1834982.htm">Spring MVC</a>、Webwork2这些设计更精密，扩展性更强的框架，Struts受到了前所未有的挑战。但站在产品开发的角度而言，Struts仍然是最稳妥的选择。</div>
+<div class="para">Struts有一组相互协作的类（组件）、<a target=_blank href="/view/25169.htm">Servlet</a>以及jsp tag lib组成。基于struts构架的web应用程序基本上符合JSP Model2的设计标准，可以说是MVC设计模式的一种变化类型。根据上面对framework的描述，很容易理解为什么说Struts是一个web framework，而不仅仅是一些标记库的组合。但 Struts 也包含了丰富的标记库和独立于该框架工作的实用程序类。Struts有其自己的控制器（<a target=_blank href="/view/1805013.htm">Controller</a>），同时整合了其他的一些技术去实现模型层（<a target=_blank href="/view/2159664.htm">Model</a>）和视图层（View）。在模型层，Struts可以很容易的与数据访问技术相结合，包括<a target=_blank href="/view/3542.htm">EJB</a>，<a target=_blank href="/view/25611.htm">JDBC</a>和Object Relation Bridge。在视图层，Struts能够与JSP, Velocity Templates,XSL等等这些表示层组件相结合。<sup>[8]</sup><a class="sup-anchor" name="ref_[8]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="5_2" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_5_2" class="lemma-anchor " ></a>
+<a name="Spring" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">Spring</span>
+</h3>
+<div class="para"><a target=_blank href="/view/23023.htm">Spring</a>实际上是Expert One-on-One J2EE Design and Development 一书中所阐述的设计思想的具体实现。在One-on-One 一书中，<a target=_blank href="/view/2192255.htm">Rod Johnson</a>倡导<a target=_blank href="/view/1507.htm">J2EE</a>实用主义的<a target=_blank href="/view/14903484.htm">设计思想</a>，并随书提供了一个初步的开发框架实现（interface21 开发包）。而Spring 正是这一思想的更全面和具体的体现。Rod Johnson 在interface21 开发包的基础之上，进行了进一步的改造和扩充，使其发展为一个更加开放、清晰、全面、高效的开发框架。</div>
+<div class="para"><b>Spring是一个开源框架，由Rod Johnson创建并且在他的著作《J2EE设计开发编程指南》里进行了描述。它是为了解决企业应用开发的复杂性而创建的。Spring使使用基本的JavaBeans来完成以前只可能由EJB完成的事情变得可能了。然而，Spring的用途不仅限于服务器端的开发。从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从Spring中受益。</b></div>
+<div class="para">简单来说，Spring是一个轻量的控制反转和面向切面的容</div>
+<div class="para">框架。当然，这个描述有点过于简单。但它的确概括出了Spring是做什么的。<sup>[8]</sup><a class="sup-anchor" name="ref_[8]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="5_3" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_5_3" class="lemma-anchor " ></a>
+<a name="ZF" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">ZF</span>
+</h3>
+<div class="para"><a target=_blank href="/view/618187.htm">Zend Framework</a>(简写ZF)是由 Zend 公司支持开发的完全基于 PHP5 的开源PHP开发框架，可用于开发 Web 程序和服务，ZF采用 MVC(Model–View-Controller) 架构模式来分离应用程序中不同的部分方便程序的开发和维护。</div>
+<div class="para">（MVC框架的详细使用及其相关具体操作可以阅读参考资料：<sup>[8]</sup><a class="sup-anchor" name="ref_[8]_5468343">&nbsp;</a>
+或者扩展阅读第二，三，四条。）</div><div class="anchor-list">
+<a name="5_4" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_5_4" class="lemma-anchor " ></a>
+<a name=".NET" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">.NET</span>
+</h3>
+<div class="para">.NET MVC<sup>[9]</sup><a class="sup-anchor" name="ref_[9]_5468343">&nbsp;</a>
+是微软官方提供的以MVC模式为基础的.NET Web应用程序(Web Application)框架,它由Castle的<a target=_blank href="/view/1344802.htm">MonoRail</a>而来(Castle的MonoRail是由java而来),目前最新版本是.N 4.5。<sup>[10]</sup><a class="sup-anchor" name="ref_[10]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="6" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_6" class="lemma-anchor " ></a>
+<a name="特点" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">特点</span>
+<a class="edit-icon j-edit-link" data-edit-dl="6" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="6_1" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_6_1" class="lemma-anchor " ></a>
+<a name="优点" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">优点</span>
+</h3>
+<div class="para"><a target=_blank href="/view/1731634.htm"><b>耦合性</b></a><b>低</b></div>
+<div class="para">视图层和业务层分离，这样就允许更改视图层代码而不用重新编译模型和控制器代码，同样，一个应用的业务流程或者业务规则的改变只需要改动MVC的模型层即可。因为模型与控制器和视图相分离，所以很容易改变应用程序的数据层和业务规则。</div>
+<div class="para">模型是自包含的，并且与控制器和视图相分离，所以很容易改变应用程序的数据层和业务规则。如果把数据库从MySQL移植到<a target=_blank href="/view/15020.htm">Oracle</a>，或者改变基于RDBMS数据源到<a target=_blank href="/view/159263.htm">LDAP</a>，只需改变模型即可。一旦正确的实现了模型，不管数据来自数据库或是LDAP服务器，视图将会正确的显示它们。由于运用MVC的应用程序的三个部件是相互独立，改变其中一个不会影响其它两个，所以依据这种设计思想能构造良好的<a target=_blank href="/view/1343493.htm">松耦合</a>的构件。<sup>[11]</sup><a class="sup-anchor" name="ref_[11]_5468343">&nbsp;</a>
+</div>
+<div class="para"><b>重用性高</b></div>
+<div class="para">随着技术的不断进步，需要用越来越多的方式来访问应用程序。<a target=_blank href="/view/739359.htm">MVC模式</a>允许使用各种不同样式的视图来访问同一个服务器端的代码，因为多个视图能共享一个模型，它包括任何WEB（HTTP）浏览器或者无线浏览器（wap），比如，用户可以通过电脑也可通过手机来订购某样产品，虽然订购的方式不一样，但处理订购产品的方式是一样的。由于模型返回的数据没有进行格式化，所以同样的构件能被不同的界面使用。例如，很多数据可能用HTML来表示，但是也有可能用WAP来表示，而这些表示所需要的命令是改变视图层的实现方式，而控制层和模型层无需做任何改变。由于已经将数据和业务规则从表示层分开，所以可以最大化的重用代码了。模型也有状态管理和数据持久性处理的功能，例如，基于会话的购物车和电子商务过程也能被Flash网站或者无线联网的应用程序所重用。<sup>[11]</sup><a class="sup-anchor" name="ref_[11]_5468343">&nbsp;</a>
+</div>
+<div class="para"><a target=_blank href="/view/555124.htm"><b>生命周期</b></a><b>成本低</b></div>
+<div class="para">MVC使开发和维护用户<a target=_blank href="/view/159864.htm">接口</a>的技术含量降低。</div>
+<div class="para"><b>部署快</b></div>
+<div class="para">使用MVC模式使开发时间得到相当大的缩减，它使程序员（Java开发人员）集中精力于业务逻辑，界面程序员（HTML和JSP开发人员）集中精力于表现形式上。</div>
+<div class="para"><b>可维护性高</b></div>
+<div class="para">分离视图层和业务逻辑层也使得WEB应用更易于维护和修改。</div>
+<div class="para"><b>有利软件工程化管理</b></div>
+<div class="para">由于不同的层各司其职，每一层不同的应用具有某些相同的特征，有利于通过工程化、工具化管理程序代码。控制器也提供了一个好处，就是可以使用控制器来联接不同的模型和视图去完成用户的需求，这样控制器可以为构造应用程序提供强有力的手段。给定一些可重用的模型和视图，控制器可以根据用户的需求选择模型进行处理，然后选择视图将处理结果显示给用户。<sup>[12-13]</sup><a class="sup-anchor" name="ref_[12-13]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="6_2" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_6_2" class="lemma-anchor " ></a>
+<a name="缺点" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">缺点</span>
+</h3>
+<div class="para"><b>没有明确的定义</b></div>
+<div class="para">完全理解MVC并不是很容易。使用MVC需要精心的计划，由于它的内部原理比较复杂，所以需要花费一些时间去思考。同时由于模型和视图要严格的分离，这样也给调试应用程序带来了一定的困难。每个构件在使用之前都需要经过彻底的测试。</div>
+<div class="para"><b>不适合小型，中等规模的应用程序</b></div>
+<div class="para">花费大量时间将MVC应用到规模并不是很大的应用程序通常会得不偿失。</div>
+<div class="para"><b>增加系统结构和实现的复杂性</b></div>
+<div class="para">对于简单的界面，严格遵循MVC，使模型、视图与控制器分离，会增加结构的复杂性，并可能产生过多的更新操作，降低运行效率。</div>
+<div class="para"><b>视图与控制器间的过于紧密的连接</b></div>
+<div class="para">视图与控制器是相互分离，但却是联系紧密的部件，视图没有控制器的存在，其应用是很有限的，反之亦然，这样就妨碍了他们的独立重用。</div>
+<div class="para"><b>视图对模型数据的低效率访问</b></div>
+<div class="para">依据模型操作接口的不同，视图可能需要多次调用才能获得足够的显示数据。对未变化数据的不必要的频繁访问，也将损害操作性能。</div>
+<div class="para"><b>一般高级的界面工具或构造器不支持模式</b></div>
+<div class="para">改造这些工具以适应MVC需要和建立分离的部件的代价是很高的，会造成MVC使用的困难。<sup>[12-13]</sup><a class="sup-anchor" name="ref_[12-13]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="7" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_7" class="lemma-anchor " ></a>
+<a name="外界评价" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">外界评价</span>
+<a class="edit-icon j-edit-link" data-edit-dl="7" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">根据天极网资料显示：基于Web的MVC framework在J2EE的世界内已是空前繁荣，<a target=_blank href="/view/66087.htm">TTS</a>网站上几乎每隔一两个星期就会有新的MVC框架发布，比较好的MVC,老牌的有Struts、Webwork。新兴的MVC 框架有Spring MVC、Tapestry、JSF等。这些大多是著名团队的作品，另外还有一些边缘团队的作品，也相当出色，如Dinamica、<a target=_blank href="/view/4902225.htm">VRaptor</a>等，这些框架都提供了较好的层次分隔能力，在实现良好的MVC 分隔的基础上，通过提供一些现成的辅助类库，同时也促进了生产效率的提高。<sup>[8]</sup><a class="sup-anchor" name="ref_[8]_5468343">&nbsp;</a>
+</div>
+<div class="para">如何选择一个好的框架应用在项目中，将会对项目的效率和可重用是至关重要的。<sup>[8]</sup><a class="sup-anchor" name="ref_[8]_5468343">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="8" class="lemma-anchor para-title" ></a>
+<a name="sub5468343_8" class="lemma-anchor " ></a>
+<a name="MVC控件" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">MVC控件</span>
+<a class="edit-icon j-edit-link" data-edit-dl="8" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">在<a target=_blank href="/view/2616.htm">ASP</a> <a target=_blank href="/view/4294.htm">.NET</a> MVC框架中没有了自己的控件，页面显示完全就回到了写<a target=_blank href="/view/692.htm">html</a>代码的年代。还好在 asp .net mvc框架中也有自带的HtmlHelper和UrlHelper两个帮助类。另外在MvcContrib扩展项目中也有扩展一些帮助类，这样我们就不光只能使用完整的html来编写了需要显示的页面了，就可以使用这些帮助类来完成，但最后运行时都还是要生成html代码的。</div>
+<div class="para"><b>HtmlHelper类</b></div>
+<div class="para">HtmlHelper类位于System.Web.MVC.Html命名空间下。主要包括FormExtensions,InputExtensions,<br/>　　LinkExtensions,SelectExtensions,TextAreaExtensions,ValidationExtensions,RenderPartialExtensions等7个静态类，他们全部是是采用拓展方法来实现的。</div>
+<div class="para">InputExtensions类：主要有5种类型的扩展方法，分别用于CheckBox控件、Hidden控件、Pass控件、RadionButton控件和TextBox控件</div>
+<div class="para">LinkExtensions类：该类主要用于生成相关链接，主要扩展了ActionLink和RouteLink方法。</div>
+<div class="para">ActionLink：扩展方法主要实现一个连接，共有十个重载方法。</div>
+<div class="para"><b>UrlHelper帮助类</b></div>
+<div class="para">看类名也都知道这个类是用来成URL在 ASP .NET MVC应用程序中。</div>
+<div class="para">UrlHelper提供了四个非常常用的四个方法。</div>
+<div class="para">1.Action方法通过提供Controller,Action和各种参数生成一个URL，</div>
+<div class="para">2.Content方法是将一个虚拟的，相对的路径转换到应用程序的绝对路径，</div>
+<div class="para">3.Encode方法是对URL地址进行加密，与Server.Encode方法一样。</div>
+<div class="para">4.RouteUrl方法是提供在当前应用程序中规定的路由规则中匹配出URL。</div>
+<div class="para">另外还有两个属性，分别是RequestContext和RouteCollection两个属性，分别指的是包含HTTP上下文和RouteData两个属性，另外，RouteCollection是整个当前应用程序中规定的路由规则。</div>
+<div class="para"><b>自定义<a target=_blank href="/view/185331.htm">控件</a></b></div>
+<div class="para">微软提供的HtmlHelper已经是足够大部分开发人员使用了，但是有一些功能要用微软提供的HtmlHelper可能还不满足要求。接下来就谈谈如何自定义的过程。</div>
+<div class="para">首先自定义的方法就是对HtmlHelper对象的扩展。</div>
+<div class="para">扩展方法实现的三要素：1、静态类　2、静态方法　3、this关键字</div>
+<div class="para">1、先定义一个类，例如：MyHtmlHelper：</div>
+<div class="para">using System;</div>
+<div class="para">using System.Collections.Generic;</div>
+<div class="para">using System.Linq;</div>
+<div class="para">using System.Web;</div>
+<div class="para">namespace MvcApplicationFirstDome.Models {</div>
+<div class="para">//静态类</div>
+<div class="para">public static class MyHtmlHelper</div>
+<div class="para">{</div>
+<div class="para">//静态方法</div>
+<div class="para">}</div>
+<div class="para">}</div>
+<div class="para">2、假设要扩展的方式是GetSpan，作用就是当你传入参数时，内部封装了之后返回结果，代码如下。注意在MyHtmlHelper类中要引用using System.Web.Mvc命名空间。</div>
+<div class="para">//静态方法</div>
+<div class="para">public static string GetSpan(this HtmlHelper htmlHelper,string text)</div>
+<div class="para">{</div>
+<div class="para">return &quot;&lt;span style=&#39;color:Red&#39;&gt;&quot;+text+&quot;&lt;/span&gt;&quot;;</div>
+<div class="para">}</div>
+<div class="para">经过上面两步之后HtmlHelper的扩展方法GetSpan基本可以使用了，接下来就讲解如何在页面调用了。</div>
+<div class="para">在调用的时候要注意下一命名空间：如果扩展方法的命名空间和页面的命名空间不同的就必须引用扩展方法的<a target=_blank href="/view/159924.htm">命名空间</a>，否则在页面是没有办法调用自定义的方法的。</div>
+<div class="para">引用完命名空间之后，就可以在相应的页面调用自定义的扩展方法了。</div>
+<div class="para">对于某些项目来说，自定义控件过于复杂和浪费时间。这个时候也可以从技术社区或是源代码站下载适合自己需求的Mvc控件。如一些控件套包，表格控件等。<sup>[14]</sup><a class="sup-anchor" name="ref_[14]_5468343">&nbsp;</a>
+</div>
+<dl class="lemma-reference collapse nslog-area log-set-param" data-nslog-type="2" log-set-param="ext_reference">
+<dt class="reference-title">参考资料<em class="toggle"></em></dt>
+<dd class="reference-list-wrap">
+<ul class="reference-list">
+<li class="reference-item " id="reference-[1]-5468343-wrap">
+<span class="index">1.</span>
+<a class="gotop anchor"  name="refIndex_1_5468343" id="refIndex_1_5468343" title="向上跳转" href="#ref_[1]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/b691TIY1c-has-x9-I6F8ttNHkAPLKvKzaS7wQbDDbjMEF7EEhsX_toFyOip05ypMnLEUqcA4gOcCXq1ygB9EJb7LOYxZ_Nlrdo" target="_blank" class="text">ASP.NET MVC 教程<span class="linkout">&nbsp;</span></a>
+<span class="site">．W3Cschool 菜鸟教程</span><span>&#91;引用日期2014-01-21&#93;</span></li><li class="reference-item " id="reference-[2]-5468343-wrap">
+<span class="index">2.</span>
+<a class="gotop anchor"  name="refIndex_2_5468343" id="refIndex_2_5468343" title="向上跳转" href="#ref_[2]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/3ec0vW2Xw77wA5oJTzWlvDQR5HjDwZcuuABW73YdQK3eiAO-2lNgNiGFkGRBaBH5ZqFvP-psPRq-Hw3P" target="_blank" class="text">1.3 理解MVC（Model-View-Controller）模式-视图-控制器<span class="linkout">&nbsp;</span></a>
+<span class="site">．book.cakephp网（外文网）</span><span>&#91;引用日期2012-12-13&#93;</span></li><li class="reference-item " id="reference-[3]-5468343-wrap">
+<span class="index">3.</span>
+<a class="gotop anchor"  name="refIndex_3_5468343" id="refIndex_3_5468343" title="向上跳转" href="#ref_[3]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/2c13ZTBZyxdH-cbdUAF1apruSpJ97Ja4Wye9Nkljcv4tVqlaAt0O4Rl_ej1fLxgwk-HVLYk_D3P8pMWvn4ZMZVxVdm-XW6Gz61HqSryihqSxgVpH_Dg" target="_blank" class="text">MVC架构探究及其源码实现(1)-理论基础<span class="linkout">&nbsp;</span></a>
+<span class="site">．CSDN博客</span><span>&#91;引用日期2012-12-13&#93;</span></li><li class="reference-item " id="reference-[4]-5468343-wrap">
+<span class="index">4.</span>
+<a class="gotop anchor"  name="refIndex_4_5468343" id="refIndex_4_5468343" title="向上跳转" href="#ref_[4]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/114cihG8g9oZhOZVsOG-uB61MycXxw1faQsUU11V6eceSbtlliq9VeR1IqV9fBDdoSdmEt0KH1Zd537151f2m3Bi6JZQG0eT-8JgtSrA_zuERj3-nl7fSBcjRgfpZQ" target="_blank" class="text">ASP.NET MVC<span class="linkout">&nbsp;</span></a>
+<span class="site">．CodePlex网（外文网）</span><span>&#91;引用日期2012-12-13&#93;</span></li><li class="reference-item " id="reference-[5]-5468343-wrap">
+<span class="index">5.</span>
+<a class="gotop anchor"  name="refIndex_5_5468343" id="refIndex_5_5468343" title="向上跳转" href="#ref_[5]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/932eDV1CEXUGdPCL5lhTpxvyONGPYdWpaPuZ6cP84NP8Gw08ta7jsGYQCTuEZfEMUcCjBfYmv1LwHsK19bdnRKkUDqTQAThvlllr1XU" target="_blank" class="text">细说MVC框架的几大困惑<span class="linkout">&nbsp;</span></a>
+<span class="site">．51com网</span><span>&#91;引用日期2012-12-13&#93;</span></li><li class="reference-item " id="reference-[6]-5468343-wrap">
+<span class="index">6.</span>
+<a class="gotop anchor"  name="refIndex_6_5468343" id="refIndex_6_5468343" title="向上跳转" href="#ref_[6]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/49117YJNfsiZkBZfDU3TMp4qyqTl3o0SQtgUbVhdvOCECt6MclJc_UssukcNd2CGOiDXcAFS3Jk" target="_blank" class="text">Joomla MVC 组件开发 (1) <span class="linkout">&nbsp;</span></a>
+<span class="site">．dongxi网</span><span>&#91;引用日期2012-12-13&#93;</span></li><li class="reference-item " id="reference-[7]-5468343-wrap">
+<span class="index">7.</span>
+<a class="gotop anchor"  name="refIndex_7_5468343" id="refIndex_7_5468343" title="向上跳转" href="#ref_[7]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/ce84SMiSdKZT9wiylpkk90m9cvRSg_s7K4R2SNbndX8gNi8iAPUiocalYnzbmgTG41N6-QRlohDWDVq4N5vUuMealvGTB0rNxj5cZi-fAWfz7LWhAhxg98TzAcJp0ic" target="_blank" class="text">也谈设计模式，架构，框架和类库的区别 <span class="linkout">&nbsp;</span></a>
+<span class="site">．cnblog</span><span>&#91;引用日期2013-01-5&#93;</span></li><li class="reference-item " id="reference-[8]-5468343-wrap">
+<span class="index">8.</span>
+<a class="gotop anchor"  name="refIndex_8_5468343" id="refIndex_8_5468343" title="向上跳转" href="#ref_[8]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/070dPD4_zANyCf6Hcoda8z9DYfBS2Zp33K8d7NAxO-hhsW0am4s2CFzz5-ZxWgaD3lxZFG_2R-kFM7u64m9JmE-tVw" target="_blank" class="text">Struts VS Spring 两种MVC框架比较<span class="linkout">&nbsp;</span></a>
+<span class="site">．天极网</span><span>&#91;引用日期2012-12-17&#93;</span></li><li class="reference-item " id="reference-[9]-5468343-wrap">
+<span class="index">9.</span>
+<a class="gotop anchor"  name="refIndex_9_5468343" id="refIndex_9_5468343" title="向上跳转" href="#ref_[9]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/5ea3f5tgqZCgrWlzyOK6Q4S5KBJy-jSWD3TEIDzFL-xGCilxt_s8Lmt_uLQuc-e6Ib-Sd4ZpX-0M-_jdGr2cnCeV1KA" target="_blank" class="text">ASP.NET MVC词条<span class="linkout">&nbsp;</span></a>
+<span class="site">．百度百科</span><span>&#91;引用日期2013-04-13&#93;</span></li><li class="reference-item " id="reference-[10]-5468343-wrap">
+<span class="index">10.</span>
+<a class="gotop anchor"  name="refIndex_10_5468343" id="refIndex_10_5468343" title="向上跳转" href="#ref_[10]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/3e46dBMi4nNXuhUPcGslVfbvBNX7y-bfXGZoDKD_Rd6EiSHgdOH_zh7uSSLFkfO5Qg0PLw" target="_blank" class="text">ASP.NET MVC官网<span class="linkout">&nbsp;</span></a>
+<span class="site">．ASP.NET MVC</span><span>&#91;引用日期2013-04-13&#93;</span></li><li class="reference-item more" id="reference-[11]-5468343-wrap">
+<span class="index">11.</span>
+<a class="gotop anchor"  name="refIndex_11_5468343" id="refIndex_11_5468343" title="向上跳转" href="#ref_[11]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/3854KVJjgyM6Tm5sQXgF-T4sPBwojfoiPryi_72gkguxcRajPI_sNz2XSM0bborUHRx_O4rFVgXWl5w412zKjgvV7m9wsOFw9UXmxMkE7IFOYkNRuhK1YCBM" target="_blank" class="text">基于中间件技术的制造执行系统架构设计与实现<span class="linkout">&nbsp;</span></a>
+<span class="site">．智造网</span><span>&#91;引用日期2012-12-13&#93;</span></li><li class="reference-item more" id="reference-[12]-5468343-wrap">
+<span class="index">12.</span>
+<a class="gotop anchor"  name="refIndex_12_5468343" id="refIndex_12_5468343" title="向上跳转" href="#ref_[12]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/7e24_jCtU1GQ389rj1CJwuYJ7va6t6K28VfbjVjy15G_VsZg5LJ8UaMx6If0L-cpyTjO0dL1oWJFbJ9mMKjO2cmM4w" target="_blank" class="text">mvc原理和mvc模式的优缺点<span class="linkout">&nbsp;</span></a>
+<span class="site">．ITeye网博客</span><span>&#91;引用日期2012-12-13&#93;</span></li><li class="reference-item more" id="reference-[13]-5468343-wrap">
+<span class="index">13.</span>
+<a class="gotop anchor"  name="refIndex_13_5468343" id="refIndex_13_5468343" title="向上跳转" href="#ref_[13]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/1ca37uFMzukSUfVXO80vTuSP9QYhl2eCClJslEltD3lUrp7bwkcPYF8ld44Vr-uGtz2hNNqCTOMxOPAwLSu3GUSUc-6cwY6d" target="_blank" class="text">11.2 为什么要使用 MVC<span class="linkout">&nbsp;</span></a>
+<span class="site">．51cto网</span><span>&#91;引用日期2012-12-13&#93;</span></li><li class="reference-item more" id="reference-[14]-5468343-wrap">
+<span class="index">14.</span>
+<a class="gotop anchor"  name="refIndex_14_5468343" id="refIndex_14_5468343" title="向上跳转" href="#ref_[14]_5468343">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/2d2cS0KAsLPA66PqZrxSk-50Nxl3l8Tb6wCHdPLH4g_6MhPCXTh1GIg8KAe68n3466kc6bueHzwMtVpK215vLcTz-XjxXin_dP8Ck_38bCo" target="_blank" class="text">Mvc控件工具<span class="linkout">&nbsp;</span></a>
+<span class="site">．gcpowertools</span><span>&#91;引用日期2013-02-7&#93;</span></li></ul>
+</dd>
+</dl>
+<div id="open-tag">
+<div class="open-tag-title">词条标签：</div>
+<dd id="open-tag-item">
+<span class="taglist">
+计算机学
+</span>
+</dd>
+<div class="open-tag-collapse" id="open-tag-collapse"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="side-content">
+<div class="summary-pic">
+<a href="/picture/5432454/5468343/0/ac6eddc451da81cb26660e7e5066d01608243184.html?fr=lemma&amp;ct=single" target="_blank">
+<img src="http://h.hiphotos.baidu.com/baike/w%3D268/sign=e2a2f9b7950a304e5222a7fce9c9a7c3/ac6eddc451da81cb26660e7e5066d01608243184.jpg" />
+<button class="picAlbumBtn"><em></em><span>图集</span></button>
+<div>MVC框架图册</div>
+</a>
+</div>
+<div class="lemmaWgt-promotion-vbaike">
+<div class="promotion_title">V百科<a href="/vbaike" target="_blank">往期回顾</a></div>
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightPreciseAd"></div><a name="zhixinWrap" class="qnAnchor"></a>
+<div class="side-box zhixin-box" id="zhixinWrap" data-source="bdg" data-newLemmaId="9241230">
+<div class="zhixin-group js-group">
+<h6 class="js-cardTitle">
+<span>其他人还看</span>
+</h6>
+<div class="zhixin-fixBtn js-fixBtn">
+<div class="openFix" title="若推荐内容有误，请点击纠错进行反馈">纠错</div>
+<div class="closeFix">关闭纠错</div>
+</div>
+<div class="zhixin-list zhixin-list-3">
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/687468","targetId":"11031448"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/687468" target="_blank">
+<img width="72" height="72" src="http://b.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=3cf9a8c19925bc312b0852d838e2bc83/5ab5c9ea15ce36d3c435fe3f3af33a87e950b18f.jpg" alt="三层架构" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/687468" target="_blank" title="三层架构">三层架构</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="11031448">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/25169","targetId":"477555"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/25169" target="_blank">
+<img width="72" height="72" src="http://g.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=453563b1fa1986184112bcc42cd01f41/b812c8fcc3cec3fd0a2d41a5d488d43f869427cb.jpg" alt="servlet" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/25169" target="_blank" title="servlet">servlet</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="477555">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/28155","targetId":"529577"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/28155" target="_blank">
+<img width="72" height="72" src="http://b.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=6233857fa08b87d65017f85f6135190a/a5c27d1ed21b0ef4cafaaf10dcc451da81cb3e69.jpg" alt="javaBean" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/28155" target="_blank" title="javaBean">javaBean</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="529577">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/30564","targetId":"572452"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/30564" target="_blank">
+<img width="72" height="72" src="http://a.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=453e6949123853438c9ad461f52e814c/4d086e061d950a7b721cd4e108d162d9f2d3c9ee.jpg" alt="ICMP" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/30564" target="_blank" title="ICMP">ICMP</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="572452">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/subview/23023/11192342","targetId":"85061"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/subview/23023/11192342" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=2f2d458e8ad4b31cf069c7fbe1eb164d/d788d43f8794a4c218deb9e60ff41bd5ac6e3979.jpg" alt="spring" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/subview/23023/11192342" target="_blank" title="spring">spring</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="85061">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1834982","targetId":"5627187"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1834982" target="_blank">
+<img width="72" height="72" src="http://g.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=a2f4b06ff31f3a295a9d868eff188d03/d52a2834349b033b7515ed6b16ce36d3d439bde5.jpg" alt="spring MVC" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1834982" target="_blank" title="spring MVC">spring MVC</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="5627187">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/subview/1641/5762264","targetId":"8425"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/subview/1641/5762264" target="_blank">
+<img width="72" height="72" src="http://b.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=eb4d912a562c11dfde84ec63051a53e2/c995d143ad4bd113fa64e1fb5bafa40f4afb0549.jpg" alt="ajax" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/subview/1641/5762264" target="_blank" title="ajax">ajax</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="8425">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/25603","targetId":"485073"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/25603" target="_blank">
+<img width="72" height="72" src="http://d.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=b971b2ced43f8794d3aa1b6eb4263fc6/a6efce1b9d16fdfa84659798b48f8c5494ee7bbe.jpg" alt="struts" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/25603" target="_blank" title="struts">struts</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="485073">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/2090973","targetId":"8882453"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/2090973" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=a4f047436359252da3424e4452a63209/377adab44aed2e73f6dd23758401a18b87d6fab7.jpg" alt="ssh框架" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/2090973" target="_blank" title="ssh框架">ssh框架</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="8882453">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<form id="zhixinErrorForm" class="hidden" action="http://f3.baidu.com/index.php/feedback/zx/baikeJC" target="zhixinSubErr" method="post">
+<input class="js-url" name="fb_html_url" type="hidden" />
+<input class="js-query" name="fb_query" type="hidden" />
+<input class="js-title" name="fb_card_title" type="hidden" />
+<input class="js-content" name="fb_content" type="hidden" />
+<input class="js-souceId"name="fb_source_id" type="hidden" />
+</form>
+<iframe id="zhixinSubErr" name="zhixinSubErr" style="display:none;" frameborder="0"></iframe>
+<div class="lemmaWgt-promotion-slide">
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><dl class="side-box lemma-statistics">
+<dt class="title">词条统计</dt>
+<dd class="description">
+<ul>
+<li>浏览次数：<span id="j-lemmaStatistics-pv"></span>次</li>
+<li>编辑次数：74次<a href="/historylist/MVC%E6%A1%86%E6%9E%B6/9241230" class="nslog:1021" target="_blank">历史版本</a></li>
+<li>最近更新：<span class="j-modified-time" style="display:none">2015-06-17</span></li>
+<li>创建者：<a class="show-userCard" data-uid="223440609" title="查看此用户资料" target="_blank" href="http://www.baidu.com/p/hezihainan" nslog-type="1022">hezihainan</a></li>
+</ul>
+</dd>
+</dl>
+<div class="side-box" id="pro-contributors">
+<dl>
+<dt class="title">词条贡献榜</dt>
+<dd id="contri-div">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="topuser f12">
+<tr><td colspan="3" class="contri-type"><b>突出贡献者：</b></td></tr>
+<tr>
+<td width="22">
+<a target="_blank" href="/kedou" title="百科蝌蚪团" class="kedou-new"><img src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaContributors/resource/img/icon-newKedou_11dab04.png"></a>
+</td>
+<th width="150"><a title="查看此用户资料" class="usercard show-userCard" data-uid="634707031" username="冷威龙" target="_blank" href="http://www.baidu.com/p/%E5%86%B7%E5%A8%81%E9%BE%99?from=wk">冷威龙</a></th>
+<td align="right">
+<a target="_blank" href="http://baike.baidu.com/tese"><img align="absmiddle" title="特色词条" alt="特色词条" width="13" height="18" src="http://img.baidu.com/img/baike/contri/distinctiveIcon.png"></a>
+<a target="_blank" href="http://baike.baidu.com/view/12878522.htm"><img align="absmiddle" alt="初级优质" title="初级优质" src="http://img.baidu.com/img/baike/contri/hq.png" width="13" height="18"></a>
+</td>
+</tr>
+<tr><td style="border-bottom: 1px dashed #ccc;height:7px;" colspan="3"></td></tr>
+<tr><td style="height: 7px;" colspan="3"></td></tr>
+</table>
+</dd>
+</dl>
+</div>
+<div class="side-catalog" style="visibility:hidden">
+<div class="side-bar">
+<em class="circle start"></em>
+<em class="circle end"></em>
+</div>
+<div class="catalog-scroller">
+<dl class="catalog-list">
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">1</span>
+<a href="#1" class="title-link" nslog-type="1026">简介</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">2</span>
+<a href="#2" class="title-link" nslog-type="1026">MVC 编程模式</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">3</span>
+<a href="#3" class="title-link" nslog-type="1026">框架内容</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">3.1</span>
+<a href="#3_1" class="title-link" nslog-type="1026">视图</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">3.2</span>
+<a href="#3_2" class="title-link" nslog-type="1026">模型</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">3.3</span>
+<a href="#3_3" class="title-link" nslog-type="1026">控制器</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">4</span>
+<a href="#4" class="title-link" nslog-type="1026">区别</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">5</span>
+<a href="#5" class="title-link" nslog-type="1026">常见框架</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">5.1</span>
+<a href="#5_1" class="title-link" nslog-type="1026">Struts</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">5.2</span>
+<a href="#5_2" class="title-link" nslog-type="1026">Spring</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">5.3</span>
+<a href="#5_3" class="title-link" nslog-type="1026">ZF</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">5.4</span>
+<a href="#5_4" class="title-link" nslog-type="1026">.NET</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">6</span>
+<a href="#6" class="title-link" nslog-type="1026">特点</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.1</span>
+<a href="#6_1" class="title-link" nslog-type="1026">优点</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">6.2</span>
+<a href="#6_2" class="title-link" nslog-type="1026">缺点</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">7</span>
+<a href="#7" class="title-link" nslog-type="1026">外界评价</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">8</span>
+<a href="#8" class="title-link" nslog-type="1026">MVC控件</a>
+</span>
+</dt>
+<a class="arrow" href="javascript:void(0);"></a>
+</dl>
+</div>
+<div class="right-wrap">
+<a class="go-up disable" href="javascript:void(0);"></a>
+<a class="go-down" href="javascript:void(0);"></a>
+</div>
+<div class="bottom-wrap">
+<a class="toggle-button" href="javascript:void(0);"></a>
+<a class="gotop-button" href="javascript:void(0);"></a>
+</div>
+</div>
+<div class="unionAd_fromPs side-box" id="unionAd_fromPs">
+<script type="BAIDU_HH">
+    {
+        type : 'pageembed',
+        di   : 'u2140330',
+        rsi0 : 270,
+        rsi1 : 175
+    }
+    </script>
+</div>
+<div class="fengchao side-box" nslog="area" nslog-type="10000902">
+</div>
+<div class="unionAd side-box">
+</div>
+</div>
+</div>
+</div>
+<div class="after-content">
+<div class="bottom-promotion" id="bottom-promotion">
+<div id="BOTTOM_PRO_AD"></div>
+</div>
+</div>
+</div>
+
+<div class="wgt-footer-main">
+<div class="content">
+<dl class="fresh">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-fresh"></em>新手上路</dt>
+<dd>
+<div><a target="_blank" href="/usercenter/tasks#guide">成长任务</a></div>
+<div><a target="_blank" href="/help#main01">编辑入门</a></div>
+<div><a target="_blank" href="/help#main06">编辑规则</a></div>
+<div><a target="_blank" href="/help#main05">百科术语</a></div>
+</dd>
+</dl>
+<dl class="question">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-question"></em>我有疑问</dt>
+<dd>
+<div><a target="_blank" href="/user/question">常见问题</a></div>
+<div><a target="_blank" href="http://zhidao.baidu.com/new?ie=GBK">我要提问</a></div>
+<div><a target="_blank" href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91">参加讨论</a></div>
+<div><a target="_blank" href="/feedback">意见反馈</a></div>
+</dd>
+</dl>
+<dl class="suggestion">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-suggestion"></em>投诉建议</dt>
+<dd>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#1">举报不良信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#2">未通过词条申诉</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#4">投诉侵权信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#3">封禁查询与解封</a></div>
+</dd>
+</dl>
+</div>
+<div class="copyright">©2015Baidu&nbsp;<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>&nbsp;|&nbsp;<a href="http://help.baidu.com/question?prod_en=baike&class=159&id=1047" target="_blank">百科协议</a>&nbsp;|&nbsp;<a href="/operation/cooperation" target="_blank">百度百科合作平台</a></div>
+</div>
+
+<div class="lemmaWgt-searchHeader">
+<div class="layout">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="MVC" /><a id="search" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_search"></em></a>
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="tool-buttons">
+<a class="toolButtons-edit button j-edit-link" href="javascript:;" nslog-type="10010001"></a>
+<a class="toolButtons-collect button" href="javascript:;" nslog-type="10010002"></a>
+<a class="toolButtons-vote button" href="javascript:;" nslog-type="10010003"></a>
+</div>
+<div class="user-info">
+<a class="user-link unlogin" href="javascript:;" target="_blank">登录</a>
+</div>
+</div></div>
+<div class="bdsharebuttonbox side-share" data-tag="side-share">
+<span class="title">分享</span>
+<a class="bds_qzone" data-cmd="qzone" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tsina" data-cmd="tsina" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tqq" data-cmd="tqq" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_more" data-cmd="more" href="javascript:void(0);" nslog-type="9068"></a>
+</div>
+
+</body><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_0_8f81ba9.js"></script>
+<script type="text/javascript">require.resourceMap({"res":{"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaInsert_8f95785.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/tangram.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/tangram_67429c3.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip_98e1259.js","deps":["wiki-common:widget/lib/jquery/jquery.js"]},"wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js","deps":["wiki-common:widget/lib/jquery/jquery.js","wiki-common:widget/component/nslog/nslog.js"]}},"pkg":{"wiki-lemma:p3":{"url":"http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module-lemmaRelation_36b8718.js"}}});</script><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_1_16bd5e2.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_2_1dca152.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_8597b2f.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js"></script>
+<script type="text/javascript">!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+    userbar = require('wiki-common:widget/component/userbar/userbar.js');
+    
+  $(function() {
+    userbar.buildUserbar($('.wgt-userbar'), null);
+  });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');  
+    initSearchbar($('.wgt-searchbar-main'));
+  }();
+!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+
+  var timer = '';
+
+  $('.wgt-navbar').on('mouseenter', 'dl', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      $('.wgt-navbar').addClass('wgt-navbar-hover');
+    }, 300);
+  }).on('mouseleave', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  }).on('click', 'a', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  });
+}();
+!function(){            var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+            var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+            // 展现策略
+            rightCheck.editView('9241230', function(res) {
+                if (!res.errno) {
+                    if (res.data.edit) {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                } else {
+                    if ('1') {
+                        $('.lemmaWgt-lemmaTitle .add-subLemma').css('display', 'inline-block');
+                        $('.top-tool .add-sub-icon').css('display', 'inline-block');
+                    }
+                }
+            }); 
+
+            require('wiki-lemma:widget/basicElement/addSub/addSub.js')({
+                lemmaId: '9241230',
+                lemmaTitle: 'MVC框架',
+                lemmaDesc: '',
+                versionId: '79788730',
+                subLemmaId: '5468343'
+            });
+        }();
+!function(){        var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+        var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+        // 展现策略
+        rightCheck.editView('9241230', function(res) {
+            if (!res.errno) {
+                if (res.data.divide) {
+                    $('.top-tool .split-icon').css('display', 'block');
+                }
+            }
+        });
+    }();
+!function(){	require.async("wiki-lemma:widget/basicElement/collect/collect.js",function(collect){
+		collect({
+            newLemmaId:"9241230",
+			lemmaId:"5432454",
+			subLemmaId:"5468343"
+		});
+	});
+}();
+!function(){	require.async("wiki-lemma:widget/basicElement/vote/vote.js",function(vote){
+		vote({
+			lemmaId:"5432454",
+            subLemmaId:"5468343"
+		});
+	});
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "top-share",
+		"bdSize" : 32,
+		"bdMini":1
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        } else {
+            if ('1') {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        }
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/basicInfo/basicInfo.js",function(init){
+		init();
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('9241230', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){		require.async(["wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReference.js", "wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip.js"],function(Reference,ReferenceTip){
+			new Reference({
+				subLemmaId:"5468343"
+			});
+			new ReferenceTip({
+				subLemmaId:"5468343"
+			});
+		});
+	}();
+!function(){        require.async("wiki-common:widget/lib/jquery/jquery.js",function($){
+            function openTagToggle(node) {
+                if ($(node).hasClass("collapse")) {
+                    $(node).removeClass("collapse");
+                    $("#open-tag").css("height", '22px');
+                } else {
+                    $(node).addClass("collapse");
+                    $("#open-tag").css("height", $("#open-tag-item").css("height"));
+                }
+            }
+            if (parseInt($("#open-tag-item").css("height")) <= 30) {
+                $('#open-tag-collapse').hide();
+            }
+            $("#open-tag-collapse").on("click", function () {
+                openTagToggle($("#open-tag")[0]);
+            });
+        });
+    }();
+!function(){            require.async("wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js",function(init){
+                init();
+            });
+        }();
+!function(){    require.async("wiki-lemma:widget/lemma_content/mainContent/lemmaStatistics/lemmaStatistics.js",function(init){
+        init({
+            newLemmaIdEnc:"415df52059a658d72dff4920"
+        });
+    });
+}();
+!function(){    var userCard = require('wiki-common:widget/component/userCard/userCard.js');
+    userCard({
+        host: '#pro-contributors .show-userCard',
+        left: -26
+    });    
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/sideCatalog/sideCatalog.js",function(SideCatalog){
+		new SideCatalog();
+	});
+}();
+!function(){        require.async(['wiki-lemma:widget/promotion/unionAdFromPs/unionAdFromPs.js'], function (init) {
+            init();
+        });
+    }();
+!function(){    require.async(["wiki-lemma:widget/promotion/fengchao/fengchao.js", "wiki-lemma:widget/promotion/unionAd/unionAd.js"], function (init, unionAd) {
+        init({
+            newLemmaId: "9241230",
+            lemmaTitle: "MVC框架",
+            encodeLemmaTitle: "MVC%BF%F2%BC%DC"
+        }, {
+            errFn: unionAd,
+            dom: $('.unionAd')
+        });
+    });
+}();
+!function(){        require.async('wiki-lemma:widget/promotion/bottomAd/bottomAd.js', function (init) {
+            init('BOTTOM_PRO_AD');
+        });
+    }();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var Dialog = require("wiki-common:widget/ui/dialog/dialog.js");
+    var userLogin = require('wiki-common:widget/component/userLogin/userLogin.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    var editUrl = '/edit/' + encodeURIComponent('MVC框架') + '/' + '9241230';
+
+    $(document.body).on('click', '.j-edit-link', function() {
+        var dl = $(this).attr('data-edit-dl');
+        if (dl) {
+            var url = editUrl + '?dl=' + dl;
+        } else {
+            var url = editUrl;
+        }
+
+        rightCheck.preeditCheck('9241230', 'MVC框架', '', '79788730', function(res) {
+            if (res.errno) {
+                userLogin.showLoginPop();
+                return;
+            }
+            if (!res.data.right.edit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    mainMsg: '对不起，您暂时没有权限编辑该词条。',
+                    subMsg: '<p>您好，该词条内容已较丰富，现仅对百科等级达到<b>四级</b>且通过率达到<b>85%</b>的科友开放编辑。</p><p>当您通过努力达到以上要求，就可以参与编辑该词条了。</p><p><img src="http://img.baidu.com/img/baike/usercenter/growuptask/star.gif" class="star" />参加<a target="_blank" href="/usercenter#guide">成长任务</a>，更快掌握百科编辑技巧，加速升级！</p>'
+                });
+                return;
+            }
+            if (!res.data.right.noAudit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '很抱歉，该词条有其他用户编辑的版本正在提交，您暂时无法编辑。<br/>百科建议您晚些时候再编辑该词条，或者尝试编辑其他的词条。'
+                });
+                return;
+            }
+
+            if (res.data.notice.isMidNight) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '晚23:00至次日8:00，因审核系统例行维护，您提交的版本可能需要较长时间才能通过，望您谅解。',
+                    onConfirm: function() {
+                        window.location.href = url;
+                    }
+                });
+            } else {
+                window.location.href = url;
+            }
+        });
+    });
+}();
+!function(){    require.async("wiki-lemma:widget/tools/searchHeader/toolButtons/toolButtons.js",function(init){
+        init({
+            newLemmaId:"9241230",
+            lemmaId:"5432454",
+            subLemmaId:"5468343"
+        });
+    });
+}();
+!function(){    require('wiki-lemma:widget/tools/searchHeader/toolButtons/userInfo.js')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      animation = require('wiki-common:widget/util/animation.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');
+
+    var isFadeIn = false,
+        isFadeOut = false;
+
+    var fadeInAni, fadeOutAni;
+
+    $(window).on('scroll', function(e) {
+        var scrollTop = $(this).scrollTop();
+
+        if (scrollTop > 200 && !isFadeIn && $('.lemmaWgt-searchHeader').css('display') == 'none') {
+            fadeOutAni && fadeOutAni.stop();
+            fadeInAni = animation({
+                duration: 200,
+                easing: 'linear',
+                onStart: function() {
+                    isFadeOut = false;
+                    isFadeIn = true;
+                    $('.lemmaWgt-searchHeader').css('display', 'block');
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', progress)
+                },
+                onComplete: function(progress) {
+                    isFadeIn = false;
+                }
+            });
+        } else if (scrollTop <= 200 && !isFadeOut && $('.lemmaWgt-searchHeader').css('display') == 'block') {
+            fadeInAni && fadeInAni.stop();
+            fadeOutAni = animation({
+                duration: 300,
+                easing: 'linear',
+                onStart: function() {
+                    $('.lemmaWgt-searchHeader #suggestion').hide();
+                    isFadeIn = false;
+                    isFadeOut = true;
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', 1 - progress);
+                },
+                onComplete: function(progress) {
+                    isFadeOut = false;
+                    $('.lemmaWgt-searchHeader').css('display', 'none');
+                }
+            });
+        }
+    });
+
+    initSearchbar($('.lemmaWgt-searchHeader'));
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "side-share",
+		"bdSize" : 32,
+		"bdMini":1,
+		"bdPopupOffsetLeft":-72
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var nslog = require("wiki-common:widget/component/nslog/nslog.js");
+
+    require.async("wiki-lemma:widget/tools/lazyLoad/lazyLoad.js", function(LazyLoad) {
+        new LazyLoad();
+    });
+
+    require.async(['wiki-common:widget/component/nslog/nslog.js', 'wiki-common:widget/lib/jquery/jquery.js'], function(nslog, $) {
+        nslog().setGlobal({
+            lemmaId: "5432454",
+            newLemmaId: "9241230",
+            subLemmaId: "5468343",
+            lemmaTitle: "MVC框架"
+        });
+        nslog(9322);
+    });
+
+    var map = [1, 2, 4, 3];
+    $('.wgt-footer-main .suggestion').find('a').each(function(i) {
+        $(this).attr('href', 'http://tousu.baidu.com/baike/add?word=MVC%E6%A1%86%E6%9E%B6' + '&&submit_link=' + encodeURIComponent(window.location.href) + '#' + map[i]);
+    });
+
+    window.BKShare.setCommon({
+        bdText: '【MVC框架_百度百科】MVC全名是Model View Controller，是模型(model)－视图(view)－控制器(controller)的缩写，一种软件设计典范，用一种业务逻辑、数据、界面显示分离的方法组织代码，将业务逻辑聚集到一个部件里面，在改进和个性化定制界面及用户交互的同时，不需要重新编写业务逻辑。MVC被独特的发展起来用于映射传统的输入.....（分享自@百度百科）',
+        bdDesc: '',
+        bdUrl: '',
+        bdPic: ''
+    });
+
+    $.getJSON('/api/wikiad/getads?lemmaId=' + 9241230, function(res) {
+        if (!res.errno) {
+            if (res.data[5]) {
+                require.async(['wiki-lemma:widget/promotion/rightPreciseAd/rightPreciseAd.js'], function(rightPreciseAd) {
+                    rightPreciseAd(res.data[5]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[5][0].adId
+                    });
+                });
+            } else if (res.data[1]) {
+                require.async(['wiki-lemma:widget/promotion/vbaike/vbaike.js'], function(vbaike) {
+                    vbaike(res.data[1]);
+                    for(var i in res.data[1]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[1][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[2]) {
+                require.async(['wiki-lemma:widget/promotion/slide/slide.js'], function(slide) {
+                    slide(res.data[2]);
+                    for(var i in res.data[2]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[2][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[3]) {
+                require.async(['wiki-lemma:widget/promotion/topAd/topAd.js'], function(topAd) {
+                    topAd(res.data[3]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[3][0].adId
+                    });
+                });
+            }
+            if (res.data[4]) {
+                require.async(['wiki-lemma:widget/promotion/rightAd/rightAd.js'], function(rightAd) {
+                    rightAd(res.data[4]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[4][0].adId
+                    });
+                });
+            }
+        }
+    });
+}();
+!function(){      require('wiki-common:widget/component/psLink/psLink.js');
+    }();</script>
+<script type="text/javascript">
+  var Hunter = window.Hunter || {};
+  Hunter.userConfig = Hunter.userConfig || [];
+  </script>
+<script type="text/javascript" src="http://img.baidu.com/hunter/baike.js?st=16692" defer></script></html><!--07504455800858141194091610-->
+<script> var _trace_page_logid = 0750445580; </script>

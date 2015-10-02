@@ -1,0 +1,2602 @@
+<!DOCTYPE html>
+<!--STATUS OK-->
+<html>
+
+
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="description" content="Java是一种可以撰写跨平台应用程序的面向对象的程序设计语言。Java 技术具有卓越的通用性、高效性、平台移植性和安全性，广泛应用于PC、数据中心、游戏控制台、科学超级计算机、移动电话和互联网，同时拥有全球最大的开发者专业社群。...">
+<title>Java（计算机编程语言）_百度百科</title>
+
+<meta name="keywords" content="Java  百度百科 baike  背景 组成 体系 优势 基本含义 基本语法 Java关键字 发展历程 特点 相关技术 架构设计 发展前景 其他应用">
+<meta name="image" content="http://baike.bdimg.com/cms/static/baike.png">
+
+<!--[if lte IE 9]>
+<script>
+    (function() {
+      var e = "abbr,article,aside,audio,canvas,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(","),
+        i = e.length;
+      while (i--) {
+        document.createElement(e[i]);
+      }
+    })();
+  </script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_ffb1ec5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common-base_19edda6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/praise/praise_2120cd2.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/toolButtons_a2c470f.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/toolButtons/userInfo_9ba20c1.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/video/pageMask/pageMask_ff9a193.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module_e4fa793.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/cardLink/cardLink_40dc1e5.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/style/shCore_7fba49a.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/style/shCoreDefault_3f91dc3.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/mainContent_847fed6.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaRelation_f8d61eb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_93e49e0.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/searchHeader/searchHeader_e786bfb.css"/><link rel="stylesheet" type="text/css" href="http://baike.bdimg.com/static/wiki-lemma/widget/tools/sideShare/sideShare_afe05e7.css"/></head>
+<body class="wiki-lemma normal">
+
+
+<div class="header-wrapper">
+<ul class="wgt-userbar">
+<li>
+<a href="http://www.baidu.com/">百度首页</a>
+</li>
+</ul>
+<div class="header">
+<div class="layout">
+<div class="wgt-searchbar wgt-searchbar-main cmn-clearfix">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="nav">
+<a href="http://news.baidu.com/" data-href="http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=">新闻</a><a href="http://www.baidu.com/" data-href="http://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=">网页</a><a href="http://tieba.baidu.com/" data-href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=">贴吧</a><a href="http://zhidao.baidu.com/" data-href="http://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=">知道</a><a href="http://music.baidu.com/" data-href="http://music.baidu.com/search?f=ms&ct=134217728&ie=utf-8&rn=&lm=-1&pn=30fr=bks0000&key=">音乐</a><a href="http://image.baidu.com/" data-href="http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=">图片</a><a href="http://v.baidu.com/" data-href="http://v.baidu.com/v?ct=301989888&rn=20&pn=0&db=0&s=22&ie=utf-8&fr=bks0000&word=">视频</a><a href="http://map.baidu.com/" data-href="http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=">地图</a><a class="baike">百科</a><a href="http://wenku.baidu.com/" data-href="http://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=">文库</a>
+</div>
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="Java" /><button id="search" type="button">进入词条</button><button id="searchLemma" type="button">搜索词条</button><a class="help" href="/help" target="_blank">帮助</a>
+</form>
+<form id="searchLemmaForm" action="/search" method="GET" target="_self">
+<input id="searchLemmaQuery" name="word" type="hidden" />
+<input name="pn" type="hidden" value="0" />
+<input name="rn" type="hidden" value="0" />
+<input name="enc" type="hidden" value="utf8" />
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navbar-wrapper">
+<div class="wgt-navbar">
+<div class="navbar-bg">
+<div class="navbar-bg-top">
+<div class="navbar-content layout">
+<div class="navbar-content-box">
+<dl class="index ">
+<dt><a href="/">首页</a></dt>
+</dl>
+<dl class="cat ">
+<dt><a>分类</a></dt>
+<dd>
+<div><a href="/ziran" target="_blank">自然</a></div>
+<div><a href="/wenhua" target="_blank">文化</a></div>
+<div><a href="/dili" target="_blank">地理</a></div>
+<div><a href="/lishi" target="_blank">历史</a></div>
+<div><a href="/shenghuo" target="_blank">生活</a></div>
+<div><a href="/shehui" target="_blank">社会</a></div>
+<div><a href="/yishu" target="_blank">艺术</a></div>
+<div><a href="/renwu" target="_blank">人物</a></div>
+<div><a href="/jingji" target="_blank">经济</a></div>
+<div><a href="/keji" target="_blank">科技</a></div>
+<div><a href="/tiyu" target="_blank">体育</a></div>
+</dd>
+</dl>
+<dl class="special ">
+<dt><a>特色百科</a></dt>
+<dd>
+<div><a href="/calendar/" target="_blank">历史上的今天</a></div>
+<div><a href="/museum/" target="_blank">数字博物馆</a></div>
+<div><a href="/city/" target="_blank">城市百科</a></div>
+<div><a href="/operation/worldwar2" target="_blank">二战百科</a></div>
+<div><a href="/art" target="_blank">艺术百科</a></div>
+<div><a href="/science" target="_blank">科学百科</a></div>
+</dd>
+</dl>
+<dl class="user" >
+<dt><a>用户</a></dt>
+<dd>
+<div><a href="/kedou/" target="_blank">蝌蚪团</a></div>
+<div><a href="/event/ranmeng/" target="_blank">燃梦计划</a></div>
+<div><a href="/task/" target="_blank">百科任务</a></div>
+<div><a href="/mall/" target="_blank">百科商城</a></div>
+</dd>
+</dl>
+<dl class="cooperation" >
+<dt><a>权威合作</a></dt>
+<dd>
+<div><a href="/operation/cooperation#joint" target="_blank">合作模式</a></div>
+<div><a href="/operation/cooperation#issue" target="_blank">常见问题</a></div>
+<div><a href="/operation/cooperation#connection" target="_blank">联系方式</a></div>
+</dd>
+</dl>
+<dl class="mobile" >
+<dt><a>手机百科</a></dt>
+<dd>
+<div><a href="/m#download" target="_blank">客户端</a></div>
+<div><a href="/m#wap" target="_blank">网页版</a></div>
+</dd>
+</dl>
+<div class="usercenter">
+<div><a href="/usercenter" target="_blank"><em class="cmn-icon cmn-icons cmn-icons_navbar-usercenter"></em>个人中心</a></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="body-wrapper">
+<div class="before-content">
+<div class="polysemant-list polysemant-list-normal">
+<div class="polysemantList-header">
+<div class="polysemantList-header-title">
+<b>Java</b>是一个<a href="/view/10812277.htm" target="_blank">多义词</a>，请在下列<a href="/view/340519.htm" target="_blank">义项</a>上选择浏览（<a href="/view/29.htm?force=1" target="_blank">共2个义项</a>）</div>
+<a class="polysemantList-addButton" target="_blank" href="/createsub/Java">添加义项</a>
+</div>
+<ul class="polysemantList-wrapper cmn-clearfix" >
+<li class="item">▪<span class="selected">计算机编程语言</span></li>
+<li class="item">▪<a title="意大利自行车品牌" href='/subview/29/12654101.htm#viewPageContent'>意大利自行车品牌</a></li>
+</ul>
+</div>
+</div>
+<div class="content-wrapper">
+<div class="content">
+<div class="main-content">
+<div class="top-tool">
+<a href="/divideload/Java" title="拆分词条" target="_blank" class="split-icon" style="display:none;" nslog-type="50000104"></a>
+<div class="top-collect">
+<span class="collect-text" nslog-type="50000102">收藏</span>
+<div class="collect-tip">查看<a href="/uc/favolemma" target="_blank">我的收藏</a></div>
+</div>
+<a href="javascript:void(0);" class="top-vote" nslog-type="50000103">
+<span class="vote-count">0</span>
+<span class="vote-tip">有用+1</span>
+<span class="voted-tip">已投票</span>
+</a>
+<div class="bdsharebuttonbox top-share" data-tag="top-share">
+<a class="bds_more top-share-icon" data-cmd="more" nslog-type="9067">
+<span class="bds_count share-count" id="j-topShareCount" data-cmd="count">0</span>
+</a>
+</div>
+</div>
+<div style="width:0;height:0;clear:both"></div><dl class="lemmaWgt-lemmaTitle lemmaWgt-lemmaTitle-">
+<dd class="lemmaWgt-lemmaTitle-title">
+<h1>Java</h1>
+<h2>（计算机编程语言）</h2>
+<a href="javascript:;" class="edit-lemma cmn-btn-hover-blue cmn-btn-28 j-edit-link"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+<a class="lock-lemma" target="_blank" href="/view/10812319.htm" title="锁定"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_lock-lemma"></em>锁定</a>
+</dd>
+</dl><div class="lemma-summary">
+<div class="para"><b>Java</b><b></b>是一种可以撰写<a target=_blank href="/view/469855.htm">跨平台</a>应用程序的<a target=_blank href="/view/125370.htm">面向对象</a>的程序设计语言。Java 技术具有卓越的通用性、高效性、平台移植性和安全性，广泛应用于<a target=_blank href="/subview/13621/4882082.htm">PC</a>、<a target=_blank href="/view/754520.htm">数据中心</a>、游戏控制台、科学<a target=_blank href="/view/296324.htm">超级计算机</a>、移动电话和互联网，同时拥有全球最大的开发者专业社群。</div>
+</div>
+<div class="basic-info">
+<dl class="basicInfo-block basicInfo-left">
+<dt class="basicInfo-item name">中文名</dt>
+<dd class="basicInfo-item value">
+加哇、爪哇
+</dd>
+<dt class="basicInfo-item name">外文名</dt>
+<dd class="basicInfo-item value">
+Java
+</dd>
+<dt class="basicInfo-item name">俗&nbsp;&nbsp;&nbsp;&nbsp;语</dt>
+<dd class="basicInfo-item value">
+咖啡
+</dd>
+</dl><dl class="basicInfo-block basicInfo-right">
+<dt class="basicInfo-item name">开发公司</dt>
+<dd class="basicInfo-item value">
+Sun Microsystems
+</dd>
+<dt class="basicInfo-item name">现公司</dt>
+<dd class="basicInfo-item value">
+Oracle
+</dd>
+<dt class="basicInfo-item name">推出时间</dt>
+<dd class="basicInfo-item value">
+1995年5月
+</dd>
+<dt class="basicInfo-item name">扩展名</dt>
+<dd class="basicInfo-item value">
+.java
+</dd>
+</dl><div style="clear:both;"></div>
+</div>
+<div class="lemmaWgt-lemmaCatalog">
+<div class="lemma-catalog">
+<h2 class="block-title">目录</h2>
+<div class="catalog-list column-4">
+<ol>
+<li class="level1">
+<span class="index">1</span>
+<span class="text"><a href="#1">背景</a></span>
+</li>
+<li class="level1">
+<span class="index">2</span>
+<span class="text"><a href="#2">组成</a></span>
+</li>
+<li class="level1">
+<span class="index">3</span>
+<span class="text"><a href="#3">体系</a></span>
+</li>
+<li class="level1">
+<span class="index">4</span>
+<span class="text"><a href="#4">优势</a></span>
+</li>
+<li class="level1">
+<span class="index">5</span>
+<span class="text"><a href="#5">基本含义</a></span>
+</li>
+<li class="level1">
+<span class="index">6</span>
+<span class="text"><a href="#6">基本语法</a></span>
+</li>
+<li class="level1">
+<span class="index">7</span>
+<span class="text"><a href="#7">Java关键字</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#7_1">关键字</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#7_2">注释</a></span>
+</li>
+</ol><ol><li class="level1">
+<span class="index">8</span>
+<span class="text"><a href="#8">发展历程</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#8_1">名字来源</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#8_2">语言起源</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#8_3">发展历史</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#8_4">最新版本</a></span>
+</li>
+<li class="level1">
+<span class="index">9</span>
+<span class="text"><a href="#9">特点</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#9_1">语言特征</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#9_2">主要特性</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#9_3">差异</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#9_4">优劣势</a></span>
+</li>
+<li class="level1">
+<span class="index">10</span>
+<span class="text"><a href="#10">相关技术</a></span>
+</li>
+</ol><ol><li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#10_1">主要服务</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#10_2">框架服务</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#10_3">开发工具</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#10_4">Java IDE</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#10_5">JDK</a></span>
+</li>
+<li class="level1">
+<span class="index">11</span>
+<span class="text"><a href="#11">架构设计</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#11_1">概念</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#11_2">平台构架</a></span>
+</li>
+<li class="level1">
+<span class="index">12</span>
+<span class="text"><a href="#12">发展前景</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#12_1">贡献及影响</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#12_2">Java模拟器</a></span>
+</li>
+</ol><ol><li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#12_3">虚拟机</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#12_4">内存模型</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#12_5">相关消息</a></span>
+</li>
+<li class="level1">
+<span class="index">13</span>
+<span class="text"><a href="#13">其他应用</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#13_1">整体性</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#13_2">语言问题</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#13_3">类库问题</a></span>
+</li>
+<li class="level2">
+<span class="index">▪</span>
+<span class="text"><a href="#13_4">性能问题</a></span>
+</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="anchor-list">
+<a name="1" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_1" class="lemma-anchor " ></a>
+<a name="背景" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">背景</span>
+<a class="edit-icon j-edit-link" data-edit-dl="1" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para"><a class="lemma-album layout-right nslog:10000206" title="JAVA"  href="/picture/29/12654100/2656687/4d086e061d950a7b39809d3d0ad162d9f3d3c996.html?fr=lemma&ct=cover" target="_blank"  style="width:124px;" nslog-type="10000206">
+<div class="album-wrap" style="width:122px;height:250px;">
+<img class="picture" alt="JAVA" src="http://d.hiphotos.baidu.com/baike/s%3D250/sign=b98abc66a40f4bfb88d09951334e788f/4d086e061d950a7b39809d3d0ad162d9f3d3c996.jpg" style="width:122px;height:250px;"/>
+</div>
+<div class="description">
+JAVA
+<span class="number">(8张)</span>
+</div>
+<div class="albumBg">
+<div class="albumBgFir" style="width:116px;"></div>
+<div class="albumBgSec" style="width:110px;"></div>
+</div>
+</a>
+Java是由<a target=_blank href="/view/1061350.htm">Sun Microsystems</a>公司推出的Java面向对象程序设计语言（以下简称Java语言）和Java平台的总称。由<a target=_blank href="/view/974364.htm">James Gosling</a>和同事们共同研发，并在1995年正式推出。Java最初被称为<a target=_blank href="/view/180796.htm">Oak</a>，是1991年为消费类电子产品的嵌入式芯片而设计的。1995年更名为Java，并重新设计用于开发<a target=_blank href="/view/11165.htm">Internet</a>应用程序。用Java实现的<a target=_blank href="/view/209644.htm">HotJava浏览器</a>（支持Java applet）显示了Java的魅力：<a target=_blank href="/view/469855.htm">跨平台</a>、动态Web、Internet计算。从此，Java被广泛接受并推动了Web的迅速发展，常用的浏览器均支持<a target=_blank href="/view/533192.htm">Javaapplet</a>。另一方面，Java技术也不断更新。Java自面世后就非常流行，发展迅速，对<a target=_blank href="/view/824.htm">C++</a>语言形成有力冲击。在全球<a target=_blank href="/view/1316082.htm">云计算</a>和<a target=_blank href="/view/1168245.htm">移动互联网</a>的产业环境下，Java更具备了显著优势和广阔前景。2010年<a target=_blank href="/view/15020.htm">Oracle</a>公司收购<a target=_blank href="/view/1061350.htm">Sun Microsystems</a>。</div><div class="anchor-list">
+<a name="2" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_2" class="lemma-anchor " ></a>
+<a name="组成" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">组成</span>
+<a class="edit-icon j-edit-link" data-edit-dl="2" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">Java由四方面组成：</div>
+<div class="para">●Java编程语言，即语法。</div>
+<div class="para">●Java文件格式，即各种文件夹、文件的后缀。</div>
+<div class="para">●Java<a target=_blank href="/view/1132.htm">虚拟机</a>(<a target=_blank href="/view/160708.htm">JVM</a>)，即处理*.<a target=_blank href="/subview/76711/11839907.htm">class</a>文件的<a target=_blank href="/view/592974.htm">解释器</a>。</div>
+<div class="para">●Java<a target=_blank href="/view/592964.htm">应用程序接口</a>(<a target=_blank href="/view/3911786.htm">Java API</a>)。</div><div class="anchor-list">
+<a name="3" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_3" class="lemma-anchor " ></a>
+<a name="体系" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">体系</span>
+<a class="edit-icon j-edit-link" data-edit-dl="3" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">Java分为三个体系，分别为Java SE（<a target=_blank href="/view/160728.htm">J2SE</a>，Java2 Platform Standard Edition，标准版），JavaEE（<a target=_blank href="/view/1507.htm">J2EE</a>，Java 2 Platform, Enterprise Edition，企业版），Java ME（<a target=_blank href="/view/7125.htm">J2ME</a>，Java 2 Platform Micro Edition，微型版）。<sup>[1]</sup><a class="sup-anchor" name="ref_[1]_12654100">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="4" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_4" class="lemma-anchor " ></a>
+<a name="优势" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">优势</span>
+<a class="edit-icon j-edit-link" data-edit-dl="4" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">与传统程序不同，Sun 公司在推出 Java 之际就将其作为一种开放的技术。全球数以万计的 Java 开发公司被要求所设计的 Java软件必须相互<a target=_blank href="/subview/348591/5144387.htm">兼容</a>。“Java 语言靠群体的力量而非公司的力量”是Sun公司的口号之一，并获得了广大软件开发商的认同。这与<a target=_blank href="/view/39784.htm">微软公司</a>所倡导的注重精英和封闭式的模式完全不同。</div>
+<div class="para">Sun 公司对 Java 编程语言的解释是：Java 编程语言是个简单、面向对象、<a target=_blank href="/view/402382.htm">分布式</a>、解释性、健壮、安全与系统无关、可移植、高性能、多线程和静态的语言。</div>
+<div class="para">Java 平台是基于 Java 语言的平台。这样的平台非常流行。因此微软公司推出了与之竞争的<a target=_blank href="/view/4294.htm">.NET</a>平台以及模仿Java的<a target=_blank href="/view/6590.htm">C#</a>语言。</div>
+<div class="para">Java是功能完善的通用程序设计语言，可以用来开发可靠的、要求严格的应用程序。<sup>[2]</sup><a class="sup-anchor" name="ref_[2]_12654100">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="5" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_5" class="lemma-anchor " ></a>
+<a name="基本含义" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">基本含义</span>
+<a class="edit-icon j-edit-link" data-edit-dl="5" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para"><a target=_blank href="/view/262290.htm"><b>抽象类</b></a>：规定一个或多个抽象方法的类别本身必须定义为<a target=_blank href="/view/122814.htm">abstract</a>，抽象类只是用来派生子类，而不能用它来创建对象。</div>
+<div class="para"><a target=_blank href="/view/2116821.htm"><b>final</b></a><b>类</b>：又称“最终类”，它只能用来创建对象，而不能被继承，与抽象类刚好相反，而且抽象类与最终类不能同时修饰同一个类。</div>
+<div class="para"><a target=_blank href="/subview/130671/13572434.htm"><b>包</b></a>：Java中的包是相关类和接口的<a target=_blank href="/subview/15216/10703234.htm">集合</a>，创建包须使用关键字<a target=_blank href="/view/1006568.htm">package</a>。</div>
+<div class="para"><a target=_blank href="/view/125322.htm"><b>继承</b></a>：Java作为面向对象编程语言，支持继承这基本概念。但Java只支持单根继承，java.lang.Object是所有其他类的基类。<sup>[3]</sup><a class="sup-anchor" name="ref_[3]_12654100">&nbsp;</a>
+</div>
+<div class="para"><a target=_blank href="/view/126521.htm"><b>多态</b></a><b>类</b>：在Java中，对象变量是<a target=_blank href="/view/126521.htm">多态</a>的。而Java中不支持<a target=_blank href="/view/459327.htm">多重继承</a>。</div>
+<div class="para"><a target=_blank href="/view/159864.htm"><b>接口</b></a>：Java中的接口是一系列方法的声明，是一些方法特征的集合，一个接口只有方法的特征没有方法的实现，因此这些方法可以在不同的地方被不同的类实现，而这些实现可以具有不同的行为。<b></b></div>
+<div class="para"><b>通用编程</b>：任何类类型的所有值都可以同Object类型的变量来代替。</div>
+<div class="para"><a target=_blank href="/view/154910.htm"><b>封装</b></a>：把数据和行为结合起在一个包中，并对对象使用者隐藏数据的实现过程，一个对象中的数据叫他的实例字段（instance field）。</div>
+<div class="para"><a target=_blank href="/view/126530.htm"><b>重载</b></a>：当多个方法具有相同的名字而含有不同的参数时，便发生重载。<a target=_blank href="/view/487018.htm">编译器</a>必须挑选出调用哪个方法进行编译。</div>
+<div class="para"><a target=_blank href="/view/1267921.htm"><b>重写</b></a>：也可称为方法的“覆盖”。在Java中，子类可继承父类中的方法，而不需要重新编写相同的方法。但有时子类并不想原封不动地继承父类的方法，而是想作一定的修改，这就需要采用方法的重写。值得注意的是，子类在重新定义父类已有的方法时，应保持与父类完全相同的方法头声明。</div>
+<div class="para"><a target=_blank href="/view/76711.htm"><b>Class</b></a><b>类</b>：Object类中的getClass方法返回Class类型的一个实例，程序启动时包含在<a target=_blank href="/view/746175.htm">main</a>方法的类会被加载，<a target=_blank href="/view/1132.htm">虚拟机</a>要加载他需要的所有类，每一个加载的类都要加载它需要的类。<sup>[4]</sup><a class="sup-anchor" name="ref_[4]_12654100">&nbsp;</a>
+</div><div class="anchor-list">
+<a name="6" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_6" class="lemma-anchor " ></a>
+<a name="基本语法" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">基本语法</span>
+<a class="edit-icon j-edit-link" data-edit-dl="6" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">编写Java程序时，应注意以下几点：</div>
+<ul class="custom_dot para-list list-paddingleft-1"><li class="list-dot list-dot-paddingleft"><div class="para"><b>大小写敏感</b>：Java是大小写敏感的，这就意味着标识符Hello与hello是不同的。</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para"><b>类名</b>：对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 MyFirstJavaClass。</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para"><b>方法名</b>：所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写，例如<b>myFirstJavaMethod</b>。</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para"><b>源文件名</b>：源文件名必须和类名相同。当保存文件的时候，你应该使用类名作为文件名保存（切记Java是大小写敏感的），文件名的后缀为.java。（如果文件名和类名不相同则会导致<a target=_blank href="/view/69568.htm">编译</a>错误）。</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para"><b>主方法入口</b>：所有的Java 程序由<b>public static void main(String<b>[]</b>args)</b>方法开始执行。</div>
+</li></ul><div class="anchor-list">
+<a name="7" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_7" class="lemma-anchor " ></a>
+<a name="Java关键字" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">Java关键字</span>
+<a class="edit-icon j-edit-link" data-edit-dl="7" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="7_1" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_7_1" class="lemma-anchor " ></a>
+<a name="关键字" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">关键字</span>
+</h3>
+<div class="para">下面列出了Java关键字。这些关键字不能用于<a target=_blank href="/subview/346799/6926102.htm">常量</a>、变量、和任何<a target=_blank href="/view/390932.htm">标识符</a>的名称。</div>
+<table log-set-param="table_view" class="reference"><caption>Java关键字<br/>　　</caption><tr><th width="56"><div class="para">关键字</div>
+</th><th width="281"><div class="para">描述</div>
+</th></tr><tr><td valign="top" align="left" width="128"><div class="para">abstract</div>
+</td><td valign="top" align="left" width="281"><div class="para">抽象方法，抽象类的修饰符</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">assert</div>
+</td><td valign="top" align="left" width="281"><div class="para">断言条件是否满足</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">continue</div>
+</td><td valign="top" align="left" width="281"><div class="para">不执行循环体剩余部分</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">default</div>
+</td><td valign="top" align="left" width="281"><div class="para">switch语句中的默认分支</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">do-while</div>
+</td><td valign="top" align="left" width="281"><div class="para">循环语句，循环体至少会执行一次</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">double</div>
+</td><td valign="top" align="left" width="281"><div class="para">64-bit双精度浮点数</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">else</div>
+</td><td valign="top" align="left" width="281"><div class="para">if条件不成立时执行的分支</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">enum</div>
+</td><td valign="top" align="left" width="281"><div class="para">枚举类型</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">extends</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示一个类是另一个类的子类</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">final</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示定义常量</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">finally</div>
+</td><td valign="top" align="left" width="281"><div class="para">无论有没有异常发生都执行代码</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">float</div>
+</td><td valign="top" align="left" width="281"><div class="para">32-bit单精度浮点数</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">for</div>
+</td><td valign="top" align="left" width="281"><div class="para">for循环语句</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">goto</div>
+</td><td valign="top" align="left" width="281"><div class="para">用于流程控制</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">if</div>
+</td><td valign="top" align="left" width="281"><div class="para">条件语句</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">implements</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示一个类实现了接口</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">import</div>
+</td><td valign="top" align="left" width="281"><div class="para">导入类</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">instanceof</div>
+</td><td valign="top" align="left" width="281"><div class="para">测试一个对象是否是某个类的实例</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">int</div>
+</td><td valign="top" align="left" width="281"><div class="para">32位整型数</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">interface</div>
+</td><td valign="top" align="left" width="281"><div class="para">接口，一种抽象的类型，仅有方法和常量的定义</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">long</div>
+</td><td valign="top" align="left" width="281"><div class="para">64位整型数</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">native</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示方法用非java代码实现</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">new</div>
+</td><td valign="top" align="left" width="281"><div class="para">分配新的类实例</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">package</div>
+</td><td valign="top" align="left" width="281"><div class="para">一系列相关类组成一个包</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">private</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示私有字段，或者方法等，只能从类内部访问</div>
+</td></tr><tr><td valign="top" align="left" width="128"><div class="para">protected</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示保护类型字段</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">public</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示共有属性或者方法</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">return</div>
+</td><td valign="top" align="left" width="281"><div class="para">方法返回值</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">short</div>
+</td><td valign="top" align="left" width="281"><div class="para">16位数字</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">static</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示在类级别定义，所有实例共享的</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">strictfp</div>
+</td><td valign="top" align="left" width="281"><div class="para">浮点数比较使用严格的规则</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">super</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示基类</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">switch</div>
+</td><td valign="top" align="left" width="281"><div class="para">选择语句</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">synchronized</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示同一时间只能由一个线程访问的代码块</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">this</div>
+</td><td valign="top" align="left" width="281"><div class="para">调用当前实例或者调用另一个构造函数</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">throw</div>
+</td><td valign="top" align="left" width="281"><div class="para">抛出异常</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">throws</div>
+</td><td valign="top" align="left" width="281"><div class="para">定义方法可能抛出的异常</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">transient</div>
+</td><td valign="top" align="left" width="281"><div class="para">修饰不要序列化的字段</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">try</div>
+</td><td valign="top" align="left" width="281"><div class="para">表示代码块要做异常处理</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">void</div>
+</td><td valign="top" align="left" width="281"><div class="para">标记方法不返回任何值</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">volatile</div>
+</td><td valign="top" align="left" width="281"><div class="para">标记字段可能会被多个线程同时访问，而不做同步</div>
+</td></tr><tr><td valign="top" align="left" width="56"><div class="para">while</div>
+</td><td valign="top" align="left" width="281"><div class="para">while循环</div>
+</td></tr></table><div class="anchor-list">
+<a name="7_2" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_7_2" class="lemma-anchor " ></a>
+<a name="注释" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">注释</span>
+</h3>
+<div class="para"><a target=_blank href="/view/110472.htm">注释</a>作用：标识程序是干什么的，以及它是如何构建的。注释帮助程序员进行相互沟通以及理解程序。注释不是程序设计语言，所以编译器编译程序时忽略它们。</div><div class="anchor-list">
+<a name="8" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_8" class="lemma-anchor " ></a>
+<a name="发展历程" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">发展历程</span>
+<a class="edit-icon j-edit-link" data-edit-dl="8" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="8_1" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_8_1" class="lemma-anchor " ></a>
+<a name="名字来源" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">名字来源</span>
+</h3>
+<div class="para">Java是印度尼西亚<a target=_blank href="/view/48414.htm">爪哇岛</a>的英文名称，因盛产咖啡而闻名。<a target=_blank href="/view/229611.htm">Java语言</a>中的许多库类名称，多与咖啡有关：如<a target=_blank href="/view/1006495.htm">JavaBeans</a>（<a target=_blank href="/view/8402.htm">咖啡豆</a>）、<a target=_blank href="/view/553506.htm">NetBeans</a>（网络豆）以及ObjectBeans(对象豆）等等。SUN和JAVA的标识也正是一杯正冒着热气的咖啡。</div><div class="anchor-list">
+<a name="8_2" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_8_2" class="lemma-anchor " ></a>
+<a name="语言起源" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">语言起源</span>
+</h3>
+<div class="para">Java平台和语言最开始只是<a target=_blank href="/view/53317.htm">SUN公司</a>在1990年12月开始研究的一个内部项目。SUN公司的一个叫做帕特里克·诺顿的工程师被自己开发的<a target=_blank href="/subview/10075/6770152.htm">C</a>和C语言编译器搞得焦头烂额，因为其中的<a target=_blank href="/view/16068.htm">API</a>极其难用。帕特里克决定改用NeXT，同时他也获得了研究公司的一个叫做“Stealth 计划”的项目的机会。</div>
+<div class="para">“Stealth 计划”后来改名为“Green计划”，JGosling（<a target=_blank href="/view/4814505.htm">詹姆斯·高斯林</a>）<div class="lemma-picture text-pic layout-right" style="width:196px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/picture/29/12654100/0/b3fb43166d224f4a1c5bbaea08f790529922d10d.html?fr=lemma&ct=single" target="_blank"
+		title="《Java》之父——詹姆斯·高斯林" style="width:196px;height:220px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="http://e.hiphotos.baidu.com/baike/s%3D220/sign=9588c5dbb21bb0518b24b42a0678da77/b3fb43166d224f4a1c5bbaea08f790529922d10d.jpg"  alt="《Java》之父——詹姆斯·高斯林" style="width:196px;height:220px;"/>
+</a>
+<span class="description">
+《Java》之父——詹姆斯·高斯林
+</span>
+</div>和麦克·舍林丹也加入了帕特里克的工作小组。他们和其他几个工程师一起在<a target=_blank href="/view/189982.htm">加利福尼亚州</a><a target=_blank href="/view/85553.htm">门罗</a><a target=_blank href="/view/8799.htm">帕克</a>市沙丘路的一个小工作室里面研究开发新技术，瞄准下一代<a target=_blank href="/view/4043798.htm">智能家电</a>（如微波炉）的程序设计，SUN公司预料未来科技将在家用电器领域大显身手。团队最初考虑使用C 语言，但是很多成员包括SUN的首席科学家比尔·乔伊，发现C 和可用的<a target=_blank href="/subview/16068/5889234.htm">API</a>在某些方面存在很大问题。</div>
+<div class="para">工作小组使用的是内嵌类型平台，可以用的资源极其有限。很多成员发现C 太复杂以至很多开发者经常错误使用。他们发现C 缺少垃圾回收系统，还有可移植的安全性、分布程序设计、和多线程功能。最后，他们想要一种易于移植到各种设备上的平台。</div>
+<div class="para">根据可用资金，比尔·乔伊决定开发一种集<a target=_blank href="/view/1219.htm">C语言</a>和<a target=_blank href="/view/849980.htm">Mesa</a>语言搭成的新语言，在一份报告上，乔伊把它叫做“未来”，他提议SUN公司的工程师应该在C 的基础上，开发一种面向对象的环境。最初，高斯林试图修改和扩展C 的功能，他自己称这种新语言为C --，但是后来他放弃了。他将要创造出一种全新的语言，被他命名为“<a target=_blank href="/view/180796.htm">Oak</a>”（橡树），以他的办公室外的树而命名。</div>
+<div class="para">就像很多开发新技术的秘密的工程一样，工作小组没日没夜地工作到了1992年的夏天，他们能够演示新平台的一部分了，包括Green操作系统，Oak的程序设计语言，类库，和其硬件。最初的尝试是面向一种类PDA设备，被命名为Star7，这种设备有鲜艳的图形界面和被称为“Duke”的智能代理来帮助用户。1992年12月3日，这台设备进行了展示。</div>
+<div class="para">同年11月，Green计划被转化成了“FirstPerson有限公司”，一个SUN公司的全资子公司，团队也被重新安排到了帕洛<a target=_blank href="/view/86833.htm">阿尔托</a>。FirstPerson团队对建造一种高度互动的设备感兴趣，当时代华纳发布了一个关于电视机顶盒的征求提议书时（Request for proposal），FirstPerson改变了他们的目标，作为对征求意见书的响应，提出了一个机顶盒平台的提议。但是有线电视业界觉得FirstPerson的平台给予用户过多地控制权，因此FirstPerson的投标败给了SGI。与<a target=_blank href="/view/61883.htm">3DO</a>公司的另外一笔关于机顶盒的交易也没有成功，由于他们的平台不能在电视工业产生任何效益，公司再并回SUN公司。</div>
+<div class="para"><div class="lemma-picture text-pic layout-right" style="width:214px; float: right;">
+<a class="image-link" nslog-type="9317" 
+			href="/picture/29/12654100/0/61183b2d771fb274349bf7d3.html?fr=lemma&ct=single" target="_blank"
+		title="Java应用、Java结构体" style="width:214px;height:220px;">
+<img  class="lazy-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAMAAAAoyzS7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF9fX1AAAA0VQI3QAAAAxJREFUeNpiYAAIMAAAAgABT21Z4QAAAABJRU5ErkJggg==" data-src="http://d.hiphotos.baidu.com/baike/s%3D220/sign=5b2c1c58367adab439d01c41bbd4b36b/21a4462309f790523b17e84e0cf3d7ca7bcbd5b2.jpg"  alt="Java应用、Java结构体" style="width:214px;height:220px;"/>
+</a>
+<span class="description">
+Java应用、Java结构体
+</span>
+</div>1994年6、7月间，在经历了一场历时三天的<a target=_blank href="/view/30014.htm">头脑风暴</a>的讨论之后，约翰·盖吉、詹姆斯·高斯林、比尔·乔伊、帕特里克·诺顿、韦恩·罗斯因和埃里克·斯库米，团队决定再一次改变了努力的目标，这次他们决定将该技术应用于<a target=_blank href="/view/7833.htm">万维网</a>。他们认为随着Mosaic浏览器的到来，<a target=_blank href="/view/1706.htm">因特网</a>正在向同样的高度互动的<a target=_blank href="/view/45465.htm">远景</a>演变，而这一远景正是他们在有线电视网中看到的。作为原型，帕特里克·诺顿写了一个小型万维网浏览器，WebRunner，后来改名为HotJava。同年，<a target=_blank href="/view/180796.htm">Oak</a>改名为Java。商标搜索显示，Oak已被一家显卡制造商注册，因此团队找到了一个新名字。这个名字是在很多成员常去的本地咖啡馆中杜撰出来的。名字是不是首字母缩写还不清楚，很大程度上来说不是。虽然有人声称是开发人员名字的组合：<a target=_blank href="/view/974364.htm">James Gosling</a>（詹姆斯·高斯林）Arthur Van Hoff（阿瑟·凡·霍夫）Andy Bechtolsheim（安迪·贝克托克姆），或“Just Another Vague Acronym”（只是另外一个含糊的缩写）。还有一种比较可信的说法是这个名字是出于对咖啡的喜爱，所以以Java咖啡来命名。类文件的前四个字节如果用十六进制阅读的话，分别为“CA FE BA BE”，就会拼出两个单词“CAFE BABE”（咖啡宝贝）。</div>
+<div class="para">1994年10月，HotJava和Java平台为公司高层进行演示。1994年，Java 1.0a版本已经可以提供下载，但是Java和HotJava浏览器的第一次公开发布却是在1995年5月23日SunWorld大会上进行的。SUN公司的科学指导约翰·盖吉宣告Java技术。这个发布是与网景公司的执行副总裁<a target=_blank href="/view/645958.htm">马克·安德森</a>的惊人发布一起进行的，宣布网景将在其浏览器中包含对Java的支持。1996年1月，Sun公司成立了Java业务集团，专门开发Java技术。</div>
+<div class="para">（详细的历史介绍，可以参考资料：）</div><div class="anchor-list">
+<a name="8_3" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_8_3" class="lemma-anchor " ></a>
+<a name="发展历史" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">发展历史</span>
+</h3>
+<div class="para">1995年5月23日，Java语言诞生；</div>
+<div class="para">1996年1月，第一个<a target=_blank href="/view/25214.htm">JDK</a>-JDK1.0诞生；</div>
+<div class="para">1996年4月，10个最主要的操作系统供应商申明将在其产品中嵌入JAVA技术；</div>
+<div class="para">1996年9月，约8.3万个网页应用了JAVA技术来制作；</div>
+<div class="para">1997年2月18日，JDK1.1发布；</div>
+<div class="para">1997年4月2日，<a target=_blank href="/view/543196.htm">JavaOne会议</a>召开，参与者逾一万人，创当时全球同类会议规模之纪录；</div>
+<div class="para">1997年9月，JavaDeveloperConnection社区成员超过十万；</div>
+<div class="para">1998年2月，JDK1.1被下载超过2,000,000次；</div>
+<div class="para">1998年12月8日，JAVA2企业平台J2EE发布；</div>
+<div class="para">1999年6月，SUN公司发布Java的三个版本：标准版、企业版和微型版；</div>
+<div class="para">2000年5月8日，JDK1.3发布；</div>
+<div class="para">2000年5月29日，JDK1.4发布；</div>
+<div class="para">2001年6月5日，<a target=_blank href="/view/10655.htm">NOKIA</a>宣布，到2003年将出售1亿部支持Java的手机；</div>
+<div class="para">2001年9月24日，J2EE1.3发布；</div>
+<div class="para">2002年2月26日，J2SE1.4发布，自此Java的计算能力有了大幅提升；</div>
+<div class="para">2004年9月30日18:00PM，J2SE1.5发布，成为Java语言发展史上的又一里程碑。为了表示该版本的重要性，J2SE1.5更名为Java SE 5.0；</div>
+<div class="para">2005年6月，JavaOne大会召开，SUN公司公开Java SE 6。此时，Java的各种版本已经更名，以取消其中的数字“2”：J2EE更名为Java EE，J2SE更名为Java SE，J2ME更名为Java ME；</div>
+<div class="para">2006年12月，SUN公司发布JRE6.0；</div>
+<div class="para">2009年4月7日<a target=_blank href="/view/1524918.htm">Google App Engine</a>开始支持Java；</div>
+<div class="para">2009年04月20日，<a target=_blank href="/subview/8170/6337787.htm">甲骨文</a>74亿美元收购Sun。取得Java的版权；</div>
+<div class="para">2010年11月，由于甲骨文对于Java社区的不友善，因此<a target=_blank href="/view/28283.htm">Apache</a>扬言将退出<a target=_blank href="/view/148425.htm">JCP</a>；</div>
+<div class="para">2011年7月28日，甲骨文发布Java 7.0的正式版；</div>
+<div class="para">2014年3月19日，甲骨文公司发布Java 8.0的正式版。</div><div class="anchor-list">
+<a name="8_4" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_8_4" class="lemma-anchor " ></a>
+<a name="最新版本" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">最新版本</span>
+</h3>
+<div class="para">2014年11月甲骨文公司发布了Java 9.0的新特性<sup>[5]</sup><a class="sup-anchor" name="ref_[5]_12654100">&nbsp;</a>
+，比较重要的的有：</div>
+<ul class="custom_dot  para-list list-paddingleft-1"><li class="list-dot list-dot-paddingleft"><div class="para">统一的<a target=_blank href="/view/160708.htm">JVM</a>日志</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">支持<a target=_blank href="/view/9472.htm">HTTP</a> 2.0</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para"><a target=_blank href="/view/40801.htm">Unicode</a> 7.0支持</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para">安全数据包传输（<a target=_blank href="/view/2071633.htm">DTLS</a>）支持</div>
+</li><li class="list-dot list-dot-paddingleft"><div class="para"><a target=_blank href="/view/1634.htm">Linux</a>/AArch64支持</div>
+</li></ul><div class="para">详细列表请参考Open Java 9项目官方网站<sup>[6]</sup><a class="sup-anchor" name="ref_[6]_12654100">&nbsp;</a>
+。</div><div class="anchor-list">
+<a name="9" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_9" class="lemma-anchor " ></a>
+<a name="特点" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">特点</span>
+<a class="edit-icon j-edit-link" data-edit-dl="9" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="9_1" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_9_1" class="lemma-anchor " ></a>
+<a name="语言特征" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">语言特征</span>
+</h3>
+<div class="para">Java编程语言的风格十分接近<a target=_blank href="/view/1219.htm">C语言</a>、<a target=_blank href="/view/227024.htm">C++语言</a>。Java是一个纯粹的面向对象的程序设计语言，它继承了 <a target=_blank href="/view/824.htm">C++</a>语言面向对象技术的核心。Java舍弃了C语言中容易引起错误的<a target=_blank href="/view/159417.htm">指针</a>（以引用取代）、<a target=_blank href="/view/116893.htm">运算符重载</a>（operator overloading）、多重继承（以<a target=_blank href="/subview/159864/15347641.htm">接口</a>取代）等特性，增加了垃圾回收器功能用于回收不再被引用的对象所占据的内存空间，使得程序员不用再为内存管理而担忧。在 Java 1.5 版本中，Java 又引入了<a target=_blank href="/view/1105026.htm">泛型编程</a>（Generic Programming）、类型安全的<a target=_blank href="/view/116405.htm">枚举</a>、不定长参数和自动装/拆箱等语言特性。</div>
+<div class="para">Java不同于一般的<a target=_blank href="/view/1182926.htm">编译执行</a>计算机语言和<a target=_blank href="/view/1182922.htm">解释执行</a>计算机语言。它首先将<a target=_blank href="/view/60376.htm">源代码</a>编译成二进制<a target=_blank href="/view/560330.htm">字节码</a>（bytecode），然后依赖各种不同平台上的虚拟机来解释执行字节码。从而实现了“一次编译、到处执行”的跨平台特性。不过，每次的执行编译后的字节码需要消耗一定的时间，这同时也在一定程度上降低了 Java 程序的性能。</div>
+<div class="para">编辑Java源代码可以使用任何无格式的纯文本编辑器，在<a target=_blank href="/view/4821.htm">Windows</a>操作系统上可以使用微软记事本（<a target=_blank href="/view/14457.htm">Notepad</a>）、<a target=_blank href="/view/206636.htm">EditPlus</a>等程序，在<a target=_blank href="/view/1634.htm">Linux</a>平台上可使用vi工具等。</div>
+<div class="para">在记事本中输入如下代码：</div>
+<pre class="brush: cpp">public&nbsp;class&nbsp;HelloWorld&nbsp;{
+
+&nbsp;&nbsp;&nbsp;&nbsp;//Java程序的入口方法，程序将从这里开始执行
+
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;{
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//向控制台打印一条语句
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(&quot;Helloworld!&quot;);
+
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+}
+</pre><div class="para">编辑上面的Java文件时，注意程序中粗体字标识的单词，Java程序严格区分大小写。将上面文本保存为 HelloWorld.java，该文件就是Java程序的源程序。</div>
+<div class="para">编写好Java程序的源代码后，接下来应该编译该Java源文件来生成字节码了。</div><div class="anchor-list">
+<a name="9_2" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_9_2" class="lemma-anchor " ></a>
+<a name="主要特性" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">主要特性</span>
+</h3>
+<div class="para"><b>Java语言是易学的</b>。Java语言的语法与C语言和C++语言很接近，使得大多数程序员很容易学习和使用Java。另一方面，Java丢弃了C++中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的<a target=_blank href="/view/2886403.htm">强制类型转换</a>。特别地，Java语言不使用指针，而是引用。并提供了自动的废料收集，使得程序员不必为<a target=_blank href="/view/4541016.htm">内存管理</a>而担忧。</div>
+<div class="para"><b>Java语言是强制面向对象的</b>。Java语言提供类、<a target=_blank href="/view/159864.htm">接口</a>和<a target=_blank href="/view/125322.htm">继承</a>等原语，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制（<a target=_blank href="/view/390935.htm">关键字</a>为implements）。Java语言全面支持<a target=_blank href="/view/5776203.htm">动态绑定</a>，而C++语言只对<a target=_blank href="/view/161302.htm">虚函数</a>使用动态绑定。总之，Java语言是一个纯的面向对象程序设计语言。</div>
+<div class="para"><b>Java语言是分布式的</b>。Java语言支持Internet应用的开发，在基本的Java应用<a target=_blank href="/view/897136.htm">编程接口</a>中有一个网络应用编程接口（java net），它提供了用于网络应用编程的类库，包括<a target=_blank href="/view/1496.htm">URL</a>、URLConnection、<a target=_blank href="/view/13870.htm">Socket</a>、ServerSocket等。Java的<a target=_blank href="/view/99017.htm">RMI</a>（远程方法激活）机制也是开发分布式应用的重要手段。</div>
+<div class="para"><b>Java语言是健壮的。</b>Java的<a target=_blank href="/view/1792102.htm">强类型</a>机制、<a target=_blank href="/view/1072586.htm">异常处理</a>、垃圾的自动收集等是Java程序健壮性的重要保证。对指针的丢弃是Java的明智选择。Java的安全检查机制使得Java更具健壮性。</div>
+<div class="para"><b>Java语言是安全的。</b>Java通常被用在网络环境中，为此，Java提供了一个安全机制以防<a target=_blank href="/view/16443.htm">恶意代码</a>的攻击。除了Java语言具有的许多<a target=_blank href="/view/634959.htm">安全特性</a>以外，Java对通过网络下载的类具有一个安全防范机制（类ClassLoader），如分配不同的名字空间以防替代本地的同名类、<a target=_blank href="/view/185293.htm">字节代码</a>检查，并提供安全管理机制（类SecurityManager）让Java应用设置安全哨兵。</div>
+<div class="para"><b>Java语言是体系结构中立的。</b>Java程序（后缀为java的文件）在Java平台上被<a target=_blank href="/view/69568.htm">编译</a>为体系结构中立的<a target=_blank href="/view/560330.htm">字节码</a>格式（后缀为class的文件），然后可以在实现这个Java平台的任何系统中运行。这种途径适合于异构的网络环境和软件的分发。</div>
+<div class="para"><b>Java语言是可移植的。</b>这种可移植性来源于体系结构中立性，另外，Java还严格规定了各个基本数据类型的长度。Java系统本身也具有很强的可移植性，Java编译器是用Java实现的，Java的运行环境是用<a target=_blank href="/view/3979609.htm">ANSI C</a>实现的。<sup>[7]</sup><a class="sup-anchor" name="ref_[7]_12654100">&nbsp;</a>
+</div>
+<div class="para"><b>Java语言是解释型的。</b>如前所述，Java程序在Java平台上被编译为字节码格式，然后可以在实现这个Java平台的任何系统中运行。在运行时，Java平台中的Java<a target=_blank href="/view/592974.htm">解释器</a>对这些字节码进行解释执行，执行过程中需要的类在联接阶段被载入到<a target=_blank href="/view/1907087.htm">运行环境</a>中。</div>
+<div class="para"><b>Java是性能略高的。</b>与那些解释型的高级<a target=_blank href="/view/76320.htm">脚本语言</a>相比，Java的性能还是较优的。</div>
+<div class="para"><b>Java语言是原生支持多线程的。</b>在Java语言中，线程是一种特殊的对象，它必须由Thread类或其子（孙）类来创建。通常有两种方法来创建线程：其一，使用型构为Thread(Runnable)的构造子将一个实现了<a target=_blank href="/view/6529628.htm">Runnable</a>接口的对象包装成一个线程，其二，从Thread类派生出子类并重写run方法，使用该子类创建的对象即为线程。值得注意的是Thread类已经实现了Runnable接口，因此，任何一个线程均有它的run方法，而run方法中包含了线程所要运行的代码。线程的活动由一组方法来控制。Java语言支持多个线程的同时执行，并提供多线程之间的同步机制（关键字为<a target=_blank href="/view/1207212.htm">synchronized</a>）。</div>
+<div class="para"><b>Java语言是动态的。</b>Java语言的设计目标之一是适应于动态变化的环境。Java程序需要的类能够动态地被载入到运行环境，也可以通过网络来载入所需要的类。这也有利于软件的升级。另外，Java中的类有一个运行时刻的表示，能进行运行时刻的类型检查。</div>
+<div class="para">Java语言的优良特性使得Java应用具有无比的<a target=_blank href="/view/963152.htm">健壮性</a>和<a target=_blank href="/view/27210.htm">可靠性</a>，这也减少了应用系统的维护费用。Java对对象技术的全面支持和Java平台内嵌的API能缩短应用系统的开发时间并降低成本。Java的编译一次，到处可运行的特性使得它能够提供一个随处可用的开放结构和在多平台之间传递信息的低成本方式。特别是Java企业应用编程接口（Java Enterprise APIs）为企业计算及电子商务应用系统提供了有关技术和丰富的类库。</div><div class="anchor-list">
+<a name="9_3" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_9_3" class="lemma-anchor " ></a>
+<a name="差异" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">差异</span>
+</h3>
+<div class="para">熟悉C语言和C++语言的读者一定想搞清楚这个问题，实际上，Java确实是从C语言和C++语言继承了许多成份，甚至可以将Java看成是<b>类C语言</b>发展和衍生的产物。比如Java语言的变量声明，操作符形式，参数传递，<a target=_blank href="/view/2846066.htm">流程控制</a>等方面和C语言、C++语言完全相同。尽管如此，Java和C语言，C++语言又有许多差别，主要表如下几个方面：</div>
+<ol class="custom_num  para-list list-paddingleft-1"><li class="list-num-1-1 list-num-paddingleft-1"><div class="para">Java中对内存的分配是动态的，它采用面向对象的机制，采用运算符new为每个对象分配内存空间，而且，实际内存还会随程序运行情况而改变。程序运行中 Java系统自动对内存进行扫描，对长期不用的空间作为”垃圾”进行收集，使得系统资源得到更充分地利用.按照这种机制，程序员不必关注内存管理问题，这使Java程序的编写变得简单明了，并且避免了由于内存管理方面的差错而导致系统出问题。而C语言通过<a target=_blank href="/view/736228.htm">malloc</a>()和free()这两个库函数来分别实现分配内存和释放内存空间的，C++语言中则通过运算符new和<a target=_blank href="/subview/4794/16713632.htm">delete</a>来分配和释放内存。在C和C++这种机制中，程序员必须非常仔细地处理内存的使用问题。一方面，如果对己释放的内存再作释放或者对未曾分配的内存作释放，都会造成死机；而另一方面，如果对长期不用的或不再使用的内存不释放，则会浪费系统资源，甚至因此造成资源枯竭。</div>
+</li><li class="list-num-1-2 list-num-paddingleft-1"><div class="para">Java不在所有类之外定义全局变量，而是在某个类中定义一种公用静态的变量来完成全局变量的功能。</div>
+</li><li class="list-num-1-3 list-num-paddingleft-1"><div class="para">Java不用goto语句，而是用try-catch-finally异常处理语句来代替goto语句处理出错的功能。</div>
+</li><li class="list-num-1-4 list-num-paddingleft-1"><div class="para">Java不支持<a target=_blank href="/view/668911.htm">头文件</a>，而C语言和C++语言中都用头文件来声明类的原型、全局变量、库函数等，这种采用头文件的结构使得系统的运行维护相当繁杂。</div>
+</li><li class="list-num-1-5 list-num-paddingleft-1"><div class="para">Java不支持<a target=_blank href="/view/2076445.htm">宏定义</a>。Java只能使用关键字final来定义常量。</div>
+</li><li class="list-num-1-6 list-num-paddingleft-1"><div class="para">Java对每种数据类型都分配固定长度。比如，在Java中，int类型总是32位的，而在C语言和C++语言中，对于不同的平台，同一个数据类型分配不同的字节数，同样是int类型，在PC机中为二字节即16位，而在VAX-11中，则为32位。这使得C语言造成不可移植性，而Java则具有跨平台性（平台无关性）。</div>
+</li><li class="list-num-1-7 list-num-paddingleft-1"><div class="para">类型转换不同。在C语言和C++语言中，可通过指针进行任意的类型转换，常常带来不安全性，而在Java中，运行时系统对对象的处理要进行类型相容性检查，以防止不安全的转换。</div>
+</li><li class="list-num-1-8 list-num-paddingleft-1"><div class="para">结构和联合的处理。Java中根本就不允许类似C语言的结构体(struct)和<a target=_blank href="/view/39140.htm">联合体</a>(union)包含结构和联合，所有的内容都封装在类里面。</div>
+</li><li class="list-num-1-9 list-num-paddingleft-1"><div class="para">Java不再使用指针。指针是C语言和C++语言中最灵活，也最容易产生错误的数据类型。由指针所进行的内存地址操作常会造成不可预知的错误，同时通过指针对某个内存地址进行显式类型转换后，可以访问一个C++中的私有成员，从而破坏安全性。而Java用“引用”的方式，对指针进行完全地控制，程序员不能直接进行任何指针操作。</div>
+</li><li class="list-num-1-10 list-num-paddingleft-1"><div class="para">避免平台依赖。Java语言编写的类库可以在其它平台的Java应用程序中使用，而不像C++语言必须运行于单一平台。</div>
+</li><li class="list-num-1-11 list-num-paddingleft-1"><div class="para">在B/S开发方面，Java要远远优于C++。</div>
+</li></ol><div class="anchor-list">
+<a name="9_4" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_9_4" class="lemma-anchor " ></a>
+<a name="优劣势" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">优劣势</span>
+</h3>
+<div class="para"><b>优势</b>：Java适合团队开发，<a target=_blank href="/view/1659.htm">软件工程</a>可以相对做到规范。由于Java语言本身的极其严格语法的特点，Java语言无法写出结构混乱的程序。这将强迫程序员的代码软件结构的规范性。这是一个很难比拟的优势。</div>
+<div class="para"><b>劣势</b>：<a target=_blank href="/view/1507.htm">J2EE</a>的架构很完美，第一版软件可以做满意，但是很不适合互联网模式的持续不断修改。互联网软件工程管理上的不足，持续的修修补补导致架构的破坏。</div><div class="anchor-list">
+<a name="10" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_10" class="lemma-anchor " ></a>
+<a name="相关技术" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">相关技术</span>
+<a class="edit-icon j-edit-link" data-edit-dl="10" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="10_1" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_10_1" class="lemma-anchor " ></a>
+<a name="主要服务" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">主要服务</span>
+</h3>
+<ol class="custom_num  para-list list-paddingleft-1"><li class="list-num-1-1 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/25611.htm">JDBC</a>（Java Database Connectivity）提供连接各种<a target=_blank href="/view/68348.htm">关系数据库</a>的统一接口，作为数据源，可以为多种关系数据库提供统一访问，它由一组用Java语言编写的类和接口组成。JDBC为工具/数据库开发人员提供了一个标准的API，据此可以构建更高级的工具和接口，使数据库开发人员能够用纯Java API 编写数据库应用程序，同时，JDBC也是个商标名。</div>
+</li><li class="list-num-1-2 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/3542.htm">EJB</a>(Enterprise JavaBeans）使得开发者方便地创建、部署和管理跨平台的基于组件的企业应用。</div>
+</li><li class="list-num-1-3 list-num-paddingleft-1"><div class="para">Java RMI(Java Remote Method Invocation）用来开发分布式Java应用程序。一个Java对象的方法能被远程<a target=_blank href="/view/374952.htm">Java虚拟机</a>调用。这样，远程方法激活可以发生在对等的两端，也可以发生在客户端和服务器之间，只要双方的应用程序都是用Java写的。</div>
+</li><li class="list-num-1-4 list-num-paddingleft-1"><div class="para">Java IDL(Java Interface Definition Language) 提供与<a target=_blank href="/view/153815.htm">CORBA</a>(Common Object Request Broker Architecture）的无缝的互操作性。这使得Java能集成异构的商务信息资源。</div>
+</li><li class="list-num-1-5 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/209575.htm">JNDI</a>(Java Naming and Directory Interface）提供从Java平台到的统一的无缝的连接。这个接口屏蔽了企业网络所使用的各种命名和目录服务。</div>
+</li><li class="list-num-1-6 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/209541.htm">JMAPI</a>(Java Management API）为<a target=_blank href="/view/1498009.htm">异构网络</a>上系统、网络和服务管理的开发提供一整套丰富的对象和方法。</div>
+</li><li class="list-num-1-7 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/157103.htm">JMS</a>(Java Message Service）提供企业消息服务，如可靠的<a target=_blank href="/view/262473.htm">消息队列</a>、发布和订阅通信、以及有关推拉（Push/Pull）技术的各个方面。</div>
+</li><li class="list-num-1-8 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/2683269.htm">JTS</a>(Java transaction Service）提供存取事务处理资源的开放标准，这些事务处理资源包括事务处理应用程序、事务处理管理及监控。</div>
+</li><li class="list-num-1-9 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/209561.htm">JMF</a>(Java Media Framework API），她可以帮助开发者把音频、视频和其他一些基于时间的媒体放到Java应用程序或applet小程序中去，为多媒体开发者提供了捕捉、回放、编解码等工具，是一个弹性的、跨平台的多媒体解决方案。</div>
+</li><li class="list-num-1-10 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/612195.htm">Annotation</a>(Java Annotation），在已经发布的JDK1.5(tiger）中增加新的特色叫Annotation。Annotation提供一种机制，将程序的元素如：类，方法，属性，参数，本地变量，包和<a target=_blank href="/view/107838.htm">元数据</a>联系起来。这样编译器可以将元数据存储在Class文件中。这样虚拟机和其它对象可以根据这些元数据来决定如何使用这些程序元素或改变它们的行为。</div>
+<div class="para">在Java技术中，值得关注的还有<a target=_blank href="/view/1006495.htm">JavaBeans</a>，它是一个开放的标准的组件体系结构，它独立于平台，但使用Java语言。一个JavaBean是一个满足JavaBeans规范的Java类，通常定义了一个现实世界的事物或概念。一个JavaBean的主要特征包括属性、方法和事件。通常，在一个支持JavaBeans规范的开发环境（如Sun Java Studio 和IBM VisualAge for Java）中，可以可视地操作JavaBean，也可以使用JavaBean构造出新的JavaBean。JavaBean的优势还在于Java带来的可移植性。<a target=_blank href="/view/3542.htm">EJB</a> (Enterprise JavaBeans) 将JavaBean概念扩展到Java服务端组件体系结构，这个模型支持多层的<a target=_blank href="/view/4748611.htm">分布式对象</a>应用。除了JavaBeans，典型的组件体系结构还有<a target=_blank href="/view/387142.htm">DCOM</a>和<a target=_blank href="/view/153815.htm">CORBA</a>，关于这些组件体系结构的深入讨论超出了本书的范围。</div>
+</li><li class="list-num-1-11 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/951173.htm">JavaFX</a>　Sun刚刚发布了JavaFX技术的正式版，它使您能利用JavaFX 编程语言开发富互联网应用程序（RIA）。JavaFX Script编程语言（以下称为JavaFX）是Sun微系统公司开发的一种declarative,staticallytyped（声明性的、静态类型）脚本语言。JavaFX技术有着良好的前景，包括可以直接调用Java API的能力。因为JavaFXScript是静态类型，它同样具有结构化代码、重用性和封装性，如包、类、继承和单独编译和发布单元，这些特性使得使用Java技术创建和管理大型程序变为可能。</div>
+<div class="para">JavaFX从它2007年发布以来，表现一直差强人意。Oracle收购了Sun之后，在JavaFX中投入了大量的精力进行推广和更新。JavaFX比较出名的应用应该是在2010年温哥华冬奥会上，调整了JavaFX中的很多概念，以及重新设计和实现了很多重要组件之后，得到的就是现在的JavaFX 2.0。JavaFX 2.0的beta版已经发布，正式版则定于2010年第3季度发布。JavaFX 2.0的新特性使得开发人员应该需要重新审视它在RIA开发领域中的位置。在很多情况下，JavaFX 2.0也会是不错的选择。</div>
+</li><li class="list-num-1-12 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/866268.htm">JMX</a>（Java Management Extensions，即Java管理扩展）是一个为应用程序、设备、系统等植入</div>
+<div class="para">管理功能的框架。JMX可以跨越一系列异构操作系统平台、<a target=_blank href="/view/3928625.htm">系统体系结构</a>和网络传输协议，灵活的开发无缝集成的系统、网络和服务管理应用。</div>
+</li><li class="list-num-1-13 list-num-paddingleft-1"><div class="para"><a target=_blank href="/view/1036852.htm">JPA</a>(Java Persistence API),JPA通过JDK 5.0注解或<a target=_blank href="/view/63.htm">XML</a>（<a target=_blank href="/view/5286041.htm">标准通用标记语言</a>的子集）描述对象－关系表的映射关系，并将运行期的实体<a target=_blank href="/view/402359.htm">对象持久化</a>到数据库中。</div>
+</li><li class="list-num-1-14 list-num-paddingleft-1"><div class="para">JSP（Java Server Pages)是由Sun Microsystems公司倡导、许多公司参与一起建立的一种<a target=_blank href="/view/348756.htm">动态网页</a>技术标准。JSP技术有点类似ASP技术，它是在传统的<a target=_blank href="/view/828.htm">网页</a>HTML文件(*.htm,*.<a target=_blank href="/view/692.htm">html</a>)中插入Java<a target=_blank href="/view/1005329.htm">程序段</a>(Scriptlet)和JSP标记(tag)，从而形成JSP文件(*.<a target=_blank href="/subview/3387/16963334.htm">jsp</a>)。 用JSP开发的Web应用是跨平台的，既能在Linux下运行，也能在其他操作系统上运行。</div>
+</li></ol><div class="anchor-list">
+<a name="10_2" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_10_2" class="lemma-anchor " ></a>
+<a name="框架服务" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">框架服务</span>
+</h3>
+<div class="para"><b>Spring Framework</b><b>【Java开源J2EE框架】</b></div>
+<div class="para"><a target=_blank href="/view/23023.htm">Spring</a>是一个解决了许多在J2EE开发中常见的问题的强大框架。Spring提供了管理<a target=_blank href="/view/478351.htm">业务对象</a>的一致方法并且鼓励了注入对接口编程而不是对类编程的良好习惯。Spring的架构基础是基于使用JavaBean属性的Inversion of Control容器。然而，这仅仅是完整图景中的一部分：Spring在使用IoC容器作为构建完关注所有架构层的完整解决方案方面是独一无二的。Spring提供了唯一的数据访问抽象，包括简单和有效率的JDBC框架，极大的改进了效率并且减少了可能的错误。Spring的数据访问架构还集成了<a target=_blank href="/view/7291.htm">Hibernate</a>和其他<a target=_blank href="/view/770371.htm">O/R mapping</a>解决方案。Spring还提供了唯一的事务管理抽象，它能够在各种底层事务<a target=_blank href="/view/7957258.htm">管理技术</a>，例如JTA或者JDBC事务提供一个一致的编程模型。Spring提供了一个用标准Java语言编写的AOP框架，它给<a target=_blank href="/view/1097109.htm">POJOs</a>提供了声明式的事务管理和其他企业事务--如果你需要--还能实现你自己的 aspects。这个框架足够强大，使得应用程序能够抛开EJB的复杂性，同时享受着和传统EJB相关的关键服务。Spring还提供了可以和IoC容器集成的强大而灵活的<a target=_blank href="/view/31.htm">MVC</a>Web框架。【SpringIDE：Eclipse平台下一个辅助开发<a target=_blank href="/view/18979.htm">插件</a>】。</div>
+<div class="para"><b>WebWork 【Java开源Web框架】</b></div>
+<div class="para"><a target=_blank href="/view/25660.htm">WebWork</a>是由OpenSymphony组织开发的，致力于组件化和代码重用的拉出式<a target=_blank href="/view/739359.htm">MVC模式</a>J2EE Web框架。WebWork目前最新版本是2.1，WebWork2.x前身是Rickard Oberg开发的WebWork，但WebWork已经被拆分成了Xwork1和WebWork2两个项目。Xwork简洁、灵活功能强大，它是一个标准的Command模式实现，并且完全从web层脱离出来。Xwork提供了很多核心功能：前端<a target=_blank href="/view/2689173.htm">拦截机</a>（interceptor），运行时表单属性验证，类型转换，强大的表达式语言（<a target=_blank href="/view/1347280.htm">OGNL</a> – the Object Graph Notation Language），IoC（Inversion of Control倒置控制）容器等。WebWork2建立在Xwork之上，处理<a target=_blank href="/view/9472.htm">HTTP</a>的响应和请求。WebWork2使用ServletDispatcher将<a target=_blank href="/view/641736.htm">HTTP请求</a>的变成Action（业务层Action类），session（会话）application（应用程序）范围的映射，request请求参数映射。WebWork2支持多视图表示，视图部分可以使用<a target=_blank href="/subview/3387/16963334.htm">JSP</a>,<a target=_blank href="/view/77351.htm">Velocity</a>,FreeMarker,JasperReports，<a target=_blank href="/view/63.htm">XML</a>等。在WebWork2.2中添加了对AJAX的支持，这支持是构建在DWR与Dojo这两个框架的基础之上。【EclipseWork：用于WebWork辅助开发的一个Eclipse插件】</div>
+<div class="para"><b>Struts【Java开源Web框架】</b></div>
+<div class="para"><a target=_blank href="/view/25603.htm">Struts</a>是一个基于SunJ2EE平台的<a target=_blank href="/view/5432454.htm">MVC框架</a>，主要是采用Servlet和JSP技术来实现的。由于Struts能充分满足应用开发的需求，简单易用，敏捷迅速，在过去的一年中颇受关注。Struts把Servlet、JSP、<a target=_blank href="/view/2241944.htm">自定义标签</a>和信息资源（message resources）整合到一个统一的框架中，开发人员利用其进行开发时不用再自己编码实现全套MVC模式，极大的节省了时间，所以说Struts是一个非常不错的应用框架。【StrutsIDE：用于Struts辅助开发的一个Eclipse插件】</div>
+<div class="para"><b>Hibernate 【Java开源持久层框架】</b></div>
+<div class="para"><a target=_blank href="/view/7291.htm">Hibernate</a>是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序实用，也可以在<a target=_blank href="/view/25169.htm">Servlet</a>/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的J2EE架构中取代CMP，完成<a target=_blank href="/view/4549557.htm">数据持久化</a>的重任。Eclipse平台下的<a target=_blank href="/view/7291.htm">Hibernate</a>辅助<a target=_blank href="/view/1355803.htm">开发工具</a>：【Hibernate Synchronizer】【MiddlegenIDE】</div>
+<div class="para">JDiy <b>【Java极速开发框架. 开源】</b></div>
+<div class="para"><a target=_blank href="/view/8088759.htm">JDiy</a>是一款java极速开发框架，无需<a target=_blank href="/view/197951.htm">ORM</a>,极少的代码便可以完成数据库的<a target=_blank href="/view/913128.htm">CRUD</a>（增删改查）<b>；</b></div>
+<div class="para">可同时用于javaEE或者javaSE开发环境；完美支持各大主流数据库，如：<a target=_blank href="/subview/24816/15308361.htm">MySQL</a>, SQL Server, <a target=_blank href="/view/15020.htm">Oracle</a>, DB2, PostgreSQL,<a target=_blank href="/view/19310.htm">SQLite</a>;</div>
+<div class="para">同时JDiy内置一套精简而不失强大的智能开发平台（开发者登录后，随心所欲地零代码生成网站管理系<b>　</b></div>
+<div class="para"><b>JFinal</b><b>【Java极速WEB+ORM框架】</b></div>
+<div class="para"><a target=_blank href="/view/8339916.htm">jfinal</a>是基于 Java 语言的极速 WEB + <a target=_blank href="/view/197951.htm">ORM</a> 框架，其核心设计目标是开发迅速、代码量少、学习简单、功能强大、轻量级、易扩展、<a target=_blank href="/view/5798116.htm">Restful</a>。在拥有Java语言所有优势的同时再拥有<a target=_blank href="/subview/45135/5977034.htm">ruby</a>、<a target=_blank href="/view/21087.htm">python</a>、<a target=_blank href="/subview/99/5828265.htm">php</a>等动态语言的开发效率!主要特点1.MVC架构，设计精巧，使用简单 2.遵循<a target=_blank href="/view/1245770.htm">COC</a>原则，零配置，无xml 3.独创Db + Record模式，灵活便利 4.ActiveRecord支持，使数据库开发极致快速 5.自动加载修改后的java文件，开发过程中无需重启web server 6.AOP支持，拦截器配置灵活，功能强大 7.Plugin体系结构，扩展性强 8.多视图支持，支持<a target=_blank href="/view/1278430.htm">FreeMarker</a>、JSP、<a target=_blank href="/view/77351.htm">Velocity</a>9.强大的Validator后端校验功能 10.功能齐全，拥有<a target=_blank href="/view/1381528.htm">struts2</a>的绝大部分功能 11.体积小仅218K，且无第三方依赖</div>
+<div class="para"><b>Quartz 【Java开源Job调度】</b></div>
+<div class="para"><a target=_blank href="/view/1002067.htm">Quartz</a>是OpenSymphony开源组织在Job scheduling领域又一个开源项目，它可以与J2EE与J2SE应用程序相结合也可以单独使用。Quartz可以用来创建简单或为运行十个，百个，甚至是好几万个Jobs这样复杂的日程序表。Jobs可以做成标准的Java组件或EJBs。Quartz的最新版本为Quartz 1.5.0。</div>
+<div class="para"><b>Velocity 【Java开源</b><a target=_blank href="/view/4258079.htm">模板引擎</a>】</div>
+<div class="para"><a target=_blank href="/view/77351.htm">Velocity</a>是一个基于java的模板引擎（template engine）。它允许任何人仅仅简单的使用模板语言（template language）来引用由java代码定义的对象。当Velocity应用于web开发时，界面设计人员可以和java程序开发人员同步开发一个遵循MVC架构的web站点，也就是说，页面设计人员可以只关注页面的显示效果，而由java程序开发人员关注<a target=_blank href="/view/1642754.htm">业务逻辑</a>编码。Velocity将java代码从web页面中分离出来，这样为web站点的长期维护提供了便利，同时也为我们在JSP和PHP之外又提供了一种可选的方案。Velocity的能力远不止web站点开发这个领域，例如，它可以从模板（template）产生SQL和<a target=_blank href="/view/121488.htm">PostScript</a>、<a target=_blank href="/view/63.htm">XML</a>，它也可以被当作一个独立工具来产生源代码和报告，或者作为其他系统的集成组件使用。<a target=_blank href="/view/77351.htm">Velocity</a>也可以为Turbine web开发架构提供模板服务（template service）。Velocity+Turbine提供一个模板服务的方式允许一个web应用以一个真正的MVC模型进行开发。【VeloEclipse ：Velocity在Eclipse平台下的一个辅助开发插件】</div>
+<div class="para"><b>IBATIS 【Java开源持久层框架】</b></div>
+<div class="para">使用<a target=_blank href="/view/628102.htm">ibatis</a>提供的ORM机制，对业务逻辑实现人员而言，面对的是纯粹的Java对象，这一层与通过Hibernate 实现ORM 而言基本一致，而对于具体的<a target=_blank href="/view/1309813.htm">数据操作</a>，Hibernate 会自动生成SQL 语句，而ibatis 则要求开发者编写具体的<a target=_blank href="/view/34.htm">SQL</a>语句。相对Hibernate等“全自动”ORM机制而言，ibatis 以SQL开发的工作量和数据库移植性上的让步，为系统设计提供了更大的自由空间。作为“全自动”ORM 实现的一种有益补充，ibatis 的出现显得别具意义。</div>
+<div class="para"><b>Compiere ERP&amp;CRM 【Java开源</b><a target=_blank href="/view/3609.htm"><b>ERP</b></a><b>与CRM系统】</b></div>
+<div class="para">Compiere ERP&amp;CRM为全球范围内的<a target=_blank href="/view/1404619.htm">中小型企业</a>提供综合型解决方案，覆盖从客户管理、供应链到财务管理的全部领域，支持多组织、多币种、多<a target=_blank href="/view/34294.htm">会计模式</a>、多成本计算、多语种、多税制等国际化特性。易于安装、易于实施、易于使用。只需要短短几个小时，您就可以使用申购-采购-发票-付款、报价-订单-发票-收款、产品与定价、资产管理、客户关系、供应商关系、员工关系、经营业绩分析等强大功能了。</div>
+<div class="para"><b>Apache MINA</b> 【<b>java开源socket框架</b>】</div>
+<div class="para"><a target=_blank href="/subview/28283/5418752.htm"><b>Apache</b></a><b>MINA</b>是一个网络应用程序框架，用来帮助用户简单地开发高性能和高可扩展性的网络应用程序。它提供了一个通过java NIO在不同的传输例如<a target=_blank href="/view/7729.htm">TCP/IP</a>和<a target=_blank href="/view/30509.htm">UDP</a>/IP上抽象的事件驱动的异步API。</div><div class="anchor-list">
+<a name="10_3" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_10_3" class="lemma-anchor " ></a>
+<a name="开发工具" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">开发工具</span>
+</h3>
+<div class="para"><b>IntelliJ IDEA【Java开发工具】</b></div>
+<div class="para"><a target=_blank href="/view/2735945.htm">IntelliJ IDEA</a>是<a target=_blank href="/view/1980886.htm">JetBrains</a>公司的产品，比老一代Java开发工具Eclipse更漂亮，更智能。Google官方Android开发工具Android Studio就是基于intellij IDEA开发的。Intellij IDEA拥有出色的界面设计，使用Darculah黑色界面主题会让你爱不释手。在智能代码助手、代码自动提示、重构、J2EE支持、Ant、<a target=_blank href="/view/66926.htm">JUnit</a>、CVS整合、代码审查、 创新的GUI设计等方面的功能可以说是超常的。IntelliJ IDEA分为商业版本，个人版本，与community社区版本。其中，community社区版本是免费的，但是功能性并不弱，对于学习者和个人开发者来说完全足够了。</div>
+<div class="para"><b>Eclipse 【Java开源开发工具】</b></div>
+<div class="para"><a target=_blank href="/subview/23576/9374802.htm">Eclipse</a>平台是IBM向开放源码社区捐赠的开发框架，它之所以出名并不是因为IBM宣称投入开发的资金总数 —4千万美元，而是因为如此巨大的投入所带来的成果：一个成熟的、精心设计的以及可扩展的体系结构。</div>
+<div class="para"><b>NetBeans【Java开源开发工具】</b></div>
+<div class="para"><a target=_blank href="/view/553506.htm">NetBeans</a> IDE 是一个为软件开发者提供的自由、开源的<a target=_blank href="/view/14867.htm">集成开发环境</a>。您可以从中获得您所需要的所有工具，用Java、C/C++ 甚至是Ruby 来创建专业的<a target=_blank href="/view/2251864.htm">桌面应用程序</a>、企业应用程序、web 和移动应用程序。此IDE 可以在多种平台上运行，包括Windows、<a target=_blank href="/view/1634.htm">Linux</a>、<a target=_blank href="/view/24778.htm">Mac OS X</a>以及<a target=_blank href="/subview/329359/5113665.htm">Solaris</a>；它易于安装且非常方便使用。</div>
+<div class="para"><a target=_blank href="/view/1871243.htm"><b>XPlanner</b></a><b>【Java开源项目管理】</b></div>
+<div class="para">XPlanner 一个基于Web的XP团队计划和跟踪工具。XP独特的开发概念如iteration、user stories等，XPlanner都提供了相对应的的<a target=_blank href="/view/1251417.htm">管理工具</a>，XPlanner支持XP开发流程，并解决利用XP思想来开发项目所碰到的问题。XPlanner特点包括：简单的模型规划，虚拟笔记卡（Virtual note cards),iterations、user stories与工作记录的追踪，未完成stories将自动迭代，工作时间追踪，生成团队效率，个人工时报表，SOAP界面支持。</div>
+<div class="para"><a target=_blank href="/view/2194167.htm"><b>HSQLDB</b></a><b>【Java开源DBMS数据库】</b></div>
+<div class="para">HSQLDB(Hypersonic SQL）是纯Java开发的关系型数据库，并提供JDBC驱动存取数据。支持ANSI-92 标准SQL语法。而且他占的空间很小。大约只有160K，拥有快速的数据库引擎。</div>
+<div class="para"><a target=_blank href="/view/994262.htm"><b>Liferay</b></a><b>【Java开源Portal门户】</b></div>
+<div class="para">代表了完整的<a target=_blank href="/view/1507.htm">J2EE</a>应用，使用了Web、<a target=_blank href="/view/3542.htm">EJB</a>以及<a target=_blank href="/subview/157103/12665866.htm">JMS</a>等技术，特别是其前台界面部分使用Struts 框架技术，基于XML的portlet<a target=_blank href="/view/2117618.htm">配置文件</a>可以自由地动态扩展，使用了Web Services来支持一些远程信息的获取，使用Apache Lucene实现<a target=_blank href="/view/440795.htm">全文检索</a>功能。</div>
+<div class="para"><b>JetSpeed 【Java开源Portal门户】</b></div>
+<div class="para"><a target=_blank href="/view/1126631.htm">Jetspeed</a>是一个开放源代码的企业信息门户(EIP）的实现，使用的技术是Java和XML。用户可以使用浏览器，支持WAP协议的手机或者其它的设备访问Jetspeed架设的信息门户获取信息。Jetspeed扮演着信息集中器的角色，它能够把信息集中起来并且很容易地提供给用户。</div>
+<div class="para"><b>JOnAS 【Java开源J2EE服务器】</b></div>
+<div class="para"><a target=_blank href="/view/5086536.htm">JOnAS</a>是一个开放源代码的J2EE实现，在ObjectWeb协会中开发。整合了<a target=_blank href="/view/10166.htm">Tomcat</a>或<a target=_blank href="/view/1425008.htm">Jetty</a>成为它的Web容器，以确保符合Servlet 2.3和JSP 1.2规范。JOnAS服务器依赖或实现以下的Java API：JCA、JDBC、JTA 、JMS、JMX、JNDI、JAAS、JavaMail。</div>
+<div class="para"><b>JFox3.0 【Java开源J2EE服务器】</b></div>
+<div class="para"><a target=_blank href="/view/3483012.htm">JFox</a>是Open Source Java EE Application Server，致力于提供轻量级的Java EE应用服务器，从3.0开始，JFox提供了一个支持模块化的MVC框架，以简化EJB以及Web应用的开发！ 如果您正在寻找一个简单、轻量、高效、完善的Java EE开发平台，那么JFox正是您需要的。</div><div class="anchor-list">
+<a name="10_4" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_10_4" class="lemma-anchor " ></a>
+<a name="Java IDE" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">Java IDE</span>
+</h3>
+<div class="para">当今最流行的是<a target=_blank href="/view/2735945.htm">IntelliJ IDEA</a>、Eclipse、<a target=_blank href="/view/42723.htm">Myeclipse</a>、<a target=_blank href="/view/3766.htm">Jbuilder</a>、<a target=_blank href="/view/812448.htm">Jdeveloper</a>、<a target=_blank href="/view/553506.htm">Netbeans</a>、<a target=_blank href="/view/857808.htm">JCreator</a>等。</div><div class="anchor-list">
+<a name="10_5" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_10_5" class="lemma-anchor " ></a>
+<a name="JDK" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">JDK</span>
+</h3>
+<div class="para"><a target=_blank href="/subview/25214/5047948.htm">JDK</a>是由一套独立程序构成的集合，每个程序都是从命令行调用的，用于开发和测试Java程序。除了JDK，还可以使用别的Java开发工具。</div><div class="anchor-list">
+<a name="11" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_11" class="lemma-anchor " ></a>
+<a name="架构设计" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">架构设计</span>
+<a class="edit-icon j-edit-link" data-edit-dl="11" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="anchor-list">
+<a name="11_1" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_11_1" class="lemma-anchor " ></a>
+<a name="概念" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">概念</span>
+</h3>
+<div class="para"><a target=_blank href="/view/1147116.htm">软件架构</a>作为一个概念，体现在技术和业务两个方面。</div>
+<div class="para">从技术角度来说：软件架构随着技术的革新不断地更新其内容，软件架构建立于当前技术和一些基本原则的基础之上。</div>
+<div class="para">基本原则：<a target=_blank href="/view/285073.htm">分层</a>原则、模块化原则、接口实现分离原则、细节隐藏原则、<a target=_blank href="/view/2503920.htm">依赖倒置原则</a></div><div class="anchor-list">
+<a name="11_2" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_11_2" class="lemma-anchor " ></a>
+<a name="平台构架" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">平台构架</span>
+</h3>
+<div class="para"><b>平台</b></div>
+<div class="para">Java平台由Java虚拟机（Java Virtual Machine）和Java应用编程接口（Application ProgrammingInterface、简称API）构成。Java应用编程接口为此提供了一个独立于操作系统的标准接口，可分为基本部分和扩展部分。在硬件或操作系统平台上安装一个Java平台之后，Java应用程序就可运行。Java平台已经嵌入了几乎所有的操作系统。这样Java程序可以只编译一次，就可以在各种系统中运行。Java应用<sup>[8]</sup><a class="sup-anchor" name="ref_[8]_12654100">&nbsp;</a>
+<a target=_blank href="/view/897136.htm">编程接口</a>已经从1.1x版发展到1.2版。常用的Java平台基于Java1.5，最近版本为Java1.8。</div>
+<div class="para">Java分为三个体系JavaSE(Java2 Platform Standard Edition，java平台标准版），<a target=_blank href="/view/169790.htm">JavaEE</a>(Java 2 Platform,Enterprise Edition，java平台企业版），<a target=_blank href="/view/1560387.htm">JavaME</a>(Java 2 Platform Micro Edition，java平台微型版）。</div>
+<div class="para"><b>Java SE</b></div>
+<ul class="custom_dot  para-list list-paddingleft-1"><li class="list-dot list-dot-paddingleft"><div class="para"><a target=_blank href="/view/3792776.htm">Java SE</a>（Java Platform，Standard Edition）。Java SE 以前称为J2SE。它允许开发和部署在桌面、<a target=_blank href="/view/899.htm">服务器</a>、嵌入式环境和实时环境中使用的Java应用程序。Java SE 包含了支持Java Web 服务开发的类，并为Java Platform，Enterprise Edition（Java EE）提供基础。</div>
+</li></ul><div class="para"><b>Java EE</b></div>
+<ul class="custom_dot  para-list list-paddingleft-1"><li class="list-dot list-dot-paddingleft"><div class="para"><a target=_blank href="/view/1566145.htm">Java EE</a>（Java Platform，Enterprise Edition）。这个版本以前称为<a target=_blank href="/view/1507.htm">J2EE</a>。企业版本帮助开发和部署可移植、健壮、可伸缩且安全的服务器端 Java 应用程序。Java EE 是在Java SE 的基础上构建的，它提供Web 服务、<a target=_blank href="/view/3852154.htm">组件模型</a>、管理和通信API，可以用来实现企业级的面向服务<a target=_blank href="/view/1188494.htm">体系结构</a>（service-oriented architecture，SOA）和Web 2.0 应用程序。</div>
+</li></ul><div class="para"><b>Java ME</b></div>
+<ul class="custom_dot  para-list list-paddingleft-1"><li class="list-dot list-dot-paddingleft"><div class="para"><a target=_blank href="/view/943427.htm">Java ME</a>（Java Platform，Micro Edition）。这个版本以前称为J2ME，也叫<a target=_blank href="/view/412221.htm">K-JAVA</a>。Java ME 为在移动设备和嵌入式设备（比如手机、PDA、电视<a target=_blank href="/view/16791.htm">机顶盒</a>和打印机）上运行的应用程序提供一个健壮且灵活的环境。Java ME 包括灵活的用户界面、健壮的安全模型、许多内置的网络协议以及对可以动态下载的连网和离线应用程序的丰富支持。基于Java ME 规范的应用程序只需编写一次，就可以用于许多设备，而且可以利用每个设备的本机功能。</div>
+</li></ul><div class="anchor-list">
+<a name="12" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_12" class="lemma-anchor " ></a>
+<a name="发展前景" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">发展前景</span>
+<a class="edit-icon j-edit-link" data-edit-dl="12" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para">自从Sun被<a target=_blank href="/subview/8170/6337787.htm">甲骨文</a>收购以后，Java的发展前景就变得扑朔迷离起来，很多程序开发者都感到很迷惑。2010年4月9日，被称为<a target=_blank href="/view/1149322.htm">Java之父</a>的詹姆斯·高斯林又在个人博客上宣布离开Oracle，这一事件更为Java的前景增加了一层迷雾。但是在进入5月份之后，一切开始变得明朗起来。</div>
+<div class="para">在Oracle的活动发布网站上，连续发布了多个关于Java的推广活动。5月12日，Oracle主要产品负责人Dave Hofert将大谈对JavaSE商业应用的改进和革新。根据宣传资料，在这次演讲中，DaveHofert将提到以下问题：商业版与社区版本之间平台支持的差异。如何获得专家帮助，以帮助企业增强其Java应用。对于旧版本的安全修补问题。可使用的发布工具和更新。6月18、19、20、27日，将分别在<a target=_blank href="/view/30777.htm">赫尔辛基</a>、<a target=_blank href="/view/52882.htm">斯图加特</a>、<a target=_blank href="/view/38186.htm">布达佩斯</a>、伦敦举行Oracle、Sun专家与用户见面会，在见面会上与用户一起探讨Java的发展路线。主要讨论的问题包括Oracle将如何继续投资和改进Java技术，并且还会向用户通报JavaSE、JavaME专家团队的最新消息、JavaFX和JDK7最新的消息，以及OracleBerkeley DB的相关信息。5月3日，已经离开Oracle近一个月的Java之父詹姆斯·高斯林在他的博客上表达了对NetBeans 6.9 和 FX1.3发布的关心。这两个项目最新版本的发布，可以证明Oracle已经开始兑现当初的承诺。詹姆斯·高斯林在其早期的博客中，也透露了不会放弃Java事业，只是需要解决一些与Oracle之间的法律问题。这一切迹象表明，Oracle绝对不会轻易放弃Java这块巨大的蛋糕，并且Oracle也开始逐渐学会了对<a target=_blank href="/view/75981.htm">开源社区</a>的尊重。首先在JDK的商业版本方面，Oracle将会继续深入挖掘Java的商业利益，与其固有产品进行更深入的整合。在社区版本方面，Oracle将与Java开发者一起探讨和研发Java的技术。这里需要特别提到的一个产品是Oracle BerkeleyDB，该产品是Oracle一直支持的一个开源非关系数据库产品，在<a target=_blank href="/view/2677528.htm">NoSQL</a>大行其道的今天，如果Oracle能够将BerkeleyDB与Java进行深入整合，将会为Java带来更多的活力和生命。从詹姆斯·高斯林的表现来看，他似乎与Oracle之间已经达成某种谅解，并且有进一步合作的可能性。</div><div class="anchor-list">
+<a name="12_1" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_12_1" class="lemma-anchor " ></a>
+<a name="贡献及影响" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">贡献及影响</span>
+</h3>
+<div class="para">1991年，Sun公司的James Gosling，Bill Joe等人，为电视、控制烤面包机等家用电器的交互操作开发了一个Oak（橡树）软件，他是Java的前身。当时，Oak并没有引起人们的注意，直到1994年，随着互联网和3W的飞速发展，他们用Java编制了HotJava浏览器，得到了Sun公司首席执行官Scott McNealy的支持，得以研发和发展。由于Oak商标已经被Oak Technology注册，1995年Oak短暂更名为Green，最后更名为Java。Java的得名还有段小插曲呢，一天，Java小组成员正在喝咖啡时，议论给新语言起个什么名字的问题，有人提议用Java（Java是印度尼西亚盛产咖啡的一个岛屿），这个提议得到了其他成员的赞同，于是就采用Java来命名此新语言。很快Java被工业界认可，许多大公司如IBM Microsoft.DEC等购买了Java的使用权，并被美国杂志PC Magazine评为1995年十大优秀科技产品。从此，开始了Java应用的新篇章。</div>
+<div class="para">Java的诞生是对传统计算机模式的挑战，对计算机软件开发和软件产业都产生了深远的影响：</div>
+<ol class="custom_num  para-list list-paddingleft-1"><li class="list-num-1-1 list-num-paddingleft-1"><div class="para">软件4A目标要求软件能达到任何人在任何地方在任何时间对任何电子设备都能应用。这样能满足软件平台上互相操作，具有可<a target=_blank href="/view/1246744.htm">伸缩性</a>和重用性并可即插即用等<a target=_blank href="/view/402382.htm">分布式</a>计算模式的需求。</div>
+</li><li class="list-num-1-2 list-num-paddingleft-1"><div class="para">基于构建开发方法的崛起，引出了<a target=_blank href="/view/153815.htm">CORBA</a>国际标准<a target=_blank href="/view/1317046.htm">软件体系结构</a>和多层应用体系框架。在此基础上形成了Java.2平台和.NET平台两大派系，推动了整个IT业的发展。</div>
+</li><li class="list-num-1-3 list-num-paddingleft-1"><div class="para">对软件产业和<a target=_blank href="/view/1326190.htm">工业企业</a>都产生了深远的影响，软件从以开发为中心转到了以服务为中心。中间提供商，构件提供商，<a target=_blank href="/view/4438667.htm">服务器软件</a>以及咨询服务商出现。企业必须重塑自我，B2B的电子商务将带动整个新经济市场，使企业获得新的价值，新的增长，新的商机，新的管理。</div>
+</li><li class="list-num-1-4 list-num-paddingleft-1"><div class="para">对软件开发带来了新的革命，重视使用第三方构件集成，利用平台的基础设施服务，实现开发各个阶段的重要技术，重视开发团队的组织和文化理念，协作，创作，责任，诚信是人才的基本素质。</div>
+</li></ol><div class="anchor-list">
+<a name="12_2" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_12_2" class="lemma-anchor " ></a>
+<a name="Java模拟器" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">Java模拟器</span>
+</h3>
+<div class="para">Java手机游戏模拟器主要针对诺基亚S60系列手机以及其他大屏手机（小屏游戏也可运行，但不能全屏显示），是一款非常简单而且实用的JAVA游戏模拟器，可以正常运行绝大部分JAVA手机游戏！注：暂不支持游戏后缀名为sis的游戏。程序的使用是傻瓜式的，在电脑上安装好以后，所有的游戏jar文件都会和模拟器相关连，直接双击游戏jar文件就可以进入模拟器玩游戏啦！电脑的小数字键盘和方向键就可以直接控制游戏，与模拟器的按键相对应，当然也可以用鼠标直接点击控制。</div><div class="anchor-list">
+<a name="12_3" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_12_3" class="lemma-anchor " ></a>
+<a name="虚拟机" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">虚拟机</span>
+</h3>
+<div class="para">Java虚拟机（Java Virtual Machine) 简称<a target=_blank href="/view/160708.htm">JVM</a>，Java虚拟机是一个想象中的机器，在实际的计算机上通过软件模拟来实现。Java虚拟机有自己想象中的硬件，如处理器、堆栈、寄存器等，还具有相应的指令系统。</div>
+<div class="para">引入Java语言虚拟机后，Java语言在不同平台上运行时不需要重新编译。Java语言使用模式Java虚拟机屏蔽了与具体平台相关的信息，使得Java语言编译程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。Java虚拟机在执行字节码时，把字节码解释成具体平台上的机器指令执行。</div>
+<div class="para">字节码校验器，类加载器，垃圾回收机制（人为不可控制，优先级别最低）。</div><div class="anchor-list">
+<a name="12_4" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_12_4" class="lemma-anchor " ></a>
+<a name="内存模型" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">内存模型</span>
+</h3>
+<div class="para">在处理器层面上，内存模型定义了一个充要条件，“让当前的处理器可以看到其他处理器写入到内存的数据”以及“其他处理器可以看到当前处理器写入到内存的数据”。有些处理器有很强的内存模型，能够让所有的处理器在任何时候任何指定的内存地址上都可以看到完全相同的值。而另外一些处理器则有较弱的内存模型，在这种处理器中，必须使用<a target=_blank href="/view/12099186.htm">内存屏障</a>（一种特殊的指令）来刷新本地处理器缓存并使本地处理器缓存无效，目的是为了让当前处理器能够看到其他处理器的写操作或者让其他处理器能看到当前处理器的写操作。这些内存屏障通常在lock和unlock操作的时候完成。内存屏障在高级语言中对程序员是不可见的。</div><div class="anchor-list">
+<a name="12_5" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_12_5" class="lemma-anchor " ></a>
+<a name="相关消息" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">相关消息</span>
+</h3>
+<div class="para">在宣布修正Java严重<a target=_blank href="/view/269808.htm">0day</a>漏洞的消息发出一天后，甲骨文公布了Java SE 7u11更新，它包含了安全漏洞CVE-2013-0422的补丁，同时也改变了默认的Java安全级别设置，任何未签名的<a target=_blank href="/view/958816.htm">Java Apple</a>t或Java Web Start应用程序运行时总是会被提示，这样可以防止恶意应用被下载，对用户来说这可能会带来的影响是需要多确认一下。</div><div class="anchor-list">
+<a name="13" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_13" class="lemma-anchor " ></a>
+<a name="其他应用" class="lemma-anchor " ></a>
+</div><h2 class="para-title level-2">
+<span class="title-text">其他应用</span>
+<a class="edit-icon j-edit-link" data-edit-dl="13" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_edit-lemma"></em>编辑</a>
+</h2>
+<div class="para"><a target=_blank href="/subview/1241829/9322617.htm">Android</a>是第一个内置支持Java的操作系统，Android应用程序使用Java语言编写。Android开发水平的高低很大程度上取决于Java语言核心能力是否扎实。另外一方面，<a target=_blank href="/view/808.htm">3G</a>应用往往会和企业级应用相互结合。因此，在3G—Android课程体系中将Android课程与Java EE课程紧密结合，以Android课程为主，以Java EE课程为辅，配合真实的企业级项目，不但可以深入掌握基于Android平台的智能手机开发技术，更重要的是还系统掌握了智能移动终端与Java EE服务器端相结合的诸多领域商业的应用。</div>
+<div class="para">Java试图通过新的方式解决软件编写的复杂性。很多人认为Java语言做到了它承诺的一切。但是Java并不是一门完美的语言。</div><div class="anchor-list">
+<a name="13_1" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_13_1" class="lemma-anchor " ></a>
+<a name="整体性" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">整体性</span>
+</h3>
+<div class="para">并不是所有的工程和环境需要企业级别的复杂性，比如一个简单的个人网站或者独自编程的程序师所写的程序。这些程序师会发现Java的复杂管理对于自己要做的程序来说过于强大了。一些人觉得Java在面向对象上面做的没有<a target=_blank href="/view/45135.htm">Ruby</a>和<a target=_blank href="/view/76337.htm">Smalltalk</a>纯粹。但是最新出现的用Java实现的语言<a target=_blank href="/view/707298.htm">Groovy</a>解决了这些问题。</div>
+<div class="para">作为一种已经创建的新技术，Java显然综合了很多语言的特性，比如C++、C语言、<a target=_blank href="/view/21087.htm">Python</a>等等。一些对于Java的评论认为Java的不变性在动摇。</div><div class="anchor-list">
+<a name="13_2" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_13_2" class="lemma-anchor " ></a>
+<a name="语言问题" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">语言问题</span>
+</h3>
+<div class="para">有些程序师不喜欢原始类型（primitive type）和类（class）的分离，尤其是那些曾经使用过<a target=_blank href="/view/76337.htm">Smalltalk</a>和<a target=_blank href="/view/45135.htm">Ruby</a>的程序师。Java的代码相对于其他的代码来说过于冗长，这与它的轻便化声明相违背。</div>
+<div class="para">Java是一种单层继承的语言。这也导致了程序师在试图使用多重继承时候的不便，而很多语言都可以使用这个特性。但是Java可以使用接口类，把多重继承可能导致的风险减少到最小。Java不支持<a target=_blank href="/view/116893.htm">运算符重载</a>，这是为了防止运算符重载使得代码的功能变得不清晰。但是用Java实现的语言<a target=_blank href="/view/707298.htm">Groovy</a>可以进行运算符重载。过去Java对于文本的操作和其他语言，比如<a target=_blank href="/view/46614.htm">Perl</a>和<a target=_blank href="/view/99.htm">PHP</a>相比差的较多，但Java在1.4版本时候引入了<a target=_blank href="/view/94238.htm">正则表达式</a>。</div><div class="anchor-list">
+<a name="13_3" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_13_3" class="lemma-anchor " ></a>
+<a name="类库问题" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">类库问题</span>
+</h3>
+<div class="para">使用<a target=_blank href="/view/895520.htm">Swing</a>平台编写的带有<a target=_blank href="/view/25309.htm">GUI</a>（图形用户接口）的程序和其他原始程序非常不同。选用<a target=_blank href="/view/209544.htm">AWT</a>工具包编写程序的程序师看到的都是原始接口，而且也无法获得先进的GUI编程支持，如果使用的话，就要提供每个平台上面所需的API，这将是一项庞大的工程。Swing则是完全用Java语言所写的程序，避免了接口元素重复的问题，只使用所有平台都支持的最基本的绘图机制。但是很多用户不知道如何在Java风格和Windows风格之间进行转换，结果造成了Java程序的接口在很多程序中非常特殊。<a target=_blank href="/view/38648.htm">苹果电脑</a>已经提供了优化过的Java运行时程序，包含了<a target=_blank href="/view/24778.htm">Mac OS X</a>的经典Aqua接口风格。</div><div class="anchor-list">
+<a name="13_4" class="lemma-anchor para-title" ></a>
+<a name="sub12654100_13_4" class="lemma-anchor " ></a>
+<a name="性能问题" class="lemma-anchor " ></a>
+</div><h3 class="para-title level-3">
+<span class="title-text">性能问题</span>
+</h3>
+<div class="para">由于Java编译器和虚拟机的不同对Java代码的性能影响比语言本身的影响大的多，所以统一讨论Java的程序的性能经常是有误导性的。据IBM的数据，在同样的硬件上2001年时的IBM<a target=_blank href="/view/25214.htm">JDK</a>版本的性能是1996年的JDK版本的十倍左右。即使是在同一时期，不同公司的JDK和<a target=_blank href="/view/160710.htm">JRE</a>的性能也不一样，比如<a target=_blank href="/subview/24856/10322735.htm">SUN</a>、<a target=_blank href="/subview/1937/5817096.htm">IBM</a>、<a target=_blank href="/subview/89493/15834348.htm">BEA</a>等公司都有自己开发的<a target=_blank href="/subview/25214/5047948.htm">JDK</a>和<a target=_blank href="/view/160710.htm">JRE</a>。</div>
+<div class="para">Java语言的一些特性不可避免的有额外的性能代价。例如数组范围检查、运行时类型检查等等；Java程序的性能还会因为不同的动态复杂性和垃圾处理机制使用的多少而各有不同。如果JVM的实现比较优化的话，那么这些功能甚至可以增加存储器分配的性能。这和总是使用<a target=_blank href="/subview/332356/10428592.htm">STL</a>或者托管C++的程序的情况类似。</div>
+<div class="para">Java的设计目的主要是安全性和可携性，所以对于一些特性。比如对硬件架构和存储器地址访问的直接访问都被去除了，如果需要间接调用这些底层功能的话，就需要使用<a target=_blank href="/view/1272329.htm">JNI</a>（Java本地接口）来调用本地代码。而间接访问意味着频繁调用这些特性时性能损失会很大，微软的<a target=_blank href="/view/4294.htm">.NET</a>平台也有这样的问题。</div>
+<div class="anchor-list">
+<a name="a" class="lemma-anchor a" ></a>
+</div><div class="album-list">
+<div class="header">
+<span class="title">词条图册</span>
+<a class="more-link" href="/album/29/12654100?fr=lemma" target="_blank" nslog-type="10000204">更多图册<em></em></a>
+</div>
+<div class="scroller">
+<div class="list">
+</div>
+</div>
+<div class="footer">
+</div>
+</div>
+<div class="rs-container-foot">
+<a name="rs-1"></a>
+<a name="rs_12654100_30475" class="anchor-2"></a>
+<div id="rs-container-12654100-30475" class="rslazy rs-container" lazy-init="lemmars.tableAction(baidu.g('rs-12654100-30475'))"></div>
+<a name="rs_12654100_32189" class="anchor-2"></a>
+<div id="rs-container-12654100-32189" class="rslazy rs-container" lazy-init="lemmars.tableAction(baidu.g('rs-12654100-32189'))"></div>
+</div><script type="text/javascript">
+        window.rsInsertData = window['rsInsertData'] || [];
+        var rsdataList = {"foot":[{"fentryTableId":30475,"fentryTableName":"\u592a\u9633\u5fae\u7cfb\u7edf(2010\u5e74\u88ab\u7532\u9aa8\u6587\u516c\u53f8\u6536\u8d2d)","fentryTableType":1,"entryId":2563680,"templateId":0,"entryTitle":"\u592a\u9633\u5fae\u7cfb\u7edf(2010\u5e74\u88ab\u7532\u9aa8\u6587\u516c\u53f8\u6536\u8d2d)","isManual":0,"isExpand":1},{"fentryTableId":32189,"fentryTableName":"Java(\u7532\u9aa8\u6587\u516c\u53f8)","fentryTableType":1,"entryId":2587097,"templateId":0,"entryTitle":"Java(\u7532\u9aa8\u6587\u516c\u53f8)","isManual":1,"isExpand":1}],"top":[]};
+
+        if (rsdataList.top || rsdataList.foot) {
+            rsInsertData.push([12654100, rsdataList]);
+        }
+    </script>
+<dl class="lemma-reference collapse nslog-area log-set-param" data-nslog-type="2" log-set-param="ext_reference">
+<dt class="reference-title">参考资料<em class="toggle"></em></dt>
+<dd class="reference-list-wrap">
+<ul class="reference-list">
+<li class="reference-item " id="reference-[1]-12654100-wrap">
+<span class="index">1.</span>
+<a class="gotop anchor"  name="refIndex_1_12654100" id="refIndex_1_12654100" title="向上跳转" href="#ref_[1]_12654100">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/2157DI1tFdiFLLE-Ujs_zwFv2xLcqXJTjbYDruZPCmtXo8fVgM6SRFgyonx8Smp1KZ8qaxc2ChZCgJIfKSbH1ZkzVxFYYMTv6Y__NEmRy2Ro" target="_blank" class="text">Java开发者必备工具大盘点<span class="linkout">&nbsp;</span></a>
+<span class="site">．Java</span><span>&#91;引用日期2015-4-1&#93;</span></li><li class="reference-item " id="reference-[2]-12654100-wrap">
+<span class="index">2.</span>
+<a class="gotop anchor"  name="refIndex_2_12654100" id="refIndex_2_12654100" title="向上跳转" href="#ref_[2]_12654100">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/27c0W8MBkChi4hzcOVsbIFqKOzK3I954ZDn-_UsFJk0LAnbDB6AEFDjmM1XVTnhP957yk5hnHQTgabUtqKBmCYP7Y0U-" target="_blank" class="text">java优势<span class="linkout">&nbsp;</span></a>
+<span class="site">．java的优势</span><span>&#91;引用日期2014-11-24&#93;</span></li><li class="reference-item " id="reference-[3]-12654100-wrap">
+<span class="index">3.</span>
+<a class="gotop anchor"  name="refIndex_3_12654100" id="refIndex_3_12654100" title="向上跳转" href="#ref_[3]_12654100">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/f636xRDnp0PUG5h_Vfy8Oz89ZlwEkRTr1RDFJ5w9qL4A7i7L69_zLmIiDADoloN3JysDrizUyGjO3ypdcOzjXvcoQCXNoLVNK8Y-_t7TBy_WR51LFAp8EOnIQMfmPy70wIA" target="_blank" class="text">Java Language Specification<span class="linkout">&nbsp;</span></a>
+<span class="site">．Oracle</span><span>&#91;引用日期2015-04-24&#93;</span></li><li class="reference-item " id="reference-[4]-12654100-wrap">
+<span class="index">4.</span>
+<a class="gotop anchor"  name="refIndex_4_12654100" id="refIndex_4_12654100" title="向上跳转" href="#ref_[4]_12654100">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/174c7hHX7hM5mwAH8SL5wLVMyAcyxBpHWER6-3lslWTwsEGyWbNVA8euI9ydX09VboibDwTpLGvHlJON6GtULhwTl2g0KJ8" target="_blank" class="text">java技术<span class="linkout">&nbsp;</span></a>
+<span class="site">．java技术</span><span>&#91;引用日期2013-03-22&#93;</span></li><li class="reference-item " id="reference-[5]-12654100-wrap">
+<span class="index">5.</span>
+<a class="gotop anchor"  name="refIndex_5_12654100" id="refIndex_5_12654100" title="向上跳转" href="#ref_[5]_12654100">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/adccNqtr66Nr-oP0xXnziW5jKxL7QLOakNY8qYGXkoWZsB9f-_ADsmspf0TQom0YfFXSU6ddYyZo8aDPsgZnJWk33jAps8Aq_wXkDpYYlII" target="_blank" class="text">More Java 9 Features Announced<span class="linkout">&nbsp;</span></a>
+<span class="site">．InfoQ</span><span>&#91;引用日期2015-04-27&#93;</span></li><li class="reference-item " id="reference-[6]-12654100-wrap">
+<span class="index">6.</span>
+<a class="gotop anchor"  name="refIndex_6_12654100" id="refIndex_6_12654100" title="向上跳转" href="#ref_[6]_12654100">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/f2daS7Zs-n5t39XL5N_f-HmSurzZUyBTbuk6maIyiPxTS20RsVRVDQ1H5kNc68PR4f5lT6RaRi5yRgewGlOXXTgvvg" target="_blank" class="text">JDK 9<span class="linkout">&nbsp;</span></a>
+<span class="site">．OpenJDK</span><span>&#91;引用日期2015-04-27&#93;</span></li><li class="reference-item " id="reference-[7]-12654100-wrap">
+<span class="index">7.</span>
+<a class="gotop anchor"  name="refIndex_7_12654100" id="refIndex_7_12654100" title="向上跳转" href="#ref_[7]_12654100">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/46ddEXDTi4wChjJOyu70GAUnjtUiRzurJAlc9EF3aNAMGqwswTQ9OtIZQBBefTOzVLXhJLpqHGjw6u7ABS1QeFznJi_i3vjt" target="_blank" class="text">java运行环境详细介绍<span class="linkout">&nbsp;</span></a>
+<span class="site">．.</span><span>&#91;引用日期2013-06-3&#93;</span></li><li class="reference-item " id="reference-[8]-12654100-wrap">
+<span class="index">8.</span>
+<a class="gotop anchor"  name="refIndex_8_12654100" id="refIndex_8_12654100" title="向上跳转" href="#ref_[8]_12654100">&nbsp;&nbsp;</a>
+<a rel="nofollow" href="http://baike.baidu.com/redirect/e563xIcRQXQuLTbCoB6HYdeXDaBzSBZPjmxdZzydk9q81Lgyf_O2ZqZqVM7qfq8ma1PYcTObMk1Eti5IoRGVwt7zY0_2_m4QZ5GpsDQXRnL8fmE" target="_blank" class="text">java免费学习课程--基础语法<span class="linkout">&nbsp;</span></a>
+<span class="site">．汇智官网</span><span>&#91;引用日期2015-07-29&#93;</span></li></ul>
+</dd>
+</dl>
+<div id="open-tag">
+<div class="open-tag-title">词条标签：</div>
+<dd id="open-tag-item">
+<span class="taglist">
+软件
+</span>
+，<span class="taglist">
+计算机学
+</span>
+，<span class="taglist">
+科技
+</span>
+，<span class="taglist">
+互联网
+</span>
+</dd>
+<div class="open-tag-collapse" id="open-tag-collapse"></div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="side-content">
+<div class="summary-pic">
+<a href="/picture/29/12654100/0/a08b87d6277f9e2f0d91258e1f30e924b999f38b.html?fr=lemma&amp;ct=single" target="_blank">
+<img src="http://c.hiphotos.baidu.com/baike/w%3D268/sign=ae96464dfbedab6474724ac6cf37af81/a08b87d6277f9e2f0d91258e1f30e924b999f38b.jpg" />
+<button class="picAlbumBtn"><em></em><span>图集</span></button>
+<div>Java图册</div>
+</a>
+</div>
+<div class="lemmaWgt-promotion-vbaike">
+<div class="promotion_title">V百科<a href="/vbaike" target="_blank">往期回顾</a></div>
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><div class="lemmaWgt-promotion-rightPreciseAd"></div><a name="zhixinWrap" class="qnAnchor"></a>
+<div class="side-box zhixin-box" id="zhixinWrap" data-source="bdg" data-newLemmaId="85979">
+<div class="zhixin-group js-group">
+<h6 class="js-cardTitle">
+<span>其他人还看</span>
+</h6>
+<div class="zhixin-fixBtn js-fixBtn">
+<div class="openFix" title="若推荐内容有误，请点击纠错进行反馈">纠错</div>
+<div class="closeFix">关闭纠错</div>
+</div>
+<div class="zhixin-list zhixin-list-3">
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/824","targetId":"99272"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/824" target="_blank">
+<img width="72" height="72" src="http://c.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=279297da3b01213fcf661d9c32da07e3/730e0cf3d7ca7bcba0c4642cbc096b63f624a872.jpg" alt="c++" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/824" target="_blank" title="c++">c++</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="99272">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1219","targetId":"105958"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1219" target="_blank">
+<img width="72" height="72" src="http://d.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=a4112de3452309f7e73afe5214333dc1/aec379310a55b319009fba0240a98226cffc1766.jpg" alt="c语言" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1219" target="_blank" title="c语言">c语言</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="105958">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/22424","targetId":"430115"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/22424" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=d5ef2073700e0cf3a0a21dbb6c7bc32d/eac4b74543a982268a41a6468882b9014b90ebcb.jpg" alt="甲骨文公司" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/22424" target="_blank" title="甲骨文公司">甲骨文公司</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="430115">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/subview/99/5828265","targetId":"9337"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/subview/99/5828265" target="_blank">
+<img width="72" height="72" src="http://b.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=228b5205530fd9f9a04206294310e518/2f738bd4b31c870168f8cf9f257f9e2f0708ff79.jpg" alt="php" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/subview/99/5828265" target="_blank" title="php">php</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="9337">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/1149322","targetId":"7522276"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/1149322" target="_blank">
+<img width="72" height="72" src="http://d.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=c0071ec32edda3cc0bb1eb6067d40833/21a4462309f790521313c0620cf3d7ca7bcbd55a.jpg" alt="Java之父" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/1149322" target="_blank" title="Java之父">Java之父</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="7522276">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/2887496","targetId":"1600318"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/2887496" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=1c4e2c879d82d158bbd70af1e63728ea/902397dda144ad3494c52deed1a20cf431ad8565.jpg" alt="世界编程语言排行榜" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/2887496" target="_blank" title="世界编程语言排行榜">世界编程语言排行榜</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="1600318">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/16168","targetId":"321142"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/16168" target="_blank">
+<img width="72" height="72" src="http://d.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=40dbf50b9345d688a357e1e4c2ff4c2c/91ef76c6a7efce1b1e30f4f2ae51f3deb48f65ea.jpg" alt="javascript" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/16168" target="_blank" title="javascript">javascript</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="321142">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/21087","targetId":"407313"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/21087" target="_blank">
+<img width="72" height="72" src="http://c.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C0/sign=d85115b87bf40ad115b194a3311120ed/0eb30f2442a7d9331abfc6f3ad4bd11373f0011e.jpg" alt="Python" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/21087" target="_blank" title="Python">Python</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="407313">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="zhixin-item" nslog="area" nslog-type="10000101" nslog-params='{"source":"bdg","url":"http://baike.baidu.com/view/6590","targetId":"195147"}'>
+<div class="portraitbox">
+<a href="http://baike.baidu.com/view/6590" target="_blank">
+<img width="72" height="72" src="http://f.hiphotos.baidu.com/baike/whfpf%3D120%2C120%2C50/sign=bfbbf4170cf431adbc8710792d0b9d9d/908fa0ec08fa513d2b9b7d5b3d6d55fbb2fbd905.jpg" alt="c#" />
+</a>
+</div>
+<p class="item-title js-name"><a href="http://baike.baidu.com/view/6590" target="_blank" title="c#">c#</a></p>
+<div class="zhixinErrorBox js-fixBox hidden" data-lemma-id="195147">
+<a class="submit-trigger" href="javascript:;">有错误</a>
+<span class="js-text hidden">已反馈</span>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<form id="zhixinErrorForm" class="hidden" action="http://f3.baidu.com/index.php/feedback/zx/baikeJC" target="zhixinSubErr" method="post">
+<input class="js-url" name="fb_html_url" type="hidden" />
+<input class="js-query" name="fb_query" type="hidden" />
+<input class="js-title" name="fb_card_title" type="hidden" />
+<input class="js-content" name="fb_content" type="hidden" />
+<input class="js-souceId"name="fb_source_id" type="hidden" />
+</form>
+<iframe id="zhixinSubErr" name="zhixinSubErr" style="display:none;" frameborder="0"></iframe>
+<div class="lemmaWgt-promotion-slide">
+<div class="promotion_viewport">
+<dl>
+</dl>
+<div class="promotion_viewport_pager"></div>
+</div>
+</div><dl class="side-box lemma-statistics">
+<dt class="title">词条统计</dt>
+<dd class="description">
+<ul>
+<li>浏览次数：<span id="j-lemmaStatistics-pv"></span>次</li>
+<li>编辑次数：593次<a href="/historylist/Java/85979" class="nslog:1021" target="_blank">历史版本</a></li>
+<li>最近更新：<span class="j-modified-time" style="display:none">2015-09-14</span></li>
+<li>创建者：<a class="show-userCard" data-uid="6681189" title="查看此用户资料" target="_blank" href="http://www.baidu.com/p/yefeizi" nslog-type="1022">yefeizi</a></li>
+</ul>
+</dd>
+</dl>
+<div class="side-catalog" style="visibility:hidden">
+<div class="side-bar">
+<em class="circle start"></em>
+<em class="circle end"></em>
+</div>
+<div class="catalog-scroller">
+<dl class="catalog-list">
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">1</span>
+<a href="#1" class="title-link" nslog-type="1026">背景</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">2</span>
+<a href="#2" class="title-link" nslog-type="1026">组成</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">3</span>
+<a href="#3" class="title-link" nslog-type="1026">体系</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">4</span>
+<a href="#4" class="title-link" nslog-type="1026">优势</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">5</span>
+<a href="#5" class="title-link" nslog-type="1026">基本含义</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">6</span>
+<a href="#6" class="title-link" nslog-type="1026">基本语法</a>
+</span>
+</dt>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">7</span>
+<a href="#7" class="title-link" nslog-type="1026">Java关键字</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">7.1</span>
+<a href="#7_1" class="title-link" nslog-type="1026">关键字</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">7.2</span>
+<a href="#7_2" class="title-link" nslog-type="1026">注释</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">8</span>
+<a href="#8" class="title-link" nslog-type="1026">发展历程</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">8.1</span>
+<a href="#8_1" class="title-link" nslog-type="1026">名字来源</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">8.2</span>
+<a href="#8_2" class="title-link" nslog-type="1026">语言起源</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">8.3</span>
+<a href="#8_3" class="title-link" nslog-type="1026">发展历史</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">8.4</span>
+<a href="#8_4" class="title-link" nslog-type="1026">最新版本</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">9</span>
+<a href="#9" class="title-link" nslog-type="1026">特点</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">9.1</span>
+<a href="#9_1" class="title-link" nslog-type="1026">语言特征</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">9.2</span>
+<a href="#9_2" class="title-link" nslog-type="1026">主要特性</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">9.3</span>
+<a href="#9_3" class="title-link" nslog-type="1026">差异</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">9.4</span>
+<a href="#9_4" class="title-link" nslog-type="1026">优劣势</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">10</span>
+<a href="#10" class="title-link" nslog-type="1026">相关技术</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">10.1</span>
+<a href="#10_1" class="title-link" nslog-type="1026">主要服务</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">10.2</span>
+<a href="#10_2" class="title-link" nslog-type="1026">框架服务</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">10.3</span>
+<a href="#10_3" class="title-link" nslog-type="1026">开发工具</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">10.4</span>
+<a href="#10_4" class="title-link" nslog-type="1026">Java IDE</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">10.5</span>
+<a href="#10_5" class="title-link" nslog-type="1026">JDK</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">11</span>
+<a href="#11" class="title-link" nslog-type="1026">架构设计</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">11.1</span>
+<a href="#11_1" class="title-link" nslog-type="1026">概念</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">11.2</span>
+<a href="#11_2" class="title-link" nslog-type="1026">平台构架</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">12</span>
+<a href="#12" class="title-link" nslog-type="1026">发展前景</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">12.1</span>
+<a href="#12_1" class="title-link" nslog-type="1026">贡献及影响</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">12.2</span>
+<a href="#12_2" class="title-link" nslog-type="1026">Java模拟器</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">12.3</span>
+<a href="#12_3" class="title-link" nslog-type="1026">虚拟机</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">12.4</span>
+<a href="#12_4" class="title-link" nslog-type="1026">内存模型</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">12.5</span>
+<a href="#12_5" class="title-link" nslog-type="1026">相关消息</a>
+</span>
+</dd>
+<dt  class="catalog-title level1">
+<em class="pointer"></em>
+<span class="text">
+<span class="title-index">13</span>
+<a href="#13" class="title-link" nslog-type="1026">其他应用</a>
+</span>
+</dt>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">13.1</span>
+<a href="#13_1" class="title-link" nslog-type="1026">整体性</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">13.2</span>
+<a href="#13_2" class="title-link" nslog-type="1026">语言问题</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">13.3</span>
+<a href="#13_3" class="title-link" nslog-type="1026">类库问题</a>
+</span>
+</dd>
+<dd class="catalog-title level2">
+<span class="text">
+<span class="title-index">13.4</span>
+<a href="#13_4" class="title-link" nslog-type="1026">性能问题</a>
+</span>
+</dd>
+<a class="arrow" href="javascript:void(0);"></a>
+</dl>
+</div>
+<div class="right-wrap">
+<a class="go-up disable" href="javascript:void(0);"></a>
+<a class="go-down" href="javascript:void(0);"></a>
+</div>
+<div class="bottom-wrap">
+<a class="toggle-button" href="javascript:void(0);"></a>
+<a class="gotop-button" href="javascript:void(0);"></a>
+</div>
+</div>
+<div class="unionAd_fromPs side-box" id="unionAd_fromPs">
+<script type="BAIDU_HH">
+    {
+        type : 'pageembed',
+        di   : 'u2140330',
+        rsi0 : 270,
+        rsi1 : 175
+    }
+    </script>
+</div>
+<div class="fengchao side-box" nslog="area" nslog-type="10000902">
+</div>
+<div class="unionAd side-box">
+</div>
+</div>
+</div>
+</div>
+<div class="after-content">
+<div class="bottom-promotion" id="bottom-promotion">
+<div id="BOTTOM_PRO_AD"></div>
+</div>
+</div>
+</div>
+
+<div class="wgt-footer-main">
+<div class="content">
+<dl class="fresh">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-fresh"></em>新手上路</dt>
+<dd>
+<div><a target="_blank" href="/usercenter/tasks#guide">成长任务</a></div>
+<div><a target="_blank" href="/help#main01">编辑入门</a></div>
+<div><a target="_blank" href="/help#main06">编辑规则</a></div>
+<div><a target="_blank" href="/help#main05">百科术语</a></div>
+</dd>
+</dl>
+<dl class="question">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-question"></em>我有疑问</dt>
+<dd>
+<div><a target="_blank" href="/user/question">常见问题</a></div>
+<div><a target="_blank" href="http://zhidao.baidu.com/new?ie=GBK">我要提问</a></div>
+<div><a target="_blank" href="http://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91">参加讨论</a></div>
+<div><a target="_blank" href="/feedback">意见反馈</a></div>
+</dd>
+</dl>
+<dl class="suggestion">
+<dt><em class="cmn-icon cmn-icons cmn-icons_footer-suggestion"></em>投诉建议</dt>
+<dd>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#1">举报不良信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#2">未通过词条申诉</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#4">投诉侵权信息</a></div>
+<div><a target="_blank" href="http://tousu.baidu.com/baike#3">封禁查询与解封</a></div>
+</dd>
+</dl>
+</div>
+<div class="copyright">©2015Baidu&nbsp;<a href="http://www.baidu.com/duty/" target="_blank">使用百度前必读</a>&nbsp;|&nbsp;<a href="http://help.baidu.com/question?prod_en=baike&class=159&id=1047" target="_blank">百科协议</a>&nbsp;|&nbsp;<a href="/operation/cooperation" target="_blank">百度百科合作平台</a></div>
+</div>
+
+<div class="lemmaWgt-searchHeader">
+<div class="layout">
+<div class="logo-container">
+<a class="logo cmn-inline-block" title="到百科首页" href="/">
+<span class="cmn-baike-logo">
+<em class="cmn-icon cmn-icons cmn-icons_logo-bai"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-du"></em>
+<em class="cmn-icon cmn-icons cmn-icons_logo-baike"></em>
+</span>
+</a>
+</div>
+<div class="search">
+<div class="form">
+<form id="searchForm" action="/search/word" method="GET" target="_self">
+<input id="query" name="word" type="text" autocomplete="off" autocorrect="off" value="Java" /><a id="search" href="javascript:;"><em class="cmn-icon wiki-lemma-icons wiki-lemma-icons_search"></em></a>
+</form>
+<ul id="suggestion" class="suggestion">
+<div></div>
+<li class="extra">
+<span id="close">关闭</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="tool-buttons">
+<a class="toolButtons-edit button j-edit-link" href="javascript:;" nslog-type="10010001"></a>
+<a class="toolButtons-collect button" href="javascript:;" nslog-type="10010002"></a>
+<a class="toolButtons-vote button" href="javascript:;" nslog-type="10010003"></a>
+</div>
+<div class="user-info">
+<a class="user-link unlogin" href="javascript:;" target="_blank">登录</a>
+</div>
+</div></div>
+<div class="bdsharebuttonbox side-share" data-tag="side-share">
+<span class="title">分享</span>
+<a class="bds_qzone" data-cmd="qzone" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tsina" data-cmd="tsina" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_tqq" data-cmd="tqq" href="javascript:void(0);" nslog-type="9068"></a>
+<a class="bds_more" data-cmd="more" href="javascript:void(0);" nslog-type="9068"></a>
+</div>
+
+</body><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_0_8f81ba9.js"></script>
+<script type="text/javascript">require.resourceMap({"res":{"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/lemmaInsert_8f95785.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/tangram.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaRelation/tangram_67429c3.js","pkg":"wiki-lemma:p3"},"wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip_98e1259.js","deps":["wiki-common:widget/lib/jquery/jquery.js"]},"wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js":{"url":"http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js","deps":["wiki-common:widget/lib/jquery/jquery.js","wiki-common:widget/component/nslog/nslog.js"]}},"pkg":{"wiki-lemma:p3":{"url":"http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma-module-lemmaRelation_36b8718.js"}}});</script><script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_1_16bd5e2.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-common/pkg/wiki-common_sync_js_2_1dca152.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/pkg/wiki-lemma_8597b2f.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/script/XRegExp_3e3f85b.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/script/shCore_e2d4316.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/lemmaCode/script/shBrushCpp_7f8b885.js"></script>
+<script type="text/javascript" src="http://baike.bdimg.com/static/wiki-lemma/widget/lemma_content/configModule/zhixin/zhixin_77497bc.js"></script>
+<script type="text/javascript">!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+    userbar = require('wiki-common:widget/component/userbar/userbar.js');
+    
+  $(function() {
+    userbar.buildUserbar($('.wgt-userbar'), null);
+  });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');  
+    initSearchbar($('.wgt-searchbar-main'));
+  }();
+!function(){  var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+
+  var timer = '';
+
+  $('.wgt-navbar').on('mouseenter', 'dl', function() {
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      $('.wgt-navbar').addClass('wgt-navbar-hover');
+    }, 300);
+  }).on('mouseleave', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  }).on('click', 'a', function() {
+    clearTimeout(timer);
+    $('.wgt-navbar').removeClass('wgt-navbar-hover');
+  });
+}();
+!function(){        require('wiki-lemma:widget/lemma_content/mainContent/polysemantList/polysemantList.js')();
+    }();
+!function(){        var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+        var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+        // 展现策略
+        rightCheck.editView('85979', function(res) {
+            if (!res.errno) {
+                if (res.data.divide) {
+                    $('.top-tool .split-icon').css('display', 'block');
+                }
+            }
+        });
+    }();
+!function(){	require.async("wiki-lemma:widget/basicElement/collect/collect.js",function(collect){
+		collect({
+            newLemmaId:"85979",
+			lemmaId:"29",
+			subLemmaId:"12654100"
+		});
+	});
+}();
+!function(){	require.async("wiki-lemma:widget/basicElement/vote/vote.js",function(vote){
+		vote({
+			lemmaId:"29",
+            subLemmaId:"12654100"
+		});
+	});
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "top-share",
+		"bdSize" : 32,
+		"bdMini":1
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        } else {
+            if ('1') {
+                $('.lemmaWgt-lemmaTitle .edit-lemma').css('display', 'inline-block');
+            } else {
+                $('.lemmaWgt-lemmaTitle .lock-lemma').show();
+            }
+        }
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/basicInfo/basicInfo.js",function(init){
+		init();
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    // 展现策略
+    rightCheck.editView('85979', function(res) {
+        if (!res.errno) {
+            if (res.data.edit) {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        } else {
+            if ('1') {
+                $('.para-title .edit-icon').css('display', 'block');
+            }
+        }
+    });
+}();
+!function(){        SyntaxHighlighter.all();
+    }();
+!function(){	require.async(["wiki-common:widget/lib/jquery/jquery.js", "wiki-lemma:widget/lemma_content/mainContent/albumList/albumList.js", "wiki-common:widget/component/nslog/nslog.js"],function($,AlbumList,nslog){
+		var list=new AlbumList({
+			lemmaId:"29",
+			subLemmaId:"12654100",
+			data:{"2656687":{"coverpic":"4d086e061d950a7b39809d3d0ad162d9f3d3c996","desc":"JAVA","total":8,"coverurl":"http:\/\/d.hiphotos.baidu.com\/baike\/s%3D235\/sign=90ece58678f0f736dcfe4b023f54b382\/4d086e061d950a7b39809d3d0ad162d9f3d3c996.jpg"},"0":{"coverpic":"a08b87d6277f9e2f0d91258e1f30e924b999f38b","desc":"\u8bcd\u6761\u56fe\u7247","total":3,"coverurl":"http:\/\/c.hiphotos.baidu.com\/baike\/s%3D235\/sign=c20cdcf5ad4bd11300cdb0316faea488\/a08b87d6277f9e2f0d91258e1f30e924b999f38b.jpg"}}
+		});
+		!!window.ScriptLazyLoad && window.ScriptLazyLoad.regist({
+			dom:$('.album-list'),
+			loadFunc:function(){
+				list.load();
+				nslog(1258);
+			},
+			distance:500
+		});
+	});
+}();
+!function(){        require.async(['wiki-lemma:widget/lemma_content/mainContent/lemmaRelation/lemmaInsert.js'], function(init) {
+            init();
+        });
+    }();
+!function(){		require.async(["wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReference.js", "wiki-lemma:widget/lemma_content/mainContent/lemmaReference/lemmaReferenceTip/lemmaReferenceTip.js"],function(Reference,ReferenceTip){
+			new Reference({
+				subLemmaId:"12654100"
+			});
+			new ReferenceTip({
+				subLemmaId:"12654100"
+			});
+		});
+	}();
+!function(){        require.async("wiki-common:widget/lib/jquery/jquery.js",function($){
+            function openTagToggle(node) {
+                if ($(node).hasClass("collapse")) {
+                    $(node).removeClass("collapse");
+                    $("#open-tag").css("height", '22px');
+                } else {
+                    $(node).addClass("collapse");
+                    $("#open-tag").css("height", $("#open-tag-item").css("height"));
+                }
+            }
+            if (parseInt($("#open-tag-item").css("height")) <= 30) {
+                $('#open-tag-collapse').hide();
+            }
+            $("#open-tag-collapse").on("click", function () {
+                openTagToggle($("#open-tag")[0]);
+            });
+        });
+    }();
+!function(){            require.async("wiki-lemma:widget/lemma_content/configModule/zhixin/zhixin.js",function(init){
+                init();
+            });
+        }();
+!function(){    require.async("wiki-lemma:widget/lemma_content/mainContent/lemmaStatistics/lemmaStatistics.js",function(init){
+        init({
+            newLemmaIdEnc:"eca9aca485477e4ed52788f4"
+        });
+    });
+}();
+!function(){	require.async("wiki-lemma:widget/lemma_content/mainContent/sideCatalog/sideCatalog.js",function(SideCatalog){
+		new SideCatalog();
+	});
+}();
+!function(){        require.async(['wiki-lemma:widget/promotion/unionAdFromPs/unionAdFromPs.js'], function (init) {
+            init();
+        });
+    }();
+!function(){    require.async(["wiki-lemma:widget/promotion/fengchao/fengchao.js", "wiki-lemma:widget/promotion/unionAd/unionAd.js"], function (init, unionAd) {
+        init({
+            newLemmaId: "85979",
+            lemmaTitle: "Java",
+            encodeLemmaTitle: "Java"
+        }, {
+            errFn: unionAd,
+            dom: $('.unionAd')
+        });
+    });
+}();
+!function(){        require.async('wiki-lemma:widget/promotion/bottomAd/bottomAd.js', function (init) {
+            init('BOTTOM_PRO_AD');
+        });
+    }();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var Dialog = require("wiki-common:widget/ui/dialog/dialog.js");
+    var userLogin = require('wiki-common:widget/component/userLogin/userLogin.js');
+    var rightCheck = require('wiki-lemma:widget/tools/rightCheck/rightCheck.js');
+
+    var editUrl = '/edit/' + encodeURIComponent('Java') + '/' + '85979';
+
+    $(document.body).on('click', '.j-edit-link', function() {
+        var dl = $(this).attr('data-edit-dl');
+        if (dl) {
+            var url = editUrl + '?dl=' + dl;
+        } else {
+            var url = editUrl;
+        }
+
+        rightCheck.preeditCheck('85979', 'Java', '', '82721193', function(res) {
+            if (res.errno) {
+                userLogin.showLoginPop();
+                return;
+            }
+            if (!res.data.right.edit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    mainMsg: '对不起，您暂时没有权限编辑该词条。',
+                    subMsg: '<p>您好，该词条内容已较丰富，现仅对百科等级达到<b>四级</b>且通过率达到<b>85%</b>的科友开放编辑。</p><p>当您通过努力达到以上要求，就可以参与编辑该词条了。</p><p><img src="http://img.baidu.com/img/baike/usercenter/growuptask/star.gif" class="star" />参加<a target="_blank" href="/usercenter#guide">成长任务</a>，更快掌握百科编辑技巧，加速升级！</p>'
+                });
+                return;
+            }
+            if (!res.data.right.noAudit) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '很抱歉，该词条有其他用户编辑的版本正在提交，您暂时无法编辑。<br/>百科建议您晚些时候再编辑该词条，或者尝试编辑其他的词条。'
+                });
+                return;
+            }
+
+            if (res.data.notice.isMidNight) {
+                Dialog.alert({
+                    title: '编辑提示',
+                    subMsg: '晚23:00至次日8:00，因审核系统例行维护，您提交的版本可能需要较长时间才能通过，望您谅解。',
+                    onConfirm: function() {
+                        window.location.href = url;
+                    }
+                });
+            } else {
+                window.location.href = url;
+            }
+        });
+    });
+}();
+!function(){    require.async("wiki-lemma:widget/tools/searchHeader/toolButtons/toolButtons.js",function(init){
+        init({
+            newLemmaId:"85979",
+            lemmaId:"29",
+            subLemmaId:"12654100"
+        });
+    });
+}();
+!function(){    require('wiki-lemma:widget/tools/searchHeader/toolButtons/userInfo.js')();
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js'),
+      animation = require('wiki-common:widget/util/animation.js'),
+      initSearchbar = require('wiki-common:widget/component/searchbar/searchbar.js');
+
+    var isFadeIn = false,
+        isFadeOut = false;
+
+    var fadeInAni, fadeOutAni;
+
+    $(window).on('scroll', function(e) {
+        var scrollTop = $(this).scrollTop();
+
+        if (scrollTop > 200 && !isFadeIn && $('.lemmaWgt-searchHeader').css('display') == 'none') {
+            fadeOutAni && fadeOutAni.stop();
+            fadeInAni = animation({
+                duration: 200,
+                easing: 'linear',
+                onStart: function() {
+                    isFadeOut = false;
+                    isFadeIn = true;
+                    $('.lemmaWgt-searchHeader').css('display', 'block');
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', progress)
+                },
+                onComplete: function(progress) {
+                    isFadeIn = false;
+                }
+            });
+        } else if (scrollTop <= 200 && !isFadeOut && $('.lemmaWgt-searchHeader').css('display') == 'block') {
+            fadeInAni && fadeInAni.stop();
+            fadeOutAni = animation({
+                duration: 300,
+                easing: 'linear',
+                onStart: function() {
+                    $('.lemmaWgt-searchHeader #suggestion').hide();
+                    isFadeIn = false;
+                    isFadeOut = true;
+                },
+                onStep: function(progress) {
+                    $('.lemmaWgt-searchHeader').css('opacity', 1 - progress);
+                },
+                onComplete: function(progress) {
+                    isFadeOut = false;
+                    $('.lemmaWgt-searchHeader').css('display', 'none');
+                }
+            });
+        }
+    });
+
+    initSearchbar($('.lemmaWgt-searchHeader'));
+}();
+!function(){	!!window.BKShare && window.BKShare.regist({
+		"tag" : "side-share",
+		"bdSize" : 32,
+		"bdMini":1,
+		"bdPopupOffsetLeft":-72
+	});
+}();
+!function(){    var $ = require('wiki-common:widget/lib/jquery/jquery.js');
+    var nslog = require("wiki-common:widget/component/nslog/nslog.js");
+
+    require.async("wiki-lemma:widget/tools/lazyLoad/lazyLoad.js", function(LazyLoad) {
+        new LazyLoad();
+    });
+
+    require.async(['wiki-common:widget/component/nslog/nslog.js', 'wiki-common:widget/lib/jquery/jquery.js'], function(nslog, $) {
+        nslog().setGlobal({
+            lemmaId: "29",
+            newLemmaId: "85979",
+            subLemmaId: "12654100",
+            lemmaTitle: "Java"
+        });
+        nslog(9322);
+    });
+
+    var map = [1, 2, 4, 3];
+    $('.wgt-footer-main .suggestion').find('a').each(function(i) {
+        $(this).attr('href', 'http://tousu.baidu.com/baike/add?word=Java' + '&&submit_link=' + encodeURIComponent(window.location.href) + '#' + map[i]);
+    });
+
+    window.BKShare.setCommon({
+        bdText: '【Java_百度百科】Java是一种可以撰写跨平台应用程序的面向对象的程序设计语言。Java 技术具有卓越的通用性、高效性、平台移植性和安全性，广泛应用于PC、数据中心、游戏控制台、科学超级计算机、移动电话和互联网，同时拥有全球最大的开发者专业社群。.....（分享自@百度百科）',
+        bdDesc: '',
+        bdUrl: '',
+        bdPic: ''
+    });
+
+    $.getJSON('/api/wikiad/getads?lemmaId=' + 85979, function(res) {
+        if (!res.errno) {
+            if (res.data[5]) {
+                require.async(['wiki-lemma:widget/promotion/rightPreciseAd/rightPreciseAd.js'], function(rightPreciseAd) {
+                    rightPreciseAd(res.data[5]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[5][0].adId
+                    });
+                });
+            } else if (res.data[1]) {
+                require.async(['wiki-lemma:widget/promotion/vbaike/vbaike.js'], function(vbaike) {
+                    vbaike(res.data[1]);
+                    for(var i in res.data[1]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[1][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[2]) {
+                require.async(['wiki-lemma:widget/promotion/slide/slide.js'], function(slide) {
+                    slide(res.data[2]);
+                    for(var i in res.data[2]) {
+                        nslog(10002201, location.href, {
+                            adId: res.data[2][i].adId
+                        });
+                    }
+                });
+            }
+            if (res.data[3]) {
+                require.async(['wiki-lemma:widget/promotion/topAd/topAd.js'], function(topAd) {
+                    topAd(res.data[3]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[3][0].adId
+                    });
+                });
+            }
+            if (res.data[4]) {
+                require.async(['wiki-lemma:widget/promotion/rightAd/rightAd.js'], function(rightAd) {
+                    rightAd(res.data[4]);
+                    nslog(10002201, location.href, {
+                        adId: res.data[4][0].adId
+                    });
+                });
+            }
+        }
+    });
+}();
+!function(){      require('wiki-common:widget/component/psLink/psLink.js');
+    }();</script>
+<script type="text/javascript">
+  var Hunter = window.Hunter || {};
+  Hunter.userConfig = Hunter.userConfig || [];
+  </script>
+<script type="text/javascript" src="http://img.baidu.com/hunter/baike.js?st=16692" defer></script></html><!--07398584500874983946091610-->
+<script> var _trace_page_logid = 0739858450; </script>
