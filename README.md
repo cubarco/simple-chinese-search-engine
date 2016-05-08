@@ -1,5 +1,5 @@
 # simple-chinese-search-engine
-This is a course exercise of Data Structure, which is mostly writen in C and partly in Go-lang.
+This is a course exercise of Data Structure, which is mostly writen in C and partly in Golang.
 
 ## How to build
 *The project use [Gumbo](https://github.com/google/gumbo-parser) to parse the HTML files and [Neko](https://github.com/rocwong/neko) to route HTTP requests, make sure they are both installed.*
